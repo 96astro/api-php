@@ -199,6 +199,35 @@ final class MatchingResource
     }
 
     /**
+     * Match One to Many (beta).
+     *
+     * One seeker's birth matched against up to 500 candidates' births and ranked: north (Ashtakoot, Manglik, Vedha) and/or south (Dashakoot, Porutham, Rajju, Vedha) scores, doshas, filters and a ranked list.
+     *
+     * `POST /v1/matching/match-one-to-many`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - seeker (required)
+     * - seeker_side (required): Which side the seeker is. Several kootas are directional.
+     * - candidates (required): Up to 500 candidates. min items 1; max items 500
+     * - system: north: Ashtakoot, Manglik and Vedha. south: Dashakoot, Porutham, Rajju and Vedha. default "both"
+     * - detail: full adds each koota's reasoning text. default "summary"
+     * - filters
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): system, detail, seeker, filters, ranking, counts, ranked, seeker_side, results.
+     *
+     * @param array{seeker: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', language?: string}, seeker_side: 'groom'|'bride', candidates: list<array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', language?: string, id: string|int}>, system?: 'north'|'south'|'both', detail?: 'summary'|'full', filters?: array{min_score?: int|float|null, min_south_score?: int|float|null, min_percentage?: int|float|null, exclude_nadi_dosha?: bool, exclude_bhakoot_dosha?: bool, exclude_rajju?: bool, exclude_vedha?: bool, manglik?: 'any'|'compatible'}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function matchOneToMany(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/match-one-to-many', $input, $options);
+    }
+
+    /**
      * Aggregate Match Statistics.
      *
      * Scores up to 100 star pairs and returns the average, best and lowest, a count by verdict and every pair ranked.

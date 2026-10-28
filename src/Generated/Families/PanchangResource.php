@@ -599,6 +599,33 @@ final class PanchangResource
     }
 
     /**
+     * Regional Calendars (beta).
+     *
+     * A day, or every day of the regional month, in one of nine Indian calendars: Malayalam, Bengali, Odia, Nepali, Punjabi (solar) and Gujarati, Marathi, Telugu, Kannada (lunisolar).
+     *
+     * `POST /v1/panchang/regional-calendar`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - calendar (required): Solar: malayalam, bengali, odia, nepali, punjabi. Lunisolar (amanta): gujarati, marathi, telugu, kannada.
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - view: day, or every day of the regional month that holds `date`. default "day"
+     * - place: Latitude, longitude and a time zone. The calendar's reference city by default.
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): calendar, date, view, place, country, timezone, latitude, longitude, ayanamsa, kind, era, era_short, year, month, month_native, month_number, sidereal_sign_index, month_start, month_end, month_length_days, sankranti, next_sankranti, rule, day_of_month, weekday, sunrise, nakshatra, tithi_index, tithi, paksha.
+     *
+     * @param array{calendar: 'malayalam'|'bengali'|'odia'|'nepali'|'punjabi'|'gujarati'|'marathi'|'telugu'|'kannada', date: string, view?: 'day'|'month', place?: array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float}|null, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function regionalCalendar(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/regional-calendar', $input, $options);
+    }
+
+    /**
      * Gowri Panchangam & Nalla Neram.
      *
      * Gowri Panchangam periods for the day and night, the auspicious Nalla Neram windows and the day's Amritadi yoga.

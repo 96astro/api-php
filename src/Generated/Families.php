@@ -44,13 +44,13 @@ trait Families
     /** Dasha systems: 9 capabilities. */
     public readonly DashasResource $dashas;
 
-    /** Panchang & almanac: 25 capabilities. */
+    /** Panchang & almanac: 26 capabilities. */
     public readonly PanchangResource $panchang;
 
     /** Festivals & muhurta: 7 capabilities. */
     public readonly FestivalsMuhurtaResource $festivalsMuhurta;
 
-    /** Compatibility matching: 13 capabilities. */
+    /** Compatibility matching: 14 capabilities. */
     public readonly MatchingResource $matching;
 
     /** Doshas & yogas: 46 capabilities. */
@@ -74,7 +74,7 @@ trait Families
     /** Annual charts (Tajika): 3 capabilities. */
     public readonly TajikaResource $tajika;
 
-    /** Western astrology: 32 capabilities. */
+    /** Western astrology: 40 capabilities. */
     public readonly WesternResource $western;
 
     /** Tarot: 15 capabilities. */

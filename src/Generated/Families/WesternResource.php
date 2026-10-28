@@ -887,4 +887,258 @@ final class WesternResource
     {
         return $this->client->call('/v1/western/synastry-bulk', $input, $options);
     }
+
+    /**
+     * Secondary Progressions (beta).
+     *
+     * Day-for-a-year progressed positions and angles at a target date, with progressed-to-natal aspects within an orb; the angle method used is stated.
+     *
+     * `POST /v1/western/western-secondary-progressions`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - name: Name to print in readings. max length 120; default ""
+     * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
+     * - target_date: The date to progress to, YYYY-MM-DD. Today (UTC) by default. format date
+     * - angle_method: How the progressed angles move: naibod (Naibod rate) or solar_arc. default "naibod"
+     * - orb: Orb in degrees for progressed-to-natal aspects (max 3). max 3.0; > 0; default 1.0
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, birth, target_date, age_years, progressed_julian_day, progressed_date_utc, solar_arc, solar_arc_dms, method, ascendant, midheaven, planets, houses, progressed_moon, aspects_to_natal, orb.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', name?: string, house_system?: 'P'|'K'|'W'|'E', target_date?: string|null, angle_method?: 'naibod'|'solar_arc', orb?: int|float, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernSecondaryProgressions(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-secondary-progressions', $input, $options);
+    }
+
+    /**
+     * Solar Arc Directions (beta).
+     *
+     * Every body and angle directed by the solar arc, directed-to-natal aspects within an orb, and the exact date of each aspect that falls in a window.
+     *
+     * `POST /v1/western/western-solar-arc-directions`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - name: Name to print in readings. max length 120; default ""
+     * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
+     * - target_date: The date to direct to, YYYY-MM-DD. Today (UTC) by default. format date
+     * - orb: Orb in degrees for directed-to-natal aspects (max 3). max 3.0; > 0; default 1.0
+     * - window_start: Start of the window for exact aspect dates. Defaults to target_date. format date
+     * - window_end: End of that window. Defaults to one year after window_start; at most 50 years long. format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, target_date, age_years, solar_arc, solar_arc_dms, method, directed, aspects_to_natal, orb, window, exact_aspects_in_window.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', name?: string, house_system?: 'P'|'K'|'W'|'E', target_date?: string|null, orb?: int|float, window_start?: string|null, window_end?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernSolarArcDirections(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-solar-arc-directions', $input, $options);
+    }
+
+    /**
+     * Solar Return Chart (beta).
+     *
+     * The exact moment the Sun returns to its natal position in a year, with the return chart cast at the birth place or at return_place.
+     *
+     * `POST /v1/western/western-solar-return`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - name: Name to print in readings. max length 120; default ""
+     * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
+     * - target_year: Calendar year of the return. The current year by default. min 1800; max 2399
+     * - return_place: Where to cast the return chart. The birth place by default.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, target_year, natal_sun_longitude, return_moment_utc, return_moment_local, return_julian_day, location, method, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', name?: string, house_system?: 'P'|'K'|'W'|'E', target_year?: int|null, return_place?: array{latitude: int|float, longitude: int|float, utc_offset: string}|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernSolarReturn(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-solar-return', $input, $options);
+    }
+
+    /**
+     * Lunar Returns (beta).
+     *
+     * Every lunar return in a date range, each with its chart cast at the birth place or at return_place.
+     *
+     * `POST /v1/western/western-lunar-returns`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - name: Name to print in readings. max length 120; default ""
+     * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
+     * - start_date: First day of the range, YYYY-MM-DD. format date
+     * - end_date: Last day of the range (inclusive), YYYY-MM-DD. format date
+     * - return_place: Where to cast the return charts. The birth place by default.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, natal_moon_longitude, range, location, method, count, returns.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', name?: string, house_system?: 'P'|'K'|'W'|'E', start_date?: string|null, end_date?: string|null, return_place?: array{latitude: int|float, longitude: int|float, utc_offset: string}|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernLunarReturns(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-lunar-returns', $input, $options);
+    }
+
+    /**
+     * Planetary Returns (beta).
+     *
+     * Every return of Mercury, Venus, Mars, Jupiter or Saturn to its natal position in a date range, each retrograde pass listed separately, with a chart for each.
+     *
+     * `POST /v1/western/western-planetary-returns`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - name: Name to print in readings. max length 120; default ""
+     * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
+     * - start_date: First day of the range, YYYY-MM-DD. format date
+     * - end_date: Last day of the range (inclusive), YYYY-MM-DD. format date
+     * - return_place: Where to cast the return charts. The birth place by default.
+     * - planet (required): Mercury, Venus, Mars, Jupiter or Saturn. Use the solar and lunar routes for Sun and Moon.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, planet, natal_longitude, natal_position, range, location, method, count, returns.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', name?: string, house_system?: 'P'|'K'|'W'|'E', start_date?: string|null, end_date?: string|null, return_place?: array{latitude: int|float, longitude: int|float, utc_offset: string}|null, planet: 'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernPlanetaryReturns(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-planetary-returns', $input, $options);
+    }
+
+    /**
+     * Fixed Stars (beta).
+     *
+     * A curated list of fixed stars at birth and their conjunctions to planets and angles within an orb.
+     *
+     * `POST /v1/western/western-fixed-stars`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - name: Name to print in readings. max length 120; default ""
+     * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
+     * - orb: Conjunction orb in degrees of ecliptic longitude (max 3). max 3.0; > 0; default 1.0
+     * - stars: A subset of the catalogue. All by default. min items 1; max items 32
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, julian_day, orb, method, house_system, stars, conjunctions.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', name?: string, house_system?: 'P'|'K'|'W'|'E', orb?: int|float, stars?: list<'Aldebaran'|'Regulus'|'Antares'|'Fomalhaut'|'Algol'|'Spica'|'Sirius'|'Arcturus'|'Vega'|'Betelgeuse'|'Rigel'|'Pollux'|'Castor'|'Procyon'|'Capella'|'Altair'|'Deneb Algedi'|'Alcyone'|'Achernar'|'Canopus'|'Denebola'|'Zuben Elgenubi'|'Zuben Eschamali'|'Vindemiatrix'|'Scheat'|'Markab'|'Algorab'|'Hamal'|'Alphecca'|'Acrux'|'Toliman'|'Alphard'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernFixedStars(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-fixed-stars', $input, $options);
+    }
+
+    /**
+     * Davison Relationship Chart (beta).
+     *
+     * A relationship chart cast for the midpoint in time and place between two births, with planets, houses and aspects.
+     *
+     * `POST /v1/western/western-davison-chart`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - person_a (required)
+     * - person_b (required)
+     * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): person_a, person_b, midpoint, method, chart.
+     *
+     * @param array{person_a: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, name?: string}, person_b: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, name?: string}, house_system?: 'P'|'K'|'W'|'E', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernDavisonChart(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-davison-chart', $input, $options);
+    }
+
+    /**
+     * Composite Relationship Chart (beta).
+     *
+     * A relationship chart from the midpoint of each body between two births, with houses derived from the composite midheaven at the births' midpoint latitude.
+     *
+     * `POST /v1/western/western-composite-chart`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - person_a (required)
+     * - person_b (required)
+     * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): person_a, person_b, method, ascendant, midheaven, ascendant_midpoint, midheaven_midpoint, planets, houses, aspects, aspect_count.
+     *
+     * @param array{person_a: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, name?: string}, person_b: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, name?: string}, house_system?: 'P'|'K'|'W'|'E', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernCompositeChart(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-composite-chart', $input, $options);
+    }
 }
