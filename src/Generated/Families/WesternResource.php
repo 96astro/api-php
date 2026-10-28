@@ -10,7 +10,7 @@ use Astro96\Api\ApiResponse;
 use Astro96\Api\Client;
 
 /**
- * Western astrology: Tropical natal charts, transits, sun-sign forecasts and synastry.
+ * Western astrology: Tropical natal charts, transits, progressions, solar arc, solar, lunar and planetary returns, fixed stars, sun-sign forecasts, synastry, and Davison and composite charts.
  *
  * Reach it as `$client->western`.
  */
@@ -980,7 +980,7 @@ final class WesternResource
      *
      * `data` fields in the documented example (inferred, not a contract): name, target_year, natal_sun_longitude, return_moment_utc, return_moment_local, return_julian_day, location, method, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', name?: string, house_system?: 'P'|'K'|'W'|'E', target_year?: int|null, return_place?: array{latitude: int|float, longitude: int|float, utc_offset: string, timezone?: string|null}|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', name?: string, house_system?: 'P'|'K'|'W'|'E', target_year?: int|null, return_place?: array{latitude: int|float, longitude: int|float, utc_offset?: string|null, timezone?: string|null}|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1014,7 +1014,7 @@ final class WesternResource
      *
      * `data` fields in the documented example (inferred, not a contract): name, natal_moon_longitude, range, location, method, count, returns.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', name?: string, house_system?: 'P'|'K'|'W'|'E', start_date?: string|null, end_date?: string|null, return_place?: array{latitude: int|float, longitude: int|float, utc_offset: string, timezone?: string|null}|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', name?: string, house_system?: 'P'|'K'|'W'|'E', start_date?: string|null, end_date?: string|null, return_place?: array{latitude: int|float, longitude: int|float, utc_offset?: string|null, timezone?: string|null}|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1049,7 +1049,7 @@ final class WesternResource
      *
      * `data` fields in the documented example (inferred, not a contract): name, planet, natal_longitude, natal_position, range, location, method, count, returns.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', name?: string, house_system?: 'P'|'K'|'W'|'E', start_date?: string|null, end_date?: string|null, return_place?: array{latitude: int|float, longitude: int|float, utc_offset: string, timezone?: string|null}|null, planet: 'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', name?: string, house_system?: 'P'|'K'|'W'|'E', start_date?: string|null, end_date?: string|null, return_place?: array{latitude: int|float, longitude: int|float, utc_offset?: string|null, timezone?: string|null}|null, planet: 'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

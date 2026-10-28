@@ -601,7 +601,7 @@ final class PanchangResource
     /**
      * Regional Calendars (beta).
      *
-     * A day, or every day of the regional month, in one of nine Indian calendars: Malayalam, Bengali, Odia, Nepali, Punjabi (solar) and Gujarati, Marathi, Telugu, Kannada (lunisolar). Credits depend on the request: view "day": 1 credit; view "month": 3 credits.
+     * A day, or every day of the regional month, in one of nine Indian calendars: Malayalam, Bengali, Odia (with its Amli administrative year beside the Shaka year), Nepali, Punjabi (solar) and Gujarati, Marathi, Telugu, Kannada (lunisolar). Credits depend on the request: view "day": 1 credit; view "month": 3 credits.
      *
      * `POST /v1/panchang/regional-calendar`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *

@@ -188,6 +188,8 @@ Cache what you can (a panchang for a day and place does not change): every live 
 
 Full guide: https://96astroapi.com/docs/sdks
 
+> **Not wrapped yet:** AI streaming (`stream: true` / `Accept: text/event-stream`), the `/v1/conversations` routes and `.ics` calendar export. This client always asks for JSON; send those routes over plain HTTP (or `$astro->call()` for the non-streaming `POST` ones) (see https://96astroapi.com/docs/ai-streaming-and-chat). Everything else, including the image options (`image_format`, `image_theme`, `image_delivery`), works through the typed inputs.
+
 ## Development
 
 The typed methods in `src/Generated/` are written by `tools/sdk/generate_php.py` from `packages/registry/openapi/v1.openapi.json`; never edit them by hand. Everything else in `src/` is hand-written.

@@ -10,7 +10,7 @@ use Astro96\Api\ApiResponse;
 use Astro96\Api\Client;
 
 /**
- * Compatibility matching: Vedic and South Indian compatibility between two people, from full charts or from birth stars, singly or in bulk.
+ * Compatibility matching: Vedic and South Indian compatibility between two people, from full charts or from birth stars, singly, in bulk, or one seeker against many candidates.
  *
  * Reach it as `$client->matching`.
  */
