@@ -201,14 +201,14 @@ final class MatchingResource
     /**
      * Match One to Many (beta).
      *
-     * One seeker's birth matched against up to 500 candidates' births and ranked: north (Ashtakoot, Manglik, Vedha) and/or south (Dashakoot, Porutham, Rajju, Vedha) scores, doshas, filters and a ranked list.
+     * One seeker's birth matched against up to 1000 candidates' births and ranked: north (Ashtakoot, Manglik, Vedha) and/or south (Dashakoot, Porutham, Rajju, Vedha) scores, doshas, filters and a ranked list. Credits depend on the request: up to 250 candidates: 3 credits; each further started 250 candidates (up to 1000): 3 credits.
      *
      * `POST /v1/matching/match-one-to-many`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
      * - seeker (required)
      * - seeker_side (required): Which side the seeker is. Several kootas are directional.
-     * - candidates (required): Up to 500 candidates. min items 1; max items 500
+     * - candidates (required): Up to 1000 candidates. min items 1; max items 1000
      * - system: north: Ashtakoot, Manglik and Vedha. south: Dashakoot, Porutham, Rajju and Vedha. default "both"
      * - detail: full adds each koota's reasoning text. default "summary"
      * - filters
@@ -217,7 +217,7 @@ final class MatchingResource
      *
      * `data` fields in the documented example (inferred, not a contract): system, detail, seeker, filters, ranking, counts, ranked, seeker_side, results.
      *
-     * @param array{seeker: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', language?: string}, seeker_side: 'groom'|'bride', candidates: list<array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', language?: string, id: string|int}>, system?: 'north'|'south'|'both', detail?: 'summary'|'full', filters?: array{min_score?: int|float|null, min_south_score?: int|float|null, min_percentage?: int|float|null, exclude_nadi_dosha?: bool, exclude_bhakoot_dosha?: bool, exclude_rajju?: bool, exclude_vedha?: bool, manglik?: 'any'|'compatible'}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{seeker: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', language?: string}, seeker_side: 'groom'|'bride', candidates: list<array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', language?: string, id: string|int}>, system?: 'north'|'south'|'both', detail?: 'summary'|'full', filters?: array{min_score?: int|float|null, min_south_score?: int|float|null, min_percentage?: int|float|null, exclude_nadi_dosha?: bool, exclude_bhakoot_dosha?: bool, exclude_rajju?: bool, exclude_vedha?: bool, manglik?: 'any'|'compatible'}, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

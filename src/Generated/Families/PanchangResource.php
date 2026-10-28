@@ -601,7 +601,7 @@ final class PanchangResource
     /**
      * Regional Calendars (beta).
      *
-     * A day, or every day of the regional month, in one of nine Indian calendars: Malayalam, Bengali, Odia, Nepali, Punjabi (solar) and Gujarati, Marathi, Telugu, Kannada (lunisolar).
+     * A day, or every day of the regional month, in one of nine Indian calendars: Malayalam, Bengali, Odia, Nepali, Punjabi (solar) and Gujarati, Marathi, Telugu, Kannada (lunisolar). Credits depend on the request: view "day": 1 credit; view "month": 3 credits.
      *
      * `POST /v1/panchang/regional-calendar`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -615,7 +615,7 @@ final class PanchangResource
      *
      * `data` fields in the documented example (inferred, not a contract): calendar, date, view, place, country, timezone, latitude, longitude, ayanamsa, kind, era, era_short, year, month, month_native, month_number, sidereal_sign_index, month_start, month_end, month_length_days, sankranti, next_sankranti, rule, day_of_month, weekday, sunrise, nakshatra, tithi_index, tithi, paksha.
      *
-     * @param array{calendar: 'malayalam'|'bengali'|'odia'|'nepali'|'punjabi'|'gujarati'|'marathi'|'telugu'|'kannada', date: string, view?: 'day'|'month', place?: array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float}|null, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{calendar: 'malayalam'|'bengali'|'odia'|'nepali'|'punjabi'|'gujarati'|'marathi'|'telugu'|'kannada', date: string, view?: 'day'|'month', place?: array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float}|null, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
