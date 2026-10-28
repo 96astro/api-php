@@ -1,0 +1,57 @@
+{
+    "name": "96astro/api",
+    "description": "Official PHP client for the 96Astro API: Vedic and Western astrology, panchang, matching, reports and AI readings.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["astrology", "vedic", "jyotish", "panchang", "kundli", "horoscope", "96astro", "api", "sdk", "laravel", "wordpress"],
+    "homepage": "https://96astroapi.com/docs/sdks",
+    "authors": [
+        { "name": "Kuber Astro (96Astro)", "email": "support@96astroapi.com" }
+    ],
+    "support": {
+        "email": "support@96astroapi.com",
+        "docs": "https://96astroapi.com/docs/sdks"
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "psr/http-message": "^1.1 || ^2.0"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^7.8",
+        "illuminate/config": "^10.0 || ^11.0 || ^12.0",
+        "illuminate/container": "^10.0 || ^11.0 || ^12.0",
+        "illuminate/http": "^10.0 || ^11.0 || ^12.0",
+        "illuminate/support": "^10.0 || ^11.0 || ^12.0",
+        "phpunit/phpunit": "^10.5 || ^11.0",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "suggest": {
+        "ext-curl": "Used when Guzzle and WordPress are both absent (the zero-dependency transport).",
+        "guzzlehttp/guzzle": "The default HTTP transport when installed (Laravel ships it)."
+    },
+    "autoload": {
+        "psr-4": { "Astro96\\Api\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Astro96\\Api\\Tests\\": "tests/" }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["Astro96\\Api\\Laravel\\Astro96ServiceProvider"],
+            "aliases": { "Astro96": "Astro96\\Api\\Laravel\\Facades\\Astro96" }
+        }
+    },
+    "scripts": {
+        "generate": "python ../../tools/sdk/generate_php.py",
+        "check-generated": "python ../../tools/sdk/generate_php.py --check",
+        "test": "phpunit",
+        "test-live": "phpunit --group live"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}
