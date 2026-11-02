@@ -21,7 +21,7 @@ final class AiResource
     }
 
     /**
-     * Floor-Plan Auto-Detect (Vision) (beta).
+     * Floor-Plan Auto-Detect (Vision).
      *
      * An AI vision model proposes a floor plan from a picture of it (PNG, JPEG or WebP): outline, centre, rooms, structures and main entrance in pixel coordinates, shaped as vastu-analyse input, with a confidence note.
      *
@@ -46,7 +46,7 @@ final class AiResource
     }
 
     /**
-     * Vastu Defect Explanation (AI) (beta).
+     * Vastu Defect Explanation (AI).
      *
      * An AI-written explanation of one Vastu defect in sections, with its remedies explained.
      *
@@ -72,7 +72,7 @@ final class AiResource
     }
 
     /**
-     * Vastu Remedy Ranking (AI) (beta).
+     * Vastu Remedy Ranking (AI).
      *
      * AI picks the top three actions across all defects and remedy tiers, each with what it addresses, effort and timeframe, and a summary.
      *
@@ -99,7 +99,7 @@ final class AiResource
     }
 
     /**
-     * AI Reading: Structured reading (beta).
+     * AI Reading: Structured reading.
      *
      * An AI-written reading of a birth chart, grounded in chart data the service computes from the birth (or in one report named in `context`); choose persona, tier and language. Optional JSON output.
      *
@@ -133,7 +133,7 @@ final class AiResource
     }
 
     /**
-     * AI Reading: Chat answer (beta).
+     * AI Reading: Chat answer.
      *
      * An AI answer to a question about a birth chart, with earlier turns as history; grounded in chart data the service computes from the birth (or in one report named in `context`).
      *
@@ -168,7 +168,7 @@ final class AiResource
     }
 
     /**
-     * AI Reading: Custom lens (beta).
+     * AI Reading: Custom lens.
      *
      * An AI-written reading of a birth chart through one lens (career, marriage, wealth, health, spiritual or year ahead), grounded in chart data the service computes from the birth.
      *
@@ -202,7 +202,7 @@ final class AiResource
     }
 
     /**
-     * AI Reading: General question (beta).
+     * AI Reading: General question.
      *
      * An AI answer to a general astrology question, grounded in chart data the service computes from the birth (or in one report named in `context`); choose persona, tier and language.
      *
@@ -236,7 +236,7 @@ final class AiResource
     }
 
     /**
-     * AI Relocation Answer (beta).
+     * AI Relocation Answer.
      *
      * An AI-written answer to a relocation question, grounded in the cities the service ranks for the birth (and KP analysis of the top ones); returns the answer and the ranked cities.
      *

@@ -21,7 +21,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Panchanga snapshot (beta).
+     * Mundane: Panchanga snapshot.
      *
      * The panchanga snapshot section of the world-level mundane dashboard for a moment and place.
      *
@@ -50,7 +50,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Samvatsara (beta).
+     * Mundane: Samvatsara.
      *
      * The samvatsara section of the world-level mundane dashboard for a moment and place.
      *
@@ -79,7 +79,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Nava Nayaka (cabinet of the year) (beta).
+     * Mundane: Nava Nayaka (cabinet of the year).
      *
      * The nava nayaka (cabinet of the year) section of the world-level mundane dashboard for a moment and place.
      *
@@ -108,7 +108,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Planet positions & strength (beta).
+     * Mundane: Planet positions & strength.
      *
      * The planet positions & strength section of the world-level mundane dashboard for a moment and place.
      *
@@ -137,7 +137,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Threat & sector scores (beta).
+     * Mundane: Threat & sector scores.
      *
      * The threat & sector scores section of the world-level mundane dashboard for a moment and place.
      *
@@ -166,7 +166,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Blended outlook (rule-based) (beta).
+     * Mundane: Blended outlook (rule-based).
      *
      * The blended outlook (rule-based) section of the world-level mundane dashboard for a moment and place.
      *
@@ -195,7 +195,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Kota Chakra (beta).
+     * Mundane: Kota Chakra.
      *
      * The kota chakra section of the world-level mundane dashboard for a moment and place.
      *
@@ -224,7 +224,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Sarvatobhadra (beta).
+     * Mundane: Sarvatobhadra.
      *
      * The sarvatobhadra section of the world-level mundane dashboard for a moment and place.
      *
@@ -253,7 +253,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Kurma Chakra (beta).
+     * Mundane: Kurma Chakra.
      *
      * The kurma chakra section of the world-level mundane dashboard for a moment and place.
      *
@@ -282,7 +282,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Sanghatta (beta).
+     * Mundane: Sanghatta.
      *
      * The sanghatta section of the world-level mundane dashboard for a moment and place.
      *
@@ -311,7 +311,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Eclipses (beta).
+     * Mundane: Eclipses.
      *
      * The eclipses section of the world-level mundane dashboard for a moment and place.
      *
@@ -340,7 +340,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Ingress charts (beta).
+     * Mundane: Ingress charts.
      *
      * The ingress charts section of the world-level mundane dashboard for a moment and place.
      *
@@ -369,7 +369,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Weather indications (beta).
+     * Mundane: Weather indications.
      *
      * The weather indications section of the world-level mundane dashboard for a moment and place.
      *
@@ -398,7 +398,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Sapta Nadi (beta).
+     * Mundane: Sapta Nadi.
      *
      * The sapta nadi section of the world-level mundane dashboard for a moment and place.
      *
@@ -427,7 +427,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Dhoomadi (beta).
+     * Mundane: Dhoomadi.
      *
      * The dhoomadi section of the world-level mundane dashboard for a moment and place.
      *
@@ -456,7 +456,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Latta (beta).
+     * Mundane: Latta.
      *
      * The latta section of the world-level mundane dashboard for a moment and place.
      *
@@ -485,7 +485,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Triple malefic (beta).
+     * Mundane: Triple malefic.
      *
      * The triple malefic section of the world-level mundane dashboard for a moment and place.
      *
@@ -514,7 +514,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Country impact (beta).
+     * Mundane: Country impact.
      *
      * The country impact section of the world-level mundane dashboard for a moment and place.
      *
@@ -543,7 +543,7 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Commodities (beta).
+     * Mundane: Commodities.
      *
      * The commodities section of the world-level mundane dashboard for a moment and place.
      *

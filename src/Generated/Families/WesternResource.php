@@ -889,7 +889,7 @@ final class WesternResource
     }
 
     /**
-     * Secondary Progressions (beta).
+     * Secondary Progressions.
      *
      * Day-for-a-year progressed positions and angles at a target date, with progressed-to-natal aspects within an orb; the angle method used is stated.
      *
@@ -923,7 +923,7 @@ final class WesternResource
     }
 
     /**
-     * Solar Arc Directions (beta).
+     * Solar Arc Directions.
      *
      * Every body and angle directed by the solar arc, directed-to-natal aspects within an orb, and the exact date of each aspect that falls in a window.
      *
@@ -958,7 +958,7 @@ final class WesternResource
     }
 
     /**
-     * Solar Return Chart (beta).
+     * Solar Return Chart.
      *
      * The exact moment the Sun returns to its natal position in a year, with the return chart cast at the birth place or at return_place.
      *
@@ -991,7 +991,7 @@ final class WesternResource
     }
 
     /**
-     * Lunar Returns (beta).
+     * Lunar Returns.
      *
      * Every lunar return in a date range, each with its chart cast at the birth place or at return_place.
      *
@@ -1025,7 +1025,7 @@ final class WesternResource
     }
 
     /**
-     * Planetary Returns (beta).
+     * Planetary Returns.
      *
      * Every return of Mercury, Venus, Mars, Jupiter or Saturn to its natal position in a date range, each retrograde pass listed separately, with a chart for each.
      *
@@ -1060,7 +1060,7 @@ final class WesternResource
     }
 
     /**
-     * Fixed Stars (beta).
+     * Fixed Stars.
      *
      * A curated list of fixed stars at birth and their conjunctions to planets and angles within an orb.
      *
@@ -1093,7 +1093,7 @@ final class WesternResource
     }
 
     /**
-     * Davison Relationship Chart (beta).
+     * Davison Relationship Chart.
      *
      * A relationship chart cast for the midpoint in time and place between two births, with planets, houses and aspects.
      *
@@ -1118,7 +1118,7 @@ final class WesternResource
     }
 
     /**
-     * Composite Relationship Chart (beta).
+     * Composite Relationship Chart.
      *
      * A relationship chart from the midpoint of each body between two births, with houses derived from the composite midheaven at the births' midpoint latitude.
      *

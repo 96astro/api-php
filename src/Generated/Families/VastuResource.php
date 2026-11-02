@@ -21,7 +21,7 @@ final class VastuResource
     }
 
     /**
-     * Vastu Floor Analysis (beta).
+     * Vastu Floor Analysis.
      *
      * Vastu analysis of one floor from its marked-up plan: overall and category scores, zones, rooms, brahmasthan, marma, devatas, defects with remedies, Ayadi and a checklist.
      *
@@ -53,7 +53,7 @@ final class VastuResource
     }
 
     /**
-     * Vastu Category Heatmap (beta).
+     * Vastu Category Heatmap.
      *
      * Sampled points across the floor, each scored for one life goal with its zone.
      *
@@ -86,7 +86,7 @@ final class VastuResource
     }
 
     /**
-     * Compare Two Properties (beta).
+     * Compare Two Properties.
      *
      * Two plans analysed side by side: each one's scores and defects, the winner per category with reasons, and the overall winner.
      *
@@ -112,7 +112,7 @@ final class VastuResource
     }
 
     /**
-     * Ayadi Calculation (beta).
+     * Ayadi Calculation.
      *
      * Ayadi factors (aya-vyaya, yoni, nakshatra, vara) for given dimensions, how many are favourable, and the nearest all-favourable size.
      *
@@ -140,7 +140,7 @@ final class VastuResource
     }
 
     /**
-     * Vastu + City Score (beta).
+     * Vastu + City Score.
      *
      * Combines Vastu category scores with a city's location-astrology scores: a combined score and diagnosis per category, and an average.
      *
@@ -164,7 +164,7 @@ final class VastuResource
     }
 
     /**
-     * Remedy Timing (beta).
+     * Remedy Timing.
      *
      * Auspicious days in a range for carrying out a Vastu remedy, optionally for a deity: each day's tier, score, reasons, nakshatra and Brahma and Abhijit muhurta.
      *
@@ -193,7 +193,7 @@ final class VastuResource
     }
 
     /**
-     * DXF Floor-Plan Import (beta).
+     * DXF Floor-Plan Import.
      *
      * Reads an ASCII DXF drawing into a reviewable plan (boundary, north, rooms, scale) with the drawing units and notes.
      *
@@ -216,7 +216,7 @@ final class VastuResource
     }
 
     /**
-     * Vastu Plan Templates (beta).
+     * Vastu Plan Templates.
      *
      * Lists the starter floor-plan templates with their rooms.
      *
@@ -239,7 +239,7 @@ final class VastuResource
     }
 
     /**
-     * Vastu Plan Template (beta).
+     * Vastu Plan Template.
      *
      * One starter template scaled to the given canvas size.
      *
@@ -264,7 +264,7 @@ final class VastuResource
     }
 
     /**
-     * Vastu Reference Tables (beta).
+     * Vastu Reference Tables.
      *
      * The 16 Vastu zones the analysis scores: each with its deity, element, planet, chakra, what it governs and what it suits.
      *

@@ -199,7 +199,7 @@ final class MatchingResource
     }
 
     /**
-     * Match One to Many (beta).
+     * Match One to Many.
      *
      * One seeker's birth matched against up to 1000 candidates' births and ranked: north (Ashtakoot, Manglik, Vedha) and/or south (Dashakoot, Porutham, Rajju, Vedha) scores, doshas, filters and a ranked list. Credits depend on the request: up to 250 candidates: 3 credits; each further started 250 candidates (up to 1000): 3 credits.
      *
