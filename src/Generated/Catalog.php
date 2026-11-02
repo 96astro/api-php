@@ -11,7 +11,7 @@ namespace Astro96\Api\Generated;
  */
 final class Catalog
 {
-    public const API_VERSION = '1.0.0-preview';
+    public const API_VERSION = '1.0.0';
 
     public const DEFAULT_BASE_URL = 'https://api.96astroapi.com';
 
