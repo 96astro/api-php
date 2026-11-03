@@ -363,6 +363,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - style: Chart drawing style. default "north"
      * - charts: Which charts, e.g. ["D1", "D9", "chalit"]. D1 when omitted. max items 40
+     * - layers: Marks to draw: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - labels
      * - image_format
      * - image_width
@@ -371,7 +372,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): images.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', style?: 'north'|'south'|'east'|'western', charts?: list<string>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', style?: 'north'|'south'|'east'|'western', charts?: list<string>|null, layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -399,6 +400,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -409,7 +411,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -437,6 +439,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -447,7 +450,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -475,6 +478,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -485,7 +489,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -513,6 +517,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -523,7 +528,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -551,6 +556,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -561,7 +567,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -589,6 +595,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -599,7 +606,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -627,6 +634,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -637,7 +645,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -665,6 +673,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -675,7 +684,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -703,6 +712,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -713,7 +723,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -741,6 +751,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -751,7 +762,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -779,6 +790,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -789,7 +801,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -817,6 +829,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -827,7 +840,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -855,6 +868,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -865,7 +879,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -893,6 +907,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -903,7 +918,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -931,6 +946,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -941,7 +957,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -969,6 +985,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -979,7 +996,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1007,6 +1024,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -1017,7 +1035,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1045,6 +1063,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -1055,7 +1074,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1083,6 +1102,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -1093,7 +1113,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1121,6 +1141,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -1131,7 +1152,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1159,6 +1180,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -1169,7 +1191,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1197,6 +1219,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -1207,7 +1230,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1235,6 +1258,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
      * - markers: Add each planet's dignity in this chart, vargottama, and (D1) pushkara navamsa and bhaga. default false
      * - labels
@@ -1245,7 +1269,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, reference?: string, markers?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1273,6 +1297,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - labels
      * - image_format
      * - image_width
@@ -1281,7 +1306,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1309,6 +1334,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - labels
      * - image_format
      * - image_width
@@ -1317,7 +1343,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1345,6 +1371,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - labels
      * - image_format
      * - image_width
@@ -1353,7 +1380,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1381,6 +1408,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - labels
      * - image_format
      * - image_width
@@ -1389,7 +1417,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1417,6 +1445,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - labels
      * - image_format
      * - image_width
@@ -1425,7 +1454,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1453,6 +1482,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - labels
      * - image_format
      * - image_width
@@ -1461,7 +1491,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1489,6 +1519,7 @@ final class VedicChartsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
      * - image_style: Drawing style, with include_image. default "north"
+     * - image_layers: Marks on the drawing, with include_image: uccha_neecha (↑/↓), vargottama (■), pushkara (✦, D1), karakas (AK...DK), hide_outer_planets, hide_degrees.
      * - labels
      * - image_format
      * - image_width
@@ -1497,7 +1528,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', image_layers?: list<'uccha_neecha'|'vargottama'|'pushkara'|'karakas'|'hide_outer_planets'|'hide_degrees'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
