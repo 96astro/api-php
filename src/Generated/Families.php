@@ -53,7 +53,7 @@ trait Families
     /** Compatibility matching: 14 capabilities. */
     public readonly MatchingResource $matching;
 
-    /** Doshas & yogas: 46 capabilities. */
+    /** Doshas & yogas: 60 capabilities. */
     public readonly DoshasYogasResource $doshasYogas;
 
     /** Predictions & readings: 27 capabilities. */
@@ -62,7 +62,7 @@ trait Families
     /** Krishnamurti Paddhati (KP): 6 capabilities. */
     public readonly KpResource $kp;
 
-    /** Jaimini: 3 capabilities. */
+    /** Jaimini: 14 capabilities. */
     public readonly JaiminiResource $jaimini;
 
     /** Lal Kitab: 7 capabilities. */
