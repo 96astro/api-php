@@ -280,6 +280,138 @@ final class DashasResource
     }
 
     /**
+     * Dasha Running on a Date.
+     *
+     * The periods running on `as_of` (today by default) in the dasha system you choose: mahadasha and antardasha (and pratyantardasha for Vimshottari), with dates.
+     *
+     * `POST /v1/dashas/dasha-current`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - system: Dasha system. default "vimshottari"
+     * - method: Method, for chara (standard, kn_rao) and niryana-shoola.
+     * - as_of: Date (YYYY-MM-DD). Today in UTC when omitted. format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): system, ayanamsha, current.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', system?: 'vimshottari'|'yogini'|'chara'|'niryana-shoola'|'thrikona'|'ashtottari'|'sthira', method?: string|null, as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function dashaCurrent(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/dashas/dasha-current', $input, $options);
+    }
+
+    /**
+     * Dasha Periods Between Two Dates.
+     *
+     * Every mahadasha or antardasha (`level`) of the system you choose that overlaps the window `from` to `to`, with dates and its mahadasha.
+     *
+     * `POST /v1/dashas/dasha-periods-between`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - system: Dasha system. default "vimshottari"
+     * - method: Method, for chara (standard, kn_rao) and niryana-shoola.
+     * - as_of: Date (YYYY-MM-DD). Today in UTC when omitted. format date
+     * - from (required): Window start (YYYY-MM-DD). format date
+     * - to (required): Window end (YYYY-MM-DD), after `from`. format date
+     * - level: Which periods to list. default "antardasha"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): system, ayanamsha, from, to, level, periods.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', system?: 'vimshottari'|'yogini'|'chara'|'niryana-shoola'|'thrikona'|'ashtottari'|'sthira', method?: string|null, as_of?: string|null, from: string, to: string, level?: 'mahadasha'|'antardasha', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function dashaPeriodsBetween(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/dashas/dasha-periods-between', $input, $options);
+    }
+
+    /**
+     * Vimshottari Antardashas of a Mahadasha.
+     *
+     * The nine antardashas of the Vimshottari mahadasha of one planet (`mahadasha`), with their dates.
+     *
+     * `POST /v1/dashas/vimshottari-antardasha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - mahadasha (required): Lord of the mahadasha, e.g. Saturn.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, mahadasha, antardashas.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', mahadasha: 'Sun'|'Moon'|'Mars'|'Mercury'|'Jupiter'|'Venus'|'Saturn'|'Rahu'|'Ketu', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function vimshottariAntardasha(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/dashas/vimshottari-antardasha', $input, $options);
+    }
+
+    /**
+     * Vimshottari Pratyantardashas.
+     *
+     * The nine pratyantardashas of one Vimshottari antardasha (`mahadasha` and `antardasha`), with their dates.
+     *
+     * `POST /v1/dashas/vimshottari-pratyantardasha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - mahadasha (required): Lord of the mahadasha, e.g. Saturn.
+     * - antardasha (required): Lord of the antardasha within that mahadasha, e.g. Mercury.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, mahadasha, antardasha, pratyantardashas.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', mahadasha: 'Sun'|'Moon'|'Mars'|'Mercury'|'Jupiter'|'Venus'|'Saturn'|'Rahu'|'Ketu', antardasha: 'Sun'|'Moon'|'Mars'|'Mercury'|'Jupiter'|'Venus'|'Saturn'|'Rahu'|'Ketu', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function vimshottariPratyantardasha(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/dashas/vimshottari-pratyantardasha', $input, $options);
+    }
+
+    /**
      * Vimshottari to Sukshma / Prana Level.
      *
      * Vimshottari hierarchy Maha, Antar, Pratyantar and Sukshma, optionally down to Prana, from the Moon longitude and birth date.

@@ -100,6 +100,206 @@ final class MatchingResource
     }
 
     /**
+     * Varna Koota.
+     *
+     * The Varna koota alone (out of 1): spiritual temperament by the Moon sign's varna, with the score, the maximum and each side's value.
+     *
+     * `POST /v1/matching/koota-varna`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): koota, exact, groom, bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kootaVarna(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/koota-varna', $input, $options);
+    }
+
+    /**
+     * Vashya Koota.
+     *
+     * The Vashya koota alone (out of 2): mutual attraction and control by the Moon signs' vashya group, with the score, the maximum and each side's value.
+     *
+     * `POST /v1/matching/koota-vashya`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): koota, exact, groom, bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kootaVashya(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/koota-vashya', $input, $options);
+    }
+
+    /**
+     * Tara Koota.
+     *
+     * The Tara koota alone (out of 3): the birth stars counted from each other (tara bala), both ways, with the score, the maximum and each side's value.
+     *
+     * `POST /v1/matching/koota-tara`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): koota, exact, groom, bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kootaTara(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/koota-tara', $input, $options);
+    }
+
+    /**
+     * Yoni Koota.
+     *
+     * The Yoni koota alone (out of 4): physical and sexual compatibility by the nakshatras' animal yonis, with the score, the maximum and each side's value.
+     *
+     * `POST /v1/matching/koota-yoni`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): koota, exact, groom, bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kootaYoni(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/koota-yoni', $input, $options);
+    }
+
+    /**
+     * Graha Maitri Koota.
+     *
+     * The Graha Maitri koota alone (out of 5): the friendship of the two Moon-sign lords, with the score, the maximum and each side's value.
+     *
+     * `POST /v1/matching/koota-graha-maitri`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): koota, exact, groom, bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kootaGrahaMaitri(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/koota-graha-maitri', $input, $options);
+    }
+
+    /**
+     * Gana Koota.
+     *
+     * The Gana koota alone (out of 6): temperament by the nakshatras' gana (deva, manushya, rakshasa), with the score, the maximum and each side's value.
+     *
+     * `POST /v1/matching/koota-gana`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): koota, exact, groom, bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kootaGana(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/koota-gana', $input, $options);
+    }
+
+    /**
+     * Bhakoot Koota.
+     *
+     * The Bhakoot koota alone (out of 7): the Moon signs' distance from each other (and whether it makes Bhakoot dosha), with the score, the maximum and each side's value.
+     *
+     * `POST /v1/matching/koota-bhakoot`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): koota, exact, groom, bride, dosha.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kootaBhakoot(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/koota-bhakoot', $input, $options);
+    }
+
+    /**
+     * Nadi Koota.
+     *
+     * The Nadi koota alone (out of 8): the nakshatras' nadi (and whether it makes Nadi dosha), with the score, the maximum and each side's value.
+     *
+     * `POST /v1/matching/koota-nadi`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): koota, exact, groom, bride, dosha.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kootaNadi(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/koota-nadi', $input, $options);
+    }
+
+    /**
      * Dashakoot Match (Ashtakoot + Rajju + Vedha).
      *
      * Ten-koota match from two birth stars: the eight Ashtakoot kootas plus Rajju and Vedha.

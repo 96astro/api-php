@@ -41,7 +41,7 @@ trait Families
     /** Strengths & relationships: 36 capabilities. */
     public readonly StrengthsResource $strengths;
 
-    /** Dasha systems: 9 capabilities. */
+    /** Dasha systems: 13 capabilities. */
     public readonly DashasResource $dashas;
 
     /** Panchang & almanac: 26 capabilities. */
@@ -50,7 +50,7 @@ trait Families
     /** Festivals & muhurta: 7 capabilities. */
     public readonly FestivalsMuhurtaResource $festivalsMuhurta;
 
-    /** Compatibility matching: 14 capabilities. */
+    /** Compatibility matching: 22 capabilities. */
     public readonly MatchingResource $matching;
 
     /** Doshas & yogas: 60 capabilities. */
@@ -59,7 +59,7 @@ trait Families
     /** Predictions & readings: 27 capabilities. */
     public readonly PredictionsResource $predictions;
 
-    /** Krishnamurti Paddhati (KP): 6 capabilities. */
+    /** Krishnamurti Paddhati (KP): 10 capabilities. */
     public readonly KpResource $kp;
 
     /** Jaimini: 14 capabilities. */
