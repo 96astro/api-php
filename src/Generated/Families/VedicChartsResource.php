@@ -382,6 +382,1524 @@ final class VedicChartsResource
     }
 
     /**
+     * Rasi (D1).
+     *
+     * The Rasi (D1) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d1`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD1(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d1', $input, $options);
+    }
+
+    /**
+     * Hora (D2).
+     *
+     * The Hora (D2) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d2`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD2(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d2', $input, $options);
+    }
+
+    /**
+     * Drekkana (D3).
+     *
+     * The Drekkana (D3) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d3`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD3(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d3', $input, $options);
+    }
+
+    /**
+     * Chaturthamsha (D4).
+     *
+     * The Chaturthamsha (D4) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d4`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD4(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d4', $input, $options);
+    }
+
+    /**
+     * Shashthamsha (D6).
+     *
+     * The Shashthamsha (D6) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d6`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD6(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d6', $input, $options);
+    }
+
+    /**
+     * Saptamsha (D7).
+     *
+     * The Saptamsha (D7) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d7`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD7(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d7', $input, $options);
+    }
+
+    /**
+     * Ashtamsha (D8).
+     *
+     * The Ashtamsha (D8) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d8`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD8(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d8', $input, $options);
+    }
+
+    /**
+     * Navamsa (D9).
+     *
+     * The Navamsa (D9) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d9`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD9(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d9', $input, $options);
+    }
+
+    /**
+     * Dashamsha (D10).
+     *
+     * The Dashamsha (D10) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d10`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD10(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d10', $input, $options);
+    }
+
+    /**
+     * Dwadashamsha (D12).
+     *
+     * The Dwadashamsha (D12) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d12`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD12(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d12', $input, $options);
+    }
+
+    /**
+     * Shodashamsha (D16).
+     *
+     * The Shodashamsha (D16) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d16`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD16(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d16', $input, $options);
+    }
+
+    /**
+     * Vimshamsha (D20).
+     *
+     * The Vimshamsha (D20) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d20`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD20(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d20', $input, $options);
+    }
+
+    /**
+     * Chaturvimshamsha (D24).
+     *
+     * The Chaturvimshamsha (D24) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d24`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD24(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d24', $input, $options);
+    }
+
+    /**
+     * Saptavimshamsha / Bhamsha (D27).
+     *
+     * The Saptavimshamsha / Bhamsha (D27) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d27`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD27(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d27', $input, $options);
+    }
+
+    /**
+     * Trimshamsha (D30).
+     *
+     * The Trimshamsha (D30) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d30`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD30(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d30', $input, $options);
+    }
+
+    /**
+     * Khavedamsha (D40).
+     *
+     * The Khavedamsha (D40) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d40`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD40(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d40', $input, $options);
+    }
+
+    /**
+     * Akshavedamsha (D45).
+     *
+     * The Akshavedamsha (D45) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d45`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD45(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d45', $input, $options);
+    }
+
+    /**
+     * Shashtiamsha (D60).
+     *
+     * The Shashtiamsha (D60) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d60`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD60(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d60', $input, $options);
+    }
+
+    /**
+     * Nava-Navamsha (D81).
+     *
+     * The Nava-Navamsha (D81) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d81`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD81(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d81', $input, $options);
+    }
+
+    /**
+     * Ashtottaramsha (D108).
+     *
+     * The Ashtottaramsha (D108) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d108`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD108(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d108', $input, $options);
+    }
+
+    /**
+     * Dwadash-Dwadashamsha (D144).
+     *
+     * The Dwadash-Dwadashamsha (D144) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d144`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD144(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d144', $input, $options);
+    }
+
+    /**
+     * Nadiamsha (D150).
+     *
+     * The Nadiamsha (D150) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d150`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD150(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d150', $input, $options);
+    }
+
+    /**
+     * D300.
+     *
+     * The D300 chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/divisional-chart-d300`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function divisionalChartD300(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/divisional-chart-d300', $input, $options);
+    }
+
+    /**
+     * Hora Lagna Chart.
+     *
+     * The chart cast from the Hora Lagna: the lagna's own sign and degree, each planet's house from it and the twelve houses. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/special-lagna-hora`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function specialLagnaHora(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/special-lagna-hora', $input, $options);
+    }
+
+    /**
+     * Ghati Lagna Chart.
+     *
+     * The chart cast from the Ghati Lagna: the lagna's own sign and degree, each planet's house from it and the twelve houses. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/special-lagna-ghati`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function specialLagnaGhati(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/special-lagna-ghati', $input, $options);
+    }
+
+    /**
+     * Bhava Lagna Chart.
+     *
+     * The chart cast from the Bhava Lagna: the lagna's own sign and degree, each planet's house from it and the twelve houses. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/special-lagna-bhava`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function specialLagnaBhava(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/special-lagna-bhava', $input, $options);
+    }
+
+    /**
+     * Indu Lagna Chart.
+     *
+     * The chart cast from the Indu Lagna: the lagna's own sign and degree, each planet's house from it and the twelve houses. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/special-lagna-indu`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function specialLagnaIndu(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/special-lagna-indu', $input, $options);
+    }
+
+    /**
+     * Sree Lagna Chart.
+     *
+     * The chart cast from the Sree Lagna: the lagna's own sign and degree, each planet's house from it and the twelve houses. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/special-lagna-sree`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function specialLagnaSree(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/special-lagna-sree', $input, $options);
+    }
+
+    /**
+     * Pranapada Lagna Chart.
+     *
+     * The chart cast from the Pranapada Lagna: the lagna's own sign and degree, each planet's house from it and the twelve houses. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/special-lagna-pranapada`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function specialLagnaPranapada(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/special-lagna-pranapada', $input, $options);
+    }
+
+    /**
+     * Varnada Lagna Chart.
+     *
+     * The chart cast from the Varnada Lagna: the lagna's own sign and degree, each planet's house from it and the twelve houses. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/vedic-charts/special-lagna-varnada`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing (3 credits instead of 1). default false
+     * - image_style: Drawing style, with include_image. default "north"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function specialLagnaVarnada(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/special-lagna-varnada', $input, $options);
+    }
+
+    /**
+     * Kalachakra.
+     *
+     * The Kalachakra drawn from the birth positions (SVG), with the point positions (longitude, nakshatra, pada) used to draw it.
+     *
+     * `POST /v1/vedic-charts/chakra-kalachakra`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function chakraKalachakra(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/chakra-kalachakra', $input, $options);
+    }
+
+    /**
+     * Kota Chakra.
+     *
+     * The Kota Chakra drawn from the birth positions (SVG), with the point positions (longitude, nakshatra, pada) used to draw it.
+     *
+     * `POST /v1/vedic-charts/chakra-kota`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function chakraKota(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/chakra-kota', $input, $options);
+    }
+
+    /**
+     * Sudarshan Chakra.
+     *
+     * The Sudarshan Chakra drawn from the birth positions (SVG), with the point positions (longitude, nakshatra, pada) used to draw it.
+     *
+     * `POST /v1/vedic-charts/chakra-sudarshan`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function chakraSudarshan(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/chakra-sudarshan', $input, $options);
+    }
+
+    /**
+     * Shoola Chakra.
+     *
+     * The Shoola Chakra drawn from the birth positions (SVG), with the point positions (longitude, nakshatra, pada) used to draw it.
+     *
+     * `POST /v1/vedic-charts/chakra-shoola`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function chakraShoola(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/chakra-shoola', $input, $options);
+    }
+
+    /**
+     * Gulika Group Upagrahas.
+     *
+     * Gulika, Maandi, Kaala, Paridhi, Mrityu, Artha Prahara, Yama Ghantaka and Kodanda: sign, degree, longitude, nakshatra and pada.
+     *
+     * `POST /v1/vedic-charts/upagrahas-gulika-group`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function upagrahasGulikaGroup(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/upagrahas-gulika-group', $input, $options);
+    }
+
+    /**
+     * Sun-based Upagrahas.
+     *
+     * Dhooma, Vyatipata, Parivesha, Indra Chapa and Upaketu, counted from the Sun: sign, degree, longitude, nakshatra and pada.
+     *
+     * `POST /v1/vedic-charts/upagrahas-sun-based`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function upagrahasSunBased(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/upagrahas-sun-based', $input, $options);
+    }
+
+    /**
+     * Special Lagna Points.
+     *
+     * The degrees of the special lagnas (Bhava, Hora, Ghati, Vighati, Varnada, Sree, Pranapada, Indu) and the Bhrigu Bindu.
+     *
+     * `POST /v1/vedic-charts/special-lagna-points`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function specialLagnaPoints(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/special-lagna-points', $input, $options);
+    }
+
+    /**
+     * Sphutas.
+     *
+     * Prana, Deha, Mrityu, Sookshma Tri-Sphuta, Yoga, Tithi, Rahu Tithi, Kshetra and Beeja sphutas: sign, degree, nakshatra and pada.
+     *
+     * `POST /v1/vedic-charts/sphutas`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function sphutas(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/sphutas', $input, $options);
+    }
+
+    /**
+     * Midheaven & Imum Coeli.
+     *
+     * The sidereal Midheaven (MC) and Imum Coeli (IC): sign, degree, longitude, nakshatra and pada.
+     *
+     * `POST /v1/vedic-charts/mc-ic`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function mcIc(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/mc-ic', $input, $options);
+    }
+
+    /**
+     * Upagrahas in a Divisional Chart.
+     *
+     * The 23 points the engine places in the divisional charts (Gulika, Maandi, Kaala-group upagrahas, the Sun-based upagrahas, the special lagnas, Bhrigu Bindu, Kshetra and Beeja sphutas, MC and IC) in one chart you choose with `varga` (D1 to D300): sign, degree, nakshatra and pada.
+     *
+     * `POST /v1/vedic-charts/upagraha-varga-positions`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - varga: Divisional chart, "D1" to "D300". default "D1"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, varga, points.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', varga?: 'D1'|'D2'|'D3'|'D4'|'D6'|'D7'|'D8'|'D9'|'D10'|'D12'|'D16'|'D20'|'D24'|'D27'|'D30'|'D40'|'D45'|'D60'|'D81'|'D108'|'D144'|'D150'|'D300', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function upagrahaVargaPositions(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/upagraha-varga-positions', $input, $options);
+    }
+
+    /**
+     * One Planet.
+     *
+     * One planet (or the Ascendant) chosen with `planet`: longitude, sign and lord, nakshatra, nakshatra lord and pada, house, speed, retrograde and combust, and its sign in the divisional chart you choose with `varga`.
+     *
+     * `POST /v1/vedic-charts/planet-position`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - varga: Divisional chart, "D1" to "D300". default "D1"
+     * - planet (required): Ascendant or a planet, e.g. Moon.
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, reference, planet, in_varga.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', varga?: 'D1'|'D2'|'D3'|'D4'|'D6'|'D7'|'D8'|'D9'|'D10'|'D12'|'D16'|'D20'|'D24'|'D27'|'D30'|'D40'|'D45'|'D60'|'D81'|'D108'|'D144'|'D150'|'D300', planet: 'Ascendant'|'Sun'|'Moon'|'Mars'|'Mercury'|'Jupiter'|'Venus'|'Saturn'|'Rahu'|'Ketu'|'Uranus'|'Neptune'|'Pluto', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function planetPosition(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/planet-position', $input, $options);
+    }
+
+    /**
+     * One House.
+     *
+     * One house chosen with `house` (1-12) in the chart you choose with `varga`: its sign and sign lord, the planets in it, and where the house lord sits.
+     *
+     * `POST /v1/vedic-charts/house`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - varga: Divisional chart, "D1" to "D300". default "D1"
+     * - house (required): House number, 1-12. min 1; max 12
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "lagna"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, varga, reference, house, sign, sign_number, sign_lord, planets, lord_placement.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', varga?: 'D1'|'D2'|'D3'|'D4'|'D6'|'D7'|'D8'|'D9'|'D10'|'D12'|'D16'|'D20'|'D24'|'D27'|'D30'|'D40'|'D45'|'D60'|'D81'|'D108'|'D144'|'D150'|'D300', house: int, reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function house(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/house', $input, $options);
+    }
+
+    /**
+     * Chart from Any Reference Point.
+     *
+     * Any divisional chart re-counted from a point you choose with `reference` (the Moon, the Sun, any planet, or house:N): every planet's house from it and the twelve houses (Bhavat Bhavam; Chandra and Surya Lagna).
+     *
+     * `POST /v1/vedic-charts/chart-from-reference`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - varga: Divisional chart, "D1" to "D300". default "D1"
+     * - reference: Count the houses from: lagna (default), a planet (moon, sun, mars, ...) or house:N (1-12). default "moon"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, chart.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', varga?: 'D1'|'D2'|'D3'|'D4'|'D6'|'D7'|'D8'|'D9'|'D10'|'D12'|'D16'|'D20'|'D24'|'D27'|'D30'|'D40'|'D45'|'D60'|'D81'|'D108'|'D144'|'D150'|'D300', reference?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function chartFromReference(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vedic-charts/chart-from-reference', $input, $options);
+    }
+
+    /**
      * D1 Markers (Vargottama, Pushkara).
      *
      * Vargottama, Pushkara Navamsa and Pushkara Bhaga flags for the Ascendant and each planet, with its navamsa sign and the Pushkara Bhaga degree of its sign.
