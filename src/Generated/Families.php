@@ -38,7 +38,7 @@ trait Families
     /** Birth charts & planets: 55 capabilities. */
     public readonly VedicChartsResource $vedicCharts;
 
-    /** Strengths & relationships: 9 capabilities. */
+    /** Strengths & relationships: 36 capabilities. */
     public readonly StrengthsResource $strengths;
 
     /** Dasha systems: 9 capabilities. */
