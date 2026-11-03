@@ -578,4 +578,129 @@ final class MatchingResource
     {
         return $this->client->call('/v1/matching/marriage-sustainability', $input, $options);
     }
+
+    /**
+     * Mahendra Porutham.
+     *
+     * The Mahendra porutham alone: whether the groom's star is at one of the Mahendra counts (4, 7, 10, 13, 16, 19, 22, 25) from the bride's, with its severity and reading.
+     *
+     * `POST /v1/matching/porutham-mahendra`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): porutham, groom, bride, count_from_bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function poruthamMahendra(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/porutham-mahendra', $input, $options);
+    }
+
+    /**
+     * Stree Deergha Porutham.
+     *
+     * The Stree Deergha porutham alone: how far the groom's star is from the bride's, and whether that distance is enough, in full or in part, with its severity and reading.
+     *
+     * `POST /v1/matching/porutham-stree-deergha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): porutham, groom, bride, count_from_bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function poruthamStreeDeergha(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/porutham-stree-deergha', $input, $options);
+    }
+
+    /**
+     * Rajju Porutham.
+     *
+     * The Rajju porutham alone: whether both stars fall on the same rajju (cord), which is a classical objection, with its severity and reading.
+     *
+     * `POST /v1/matching/porutham-rajju`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): porutham, groom, bride, count_from_bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function poruthamRajju(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/porutham-rajju', $input, $options);
+    }
+
+    /**
+     * Vedha Porutham.
+     *
+     * The Vedha porutham alone: whether the two stars are a vedha (mutually obstructing) pair, which is a classical objection, with its severity and reading.
+     *
+     * `POST /v1/matching/porutham-vedha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): porutham, groom, bride, count_from_bride.
+     *
+     * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function poruthamVedha(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/porutham-vedha', $input, $options);
+    }
+
+    /**
+     * Manglik Match.
+     *
+     * Manglik (Kuja dosha) for both people from their full charts: each side's type, level, intensity, the factors and the cancellations, any mutual cancellation between the two charts, and the overall status of the match.
+     *
+     * `POST /v1/matching/manglik-match`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - report_type: half: the matching tables. full: also both birth charts' positions. default "half"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, manglik.
+     *
+     * @param array{groom: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, bride: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, report_type?: 'full'|'half', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function manglikMatch(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/manglik-match', $input, $options);
+    }
 }

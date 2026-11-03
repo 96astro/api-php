@@ -506,6 +506,11 @@ final class Catalog
         'varshaphal-monthly-charts' => 'tajika',
         'varshaphal-mudda-dasha' => 'tajika',
         'varshaphal-tajika-yogas' => 'tajika',
+        'porutham-mahendra' => 'matching',
+        'porutham-stree-deergha' => 'matching',
+        'porutham-rajju' => 'matching',
+        'porutham-vedha' => 'matching',
+        'manglik-match' => 'matching',
         'personal-characteristics-house' => 'predictions',
     ];
 

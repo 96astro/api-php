@@ -50,7 +50,7 @@ trait Families
     /** Festivals & muhurta: 7 capabilities. */
     public readonly FestivalsMuhurtaResource $festivalsMuhurta;
 
-    /** Compatibility matching: 22 capabilities. */
+    /** Compatibility matching: 27 capabilities. */
     public readonly MatchingResource $matching;
 
     /** Doshas & yogas: 60 capabilities. */
