@@ -118,4 +118,190 @@ final class TajikaResource
     {
         return $this->client->call('/v1/tajika/tithi-pravesh', $input, $options);
     }
+
+    /**
+     * Muntha.
+     *
+     * The Muntha of the annual chart for `target_year`: its sign, house and longitude.
+     *
+     * `POST /v1/tajika/varshaphal-muntha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - target_year (required): Calendar year of the return.
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, target_year, return_moment, muntha.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', target_year: int, node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function varshaphalMuntha(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/tajika/varshaphal-muntha', $input, $options);
+    }
+
+    /**
+     * Panchadhikari (Office-bearers of the Year).
+     *
+     * The five office-bearers of the Tajika year (Muntha lord, birth and year ascendant lords, Trirashi lord, day/night lord) and whether the return is by day.
+     *
+     * `POST /v1/tajika/varshaphal-panchadhikari`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - target_year (required): Calendar year of the return.
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, target_year, return_moment, panchadhikari.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', target_year: int, node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function varshaphalPanchadhikari(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/tajika/varshaphal-panchadhikari', $input, $options);
+    }
+
+    /**
+     * Annual Sahams.
+     *
+     * The Tajika sahams of the annual chart for `target_year`.
+     *
+     * `POST /v1/tajika/varshaphal-sahams`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - target_year (required): Calendar year of the return.
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, target_year, return_moment, sahams.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', target_year: int, node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function varshaphalSahams(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/tajika/varshaphal-sahams', $input, $options);
+    }
+
+    /**
+     * Maasa Pravesh (Monthly Charts).
+     *
+     * The twelve monthly charts of the Tajika year: the moment each month begins, the Sun's longitude and the ascendant sign.
+     *
+     * `POST /v1/tajika/varshaphal-monthly-charts`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - target_year (required): Calendar year of the return.
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, target_year, return_moment, maasa_charts.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', target_year: int, node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function varshaphalMonthlyCharts(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/tajika/varshaphal-monthly-charts', $input, $options);
+    }
+
+    /**
+     * Annual Mudda Dasha.
+     *
+     * The Mudda dasha periods of the Tajika year, with dates.
+     *
+     * `POST /v1/tajika/varshaphal-mudda-dasha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - target_year (required): Calendar year of the return.
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, target_year, return_moment, mudda_dasha.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', target_year: int, node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function varshaphalMuddaDasha(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/tajika/varshaphal-mudda-dasha', $input, $options);
+    }
+
+    /**
+     * Tajika Yogas.
+     *
+     * The Tajika yogas checked in the annual chart (Iqabala, Induvara and the others), each with its condition, whether it is present and why.
+     *
+     * `POST /v1/tajika/varshaphal-tajika-yogas`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - target_year (required): Calendar year of the return.
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, target_year, return_moment, tajika_yogas.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', target_year: int, node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function varshaphalTajikaYogas(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/tajika/varshaphal-tajika-yogas', $input, $options);
+    }
 }

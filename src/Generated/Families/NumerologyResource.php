@@ -148,4 +148,301 @@ final class NumerologyResource
     {
         return $this->client->call('/v1/numerology/biorhythm', $input, $options);
     }
+
+    /**
+     * Radical (Psychic) Number.
+     *
+     * The radical number from the day of birth: the calculation, ruling planet, favourable signs, letters, days and numbers, and gemstone.
+     *
+     * `POST /v1/numerology/numerology-radical-number`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, radical_number.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function numerologyRadicalNumber(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/numerology-radical-number', $input, $options);
+    }
+
+    /**
+     * Destiny (Life Path) Number.
+     *
+     * The destiny number from the full date of birth: the calculation and compound, ruling planet, favourable signs, letters and days, and gemstone.
+     *
+     * `POST /v1/numerology/numerology-destiny-number`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, destiny_number.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function numerologyDestinyNumber(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/numerology-destiny-number', $input, $options);
+    }
+
+    /**
+     * Name Number.
+     *
+     * The name number: the letter values, calculation and compound, ruling planet, favourable details and gemstone.
+     *
+     * `POST /v1/numerology/numerology-name-number`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, name_number.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function numerologyNameNumber(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/numerology-name-number', $input, $options);
+    }
+
+    /**
+     * Lo Shu Grid.
+     *
+     * The Lo Shu grid of the birth date: the grid, present and absent numbers, lines and planes, and what the missing and present numbers mean.
+     *
+     * `POST /v1/numerology/lo-shu-grid`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, lo_shu_grid.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function loShuGrid(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/lo-shu-grid', $input, $options);
+    }
+
+    /**
+     * Vedic Numerology Grid.
+     *
+     * The Vedic (planetary) numerology grid: the grid, present and absent numbers, lines, and what the missing and present numbers mean.
+     *
+     * `POST /v1/numerology/vedic-numerology-grid`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, vedic_grid.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function vedicNumerologyGrid(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/vedic-numerology-grid', $input, $options);
+    }
+
+    /**
+     * Kua Number.
+     *
+     * The Kua number with its element, direction, east/west group and colour.
+     *
+     * `POST /v1/numerology/kua-number`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, kua_number.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kuaNumber(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/kua-number', $input, $options);
+    }
+
+    /**
+     * Personal Year, Month & Day.
+     *
+     * The personal year, month and day numbers on `as_of` with their themes and focus.
+     *
+     * `POST /v1/numerology/personal-cycles`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, personal_cycles.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function personalCycles(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/personal-cycles', $input, $options);
+    }
+
+    /**
+     * Radical & Destiny Combination.
+     *
+     * How the radical and destiny numbers work together: compatibility and level, combined strengths and challenges.
+     *
+     * `POST /v1/numerology/numerology-combination`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, combination.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function numerologyCombination(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/numerology-combination', $input, $options);
+    }
+
+    /**
+     * Numerology Remedies.
+     *
+     * The numerology remedies for the chart's numbers.
+     *
+     * `POST /v1/numerology/numerology-remedies`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, remedies.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function numerologyRemedies(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/numerology-remedies', $input, $options);
+    }
+
+    /**
+     * Expression (Destiny) Number of a Name.
+     *
+     * The Expression number of a name (all letters): number, compound, the chain, ruling planet, signs, strengths and challenges.
+     *
+     * `POST /v1/numerology/expression-number`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth: Ranks name suggestions by friendliness to the radical number. format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, system, expression.
+     *
+     * @param array{name: string, date_of_birth?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function expressionNumber(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/expression-number', $input, $options);
+    }
+
+    /**
+     * Soul Urge Number.
+     *
+     * The Soul Urge number of a name (the vowels): number, compound, the chain, ruling planet, signs, strengths and challenges.
+     *
+     * `POST /v1/numerology/soul-urge-number`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth: Ranks name suggestions by friendliness to the radical number. format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, system, soul_urge.
+     *
+     * @param array{name: string, date_of_birth?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function soulUrgeNumber(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/soul-urge-number', $input, $options);
+    }
+
+    /**
+     * Personality Number.
+     *
+     * The Personality number of a name (the consonants): number, compound, the chain, ruling planet, signs, strengths and challenges.
+     *
+     * `POST /v1/numerology/personality-number`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth: Ranks name suggestions by friendliness to the radical number. format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, system, personality.
+     *
+     * @param array{name: string, date_of_birth?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function personalityNumber(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/personality-number', $input, $options);
+    }
 }

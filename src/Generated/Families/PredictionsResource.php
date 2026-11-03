@@ -825,4 +825,35 @@ final class PredictionsResource
     {
         return $this->client->call('/v1/predictions/navatara', $input, $options);
     }
+
+    /**
+     * Characteristics of One House.
+     *
+     * One house's reading: its sign and lord, where the lord sits, its dignity, retrograde and combust state and strength, and the house reading. Pick one with `house` (or all).
+     *
+     * `POST /v1/predictions/personal-characteristics-house`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - house: House 1-12, or all. default "all"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, ascendant, ascendant_lord, houses.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', house?: int|string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function personalCharacteristicsHouse(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/predictions/personal-characteristics-house', $input, $options);
+    }
 }

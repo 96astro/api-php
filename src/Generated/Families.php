@@ -56,7 +56,7 @@ trait Families
     /** Doshas & yogas: 60 capabilities. */
     public readonly DoshasYogasResource $doshasYogas;
 
-    /** Predictions & readings: 27 capabilities. */
+    /** Predictions & readings: 28 capabilities. */
     public readonly PredictionsResource $predictions;
 
     /** Krishnamurti Paddhati (KP): 10 capabilities. */
@@ -65,13 +65,13 @@ trait Families
     /** Jaimini: 14 capabilities. */
     public readonly JaiminiResource $jaimini;
 
-    /** Lal Kitab: 7 capabilities. */
+    /** Lal Kitab: 14 capabilities. */
     public readonly LalKitabResource $lalKitab;
 
-    /** Bhrigu Nandi Nadi (BNN): 8 capabilities. */
+    /** Bhrigu Nandi Nadi (BNN): 17 capabilities. */
     public readonly BnnResource $bnn;
 
-    /** Annual charts (Tajika): 3 capabilities. */
+    /** Annual charts (Tajika): 9 capabilities. */
     public readonly TajikaResource $tajika;
 
     /** Western astrology: 40 capabilities. */
@@ -80,7 +80,7 @@ trait Families
     /** Tarot: 15 capabilities. */
     public readonly TarotResource $tarot;
 
-    /** Numerology: 5 capabilities. */
+    /** Numerology: 17 capabilities. */
     public readonly NumerologyResource $numerology;
 
     /** Remedies & guidance: 6 capabilities. */
