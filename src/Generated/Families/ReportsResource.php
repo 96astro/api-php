@@ -440,18 +440,24 @@ final class ReportsResource
     /**
      * Kundli Matching Report.
      *
-     * Matching report: each side's nakshatra, ascendant and Mangal dosha, Ashtakoot and Dashakoot scores, Rajju and Vedha with readings, koota vetoes, personality notes and a verdict.
+     * Matching report: each side's nakshatra, ascendant and Mangal dosha, Ashtakoot and Dashakoot scores, Rajju and Vedha with readings, koota vetoes, personality notes and a verdict. Credits depend on the request: data only: 10 credits.
      *
      * `POST /v1/reports/matching-report`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
      * - groom (required)
      * - bride (required)
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
      *
      * `data` fields in the documented example (inferred, not a contract): groom, bride, score, combined, rajju, vedha, vetoes, mangal_dosha, personality, verdict.
      *
-     * @param array{groom: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, bride: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{groom: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, bride: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

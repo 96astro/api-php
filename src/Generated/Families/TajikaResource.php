@@ -53,7 +53,7 @@ final class TajikaResource
     /**
      * Varshaphal (Annual Chart).
      *
-     * Annual Tajika chart for a target year: the return moment, ascendant and planets, muntha, panchadhikari, sahams, the twelve monthly (Maasa) charts, mudda dasha and Tajika yogas.
+     * Annual Tajika chart for a target year: the return moment, ascendant and planets, muntha, panchadhikari, sahams, the twelve monthly (Maasa) charts, mudda dasha and Tajika yogas. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/tajika/varshaphal`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -67,6 +67,8 @@ final class TajikaResource
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - target_year (required): Calendar year of the return.
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -75,7 +77,7 @@ final class TajikaResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, target_year, return_moment, method, ascendant, planets, muntha, panchadhikari, sahams, maasa_charts, mudda_dasha, tajika_yogas.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', target_year: int, node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', target_year: int, node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -88,7 +90,7 @@ final class TajikaResource
     /**
      * Tithi Pravesh.
      *
-     * The annual chart cast at the return of the birth tithi in a target year: the return moment, ascendant and planets, muntha, panchadhikari, mudda dasha and Tajika yogas.
+     * The annual chart cast at the return of the birth tithi in a target year: the return moment, ascendant and planets, muntha, panchadhikari, mudda dasha and Tajika yogas. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/tajika/tithi-pravesh`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -101,6 +103,8 @@ final class TajikaResource
      * - ayanamsha: default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - target_year (required): Calendar year of the return.
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -109,7 +113,7 @@ final class TajikaResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, target_year, birth_tithi, return_moment, days_from_birthday, ascendant, planets, muntha, panchadhikari, mudda_dasha, tajika_yogas.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', target_year: int, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', target_year: int, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

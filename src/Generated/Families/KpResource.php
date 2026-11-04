@@ -23,7 +23,7 @@ final class KpResource
     /**
      * KP Birth Chart, Fortuna & Significator Grid.
      *
-     * KP cusps with star, sub and sub-sub lords, planets with their star lords and houses, significators by planet and by house, and the Part of Fortune with its KP lords.
+     * KP cusps with star, sub and sub-sub lords, planets with their star lords and houses, significators by planet and by house, and the Part of Fortune with its KP lords. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/kp/kp-birth-chart`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -36,6 +36,8 @@ final class KpResource
      * - ayanamsha: default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -44,7 +46,7 @@ final class KpResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, house_system, cusps, planets, significators, fortuna.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -178,7 +180,7 @@ final class KpResource
     /**
      * KP Houses & Planets.
      *
-     * Placidus cusps and planets with sign, star, sub and sub-sub lords, significators by planet and by house, ruling planets at birth, the Part of Fortune and Vimshottari periods.
+     * Placidus cusps and planets with sign, star, sub and sub-sub lords, significators by planet and by house, ruling planets at birth, the Part of Fortune and Vimshottari periods. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/kp/kp-houses-planets`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -191,6 +193,8 @@ final class KpResource
      * - ayanamsha: Every KP capability uses the KP (Krishnamurti) ayanamsha and Placidus cusps. default "krishnamurti"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -199,7 +203,7 @@ final class KpResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, house_system, node, cusps, planets, significators, vimshottari, ruling_planets_at_birth, fortuna.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'krishnamurti', language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'krishnamurti', language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -212,7 +216,7 @@ final class KpResource
     /**
      * KP Horary (Prashna).
      *
-     * A KP horary chart from a number 1-249 (or the moment): cusps and planets with sign, star, sub and sub-sub lords, significators, ruling planets and Vimshottari periods.
+     * A KP horary chart from a number 1-249 (or the moment): cusps and planets with sign, star, sub and sub-sub lords, significators, ruling planets and Vimshottari periods. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/kp/kp-horary`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -226,6 +230,8 @@ final class KpResource
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - kp_horary_number: KP horary number 1-249 (sets the ascendant); 0 casts the actual moment. min 0; max 249; default 0
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -234,7 +240,7 @@ final class KpResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, house_system, kp_horary_number, cusps, planets, significators, vimshottari, ruling_planets.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'krishnamurti', language?: 'en', node?: 'true'|'mean', kp_horary_number?: int, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'krishnamurti', language?: 'en', node?: 'true'|'mean', kp_horary_number?: int, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -247,7 +253,7 @@ final class KpResource
     /**
      * KP Transit.
      *
-     * Birth and transit points with their KP lords, the ruling planets at birth and at the transit, and the Vimshottari periods running at the transit.
+     * Birth and transit points with their KP lords, the ruling planets at birth and at the transit, and the Vimshottari periods running at the transit. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/kp/kp-transit`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -261,6 +267,8 @@ final class KpResource
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - transit (required): The moment and place of the transit chart.
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -269,7 +277,7 @@ final class KpResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, birth, transit, vimshottari_at_transit.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'krishnamurti', language?: 'en', node?: 'true'|'mean', transit: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float}, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'krishnamurti', language?: 'en', node?: 'true'|'mean', transit: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float}, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

@@ -83,7 +83,7 @@ final class StrengthsResource
     /**
      * Shadbala.
      *
-     * Six-fold strength (Shadbala) for the seven grahas: sthana, dig, kala, chesta, naisargika and drig components, total in virupas and rupas against the minimum, rank, and ishta/kashta phala.
+     * Six-fold strength (Shadbala) for the seven grahas: sthana, dig, kala, chesta, naisargika and drig components, total in virupas and rupas against the minimum, rank, and ishta/kashta phala. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/strengths/shadbala`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -96,6 +96,8 @@ final class StrengthsResource
      * - ayanamsha: default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -104,7 +106,7 @@ final class StrengthsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, unit, planets.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -1079,7 +1081,7 @@ final class StrengthsResource
     /**
      * Ashtakavarga (Multi-School).
      *
-     * Ashtakavarga for a birth under a chosen school (BPHS, Jagannatha Hora or Parashara's Light): bhinnashtakavarga, sarvashtakavarga, reductions with pindas and Ayus; optionally every school.
+     * Ashtakavarga for a birth under a chosen school (BPHS, Jagannatha Hora or Parashara's Light): bhinnashtakavarga, sarvashtakavarga, reductions with pindas and Ayus; optionally every school. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/strengths/ashtakavarga`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -1094,6 +1096,8 @@ final class StrengthsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - school: Reduction school: BPHS, JHORA (Jagannatha Hora) or PLIGHT (Parashara's Light). default "BPHS"
      * - compare_all_schools: Also return the reductions and Ayus under every school. default false
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -1102,7 +1106,7 @@ final class StrengthsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, school, sign_order, bhinnashtakavarga, sarvashtakavarga, reductions, ayus, school_rules.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', school?: string, compare_all_schools?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', school?: string, compare_all_schools?: bool, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

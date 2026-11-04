@@ -23,7 +23,7 @@ final class LalKitabResource
     /**
      * Lal Kitab Chart & Predictions.
      *
-     * Lal Kitab planets and houses (with dormant, fate and permanent-house markers), the chalit, planetary friendship and the Budh bhed check with remedies.
+     * Lal Kitab planets and houses (with dormant, fate and permanent-house markers), the chalit, planetary friendship and the Budh bhed check with remedies. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/lal-kitab/lal-kitab-chart`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -36,11 +36,17 @@ final class LalKitabResource
      * - ayanamsha: default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, note, planets, houses, chalit, friendship, budh_bhed.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -53,7 +59,7 @@ final class LalKitabResource
     /**
      * Lal Kitab Varshaphal.
      *
-     * Lal Kitab annual chart for a target year: each planet's house and nature, and the monthly charts.
+     * Lal Kitab annual chart for a target year: each planet's house and nature, and the monthly charts. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/lal-kitab/lal-kitab-varshaphal`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -67,11 +73,17 @@ final class LalKitabResource
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - target_year (required): Calendar year in which the annual chart's year ENDS (on that year's birthday).
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, target_year, running_year, start, end, planets, months.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', target_year: int, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', target_year: int, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

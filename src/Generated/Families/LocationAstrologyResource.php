@@ -211,7 +211,7 @@ final class LocationAstrologyResource
     /**
      * Compare Two Places.
      *
-     * Scores two places per goal under the same birth and date, with each place's angles and KP verdicts, the totals and the overall winner.
+     * Scores two places per goal under the same birth and date, with each place's angles and KP verdicts, the totals and the overall winner. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/location-astrology/compare-locations`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -226,11 +226,17 @@ final class LocationAstrologyResource
      * - place_a (required)
      * - place_b (required)
      * - as_of: Date whose running dasha is read (YYYY-MM-DD). Today in UTC when omitted. format date
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
      *
      * `data` fields in the documented example (inferred, not a contract): as_of, running, distance_between_km, place_a, place_b, per_goal, total_a, total_b, overall_winner.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', place_a: array{latitude: int|float, longitude: int|float, label?: string}, place_b: array{latitude: int|float, longitude: int|float, label?: string}, as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', place_a: array{latitude: int|float, longitude: int|float, label?: string}, place_b: array{latitude: int|float, longitude: int|float, label?: string}, as_of?: string|null, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

@@ -23,7 +23,7 @@ final class MatchingResource
     /**
      * Kundli Matching (Ayu Milan).
      *
-     * Ashtakoot matching from two births: koota scores and total, Manglik for both with cancellations, Papasamya, Rajju and Vedha, and classical longevity (Ayurdaya) spans for each.
+     * Ashtakoot matching from two births: koota scores and total, Manglik for both with cancellations, Papasamya, Rajju and Vedha, and classical longevity (Ayurdaya) spans for each. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/matching/ayu-milan`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -31,6 +31,8 @@ final class MatchingResource
      * - groom (required)
      * - bride (required)
      * - report_type: half: the matching tables. full: also both birth charts' positions. default "half"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -39,7 +41,7 @@ final class MatchingResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, report_type, groom, bride, ashtakoot, manglik, papasamya, rajju, vedha, longevity.
      *
-     * @param array{groom: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, bride: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, report_type?: 'full'|'half', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{groom: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, bride: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, report_type?: 'full'|'half', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

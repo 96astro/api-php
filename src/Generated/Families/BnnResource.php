@@ -23,7 +23,7 @@ final class BnnResource
     /**
      * BNN Charts (in bundle).
      *
-     * The nine-graha D1 and Bhav Chalit house lists used for BNN reading: each house's sign and planets.
+     * The nine-graha D1 and Bhav Chalit house lists used for BNN reading: each house's sign and planets. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/bnn/bnn-bundle-charts`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -36,6 +36,8 @@ final class BnnResource
      * - ayanamsha: default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -44,7 +46,7 @@ final class BnnResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, d1, chalit.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -57,7 +59,7 @@ final class BnnResource
     /**
      * BNN Progression.
      *
-     * Bhrigu Nandi Nadi natal positions, the karaka role and doctrine applied to each planet, and the progressed positions for every age.
+     * Bhrigu Nandi Nadi natal positions, the karaka role and doctrine applied to each planet, and the progressed positions for every age. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/bnn/bnn-progression`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -73,6 +75,8 @@ final class BnnResource
      * - progression_years: Years of the progression table. min 1; max 120; default 80
      * - doctrine: Force one progression doctrine (1-4) for every karaka.
      * - doctrine_by_planet: Force a doctrine (1-4) per planet.
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -81,7 +85,7 @@ final class BnnResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, natal, karakas, progression.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', progression_years?: int, doctrine?: 1|2|3|4|null, doctrine_by_planet?: array<string, 1|2|3|4>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', progression_years?: int, doctrine?: 1|2|3|4|null, doctrine_by_planet?: array<string, 1|2|3|4>|null, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -94,7 +98,7 @@ final class BnnResource
     /**
      * BNN Snapshot for a Date.
      *
-     * The progressed BNN positions for one target date and time, with the age and month offset used.
+     * The progressed BNN positions for one target date and time, with the age and month offset used. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/bnn/bnn-snapshot`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -108,11 +112,17 @@ final class BnnResource
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - target (required): Local date and time to progress to, in the birth's time zone, ISO 8601 without offset pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, target, age, month_offset, progressed.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', target: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', target: string, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

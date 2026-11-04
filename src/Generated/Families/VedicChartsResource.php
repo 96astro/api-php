@@ -23,7 +23,7 @@ final class VedicChartsResource
     /**
      * Full Birth Chart Bundle.
      *
-     * The core birth chart in one call: ayanamsha, ascendant, planets, the D1 and D9 charts, a Moon and Avakhada summary, Vimshottari periods and the Manglik check. Chart images: use chart-image-styles.
+     * The core birth chart in one call: ayanamsha, ascendant, planets, the D1 and D9 charts, a Moon and Avakhada summary, Vimshottari periods and the Manglik check. Chart images: use chart-image-styles. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/vedic-charts/birth-chart-bundle`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -36,6 +36,8 @@ final class VedicChartsResource
      * - ayanamsha: default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -44,7 +46,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, ascendant, planets, charts, summary, vimshottari, manglik.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -117,7 +119,7 @@ final class VedicChartsResource
     /**
      * Divisional Charts (D1-D300).
      *
-     * Up to 23 divisional (varga) charts, D1 to D300: each with its ascendant, planet placements and twelve houses with sign and occupants. Pick charts with `charts`; images: use chart-image-styles.
+     * Up to 23 divisional (varga) charts, D1 to D300: each with its ascendant, planet placements and twelve houses with sign and occupants. Pick charts with `charts`; images: use chart-image-styles. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/vedic-charts/divisional-charts`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -131,6 +133,8 @@ final class VedicChartsResource
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - charts: Which vargas to return, e.g. ["D9", "D10"]. All 23 when omitted.
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -139,7 +143,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, node, charts.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', charts?: list<'D1'|'D2'|'D3'|'D4'|'D6'|'D7'|'D8'|'D9'|'D10'|'D12'|'D16'|'D20'|'D24'|'D27'|'D30'|'D40'|'D45'|'D60'|'D81'|'D108'|'D144'|'D150'|'D300'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', charts?: list<'D1'|'D2'|'D3'|'D4'|'D6'|'D7'|'D8'|'D9'|'D10'|'D12'|'D16'|'D20'|'D24'|'D27'|'D30'|'D40'|'D45'|'D60'|'D81'|'D108'|'D144'|'D150'|'D300'>|null, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -152,7 +156,7 @@ final class VedicChartsResource
     /**
      * Special Lagna Charts.
      *
-     * Charts cast from the special lagnas (Hora, Ghati, Bhava, Indu, Sree, Pranapada, Varnada): each lagna's own sign and degree, the planets' houses from it and the twelve houses.
+     * Charts cast from the special lagnas (Hora, Ghati, Bhava, Indu, Sree, Pranapada, Varnada): each lagna's own sign and degree, the planets' houses from it and the twelve houses. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/vedic-charts/special-lagna-charts`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -165,6 +169,8 @@ final class VedicChartsResource
      * - ayanamsha: default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -173,7 +179,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, charts.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -186,7 +192,7 @@ final class VedicChartsResource
     /**
      * Bhav Chalit Chart & Bhava Table.
      *
-     * Bhava (house) table with start, middle and end of each house, the planets in each bhava, and every planet's sign house next to its bhava house.
+     * Bhava (house) table with start, middle and end of each house, the planets in each bhava, and every planet's sign house next to its bhava house. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/vedic-charts/bhav-chalit`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -199,6 +205,8 @@ final class VedicChartsResource
      * - ayanamsha: default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -207,7 +215,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, house_system, bhavas, planets.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -220,7 +228,7 @@ final class VedicChartsResource
     /**
      * Chandra Kundali (Moon Chart).
      *
-     * The chart re-read with the Moon's sign as the first house: the Ascendant's and each planet's house from the Moon, and the twelve houses with their occupants.
+     * The chart re-read with the Moon's sign as the first house: the Ascendant's and each planet's house from the Moon, and the twelve houses with their occupants. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/vedic-charts/chandra-kundali`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -233,6 +241,8 @@ final class VedicChartsResource
      * - ayanamsha: default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
      * - image_format
      * - image_width
@@ -241,7 +251,7 @@ final class VedicChartsResource
      *
      * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, ascendant, planets, houses.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

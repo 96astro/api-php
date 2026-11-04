@@ -197,7 +197,7 @@ final class MundaneResource
     /**
      * Mundane: Kota Chakra.
      *
-     * The kota chakra section of the world-level mundane dashboard for a moment and place.
+     * The kota chakra section of the world-level mundane dashboard for a moment and place. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/mundane/mundane-kota-chakra`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -209,11 +209,17 @@ final class MundaneResource
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
      * - janma_nakshatra: Entrance nakshatra (1-28, Abhijit included) for the chakras; Moon's when omitted. min 1; max 28
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
      *
      * `data` fields in the documented example (inferred, not a contract): moment, kota_chakra.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri'|'krishnamurti'|'raman', janma_nakshatra?: int|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri'|'krishnamurti'|'raman', janma_nakshatra?: int|null, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -226,7 +232,7 @@ final class MundaneResource
     /**
      * Mundane: Sarvatobhadra.
      *
-     * The sarvatobhadra section of the world-level mundane dashboard for a moment and place.
+     * The sarvatobhadra section of the world-level mundane dashboard for a moment and place. Credits depend on the request: data only: 3 credits.
      *
      * `POST /v1/mundane/mundane-sarvatobhadra`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -238,11 +244,17 @@ final class MundaneResource
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
      * - janma_nakshatra: Entrance nakshatra (1-28, Abhijit included) for the chakras; Moon's when omitted. min 1; max 28
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
      * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
      *
      * `data` fields in the documented example (inferred, not a contract): moment, sarvatobhadra.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri'|'krishnamurti'|'raman', janma_nakshatra?: int|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri'|'krishnamurti'|'raman', janma_nakshatra?: int|null, include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
