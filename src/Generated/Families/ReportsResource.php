@@ -497,4 +497,163 @@ final class ReportsResource
     {
         return $this->client->call('/v1/reports/longevity-analysis', $input, $options);
     }
+
+    /**
+     * Maraka & Badhaka Planets.
+     *
+     * The chart's marakas: the 2nd and 7th lords as primary, the planets in those houses as secondary, each with its reason, and the badhaka. Classical arithmetic, not a prediction of death or illness.
+     *
+     * `POST /v1/reports/maraka-planets`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - as_of: Date the age, running dasha and transits are judged on (YYYY-MM-DD). Defaults to today (UTC). format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): nature, disclaimer, ayanamsha, node, as_of, maraka, badhaka.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function marakaPlanets(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/maraka-planets', $input, $options);
+    }
+
+    /**
+     * Marriage Timing.
+     *
+     * When the chart indicates marriage: dated windows with ages, the running dasha lords, score and reasons, and whether delay is indicated and why.
+     *
+     * `POST /v1/reports/marriage-timing`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
+     * - birth_time_accuracy: How exact the birth time is: exact (from a record), rounded (5-15 min, the default), approx (hour), unknown. Lowers confidence and drops the finest divisional charts below exact.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): topic, ascendant, ruleset, timing, delay.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', gender?: 'male'|'female'|null, birth_time_accuracy?: 'exact'|'rounded'|'approx'|'unknown'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function marriageTiming(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/marriage-timing', $input, $options);
+    }
+
+    /**
+     * Career Timing.
+     *
+     * The chart's strongest career windows: dated, with ages, the running dasha lords, score, theme and strength.
+     *
+     * `POST /v1/reports/career-timing`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
+     * - birth_time_accuracy: How exact the birth time is: exact (from a record), rounded (5-15 min, the default), approx (hour), unknown. Lowers confidence and drops the finest divisional charts below exact.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): topic, ascendant, ruleset, timing.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', gender?: 'male'|'female'|null, birth_time_accuracy?: 'exact'|'rounded'|'approx'|'unknown'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function careerTiming(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/career-timing', $input, $options);
+    }
+
+    /**
+     * Career Fields (including Government).
+     *
+     * The career fields the chart supports (among them government and administration when it qualifies), ranked with a score and what supports each, and the job versus business verdict with its scores.
+     *
+     * `POST /v1/reports/career-fields`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
+     * - birth_time_accuracy: How exact the birth time is: exact (from a record), rounded (5-15 min, the default), approx (hour), unknown. Lowers confidence and drops the finest divisional charts below exact.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): topic, ascendant, ruleset, fields, job_vs_business.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', gender?: 'male'|'female'|null, birth_time_accuracy?: 'exact'|'rounded'|'approx'|'unknown'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function careerFields(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/career-fields', $input, $options);
+    }
+
+    /**
+     * Foreign Settlement Timing.
+     *
+     * When the chart indicates going abroad: dated windows, the first significant opportunity and its route, and the best periods to apply, travel and take up an opportunity.
+     *
+     * `POST /v1/reports/foreign-timing`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
+     * - birth_time_accuracy: How exact the birth time is: exact (from a record), rounded (5-15 min, the default), approx (hour), unknown. Lowers confidence and drops the finest divisional charts below exact.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): topic, ascendant, ruleset, disclaimer, timing, first_opportunity, combined_timing.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', gender?: 'male'|'female'|null, birth_time_accuracy?: 'exact'|'rounded'|'approx'|'unknown'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function foreignTiming(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/foreign-timing', $input, $options);
+    }
 }

@@ -1876,4 +1876,126 @@ final class DoshasYogasResource
     {
         return $this->client->call('/v1/doshas-yogas/yogas-present', $input, $options);
     }
+
+    /**
+     * Ghat Chakra.
+     *
+     * The month, tithi, weekday, nakshatra, yoga, karana, prahar and Moon sign traditionally avoided for new undertakings, by the birth Moon sign. `source_differences` lists the values where the published tables disagree.
+     *
+     * `POST /v1/doshas-yogas/ghat-chakra`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - gender: Selects `applicable_ghat_moon_sign`: the Ghat Chandra differs for men and women.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, ghat_month, ghat_tithi_group, ghat_tithis, ghat_weekday, ghat_nakshatra, ghat_yoga, ghat_karana, ghat_prahar, ghat_moon_sign, applicable_ghat_moon_sign, source_differences.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function ghatChakra(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/doshas-yogas/ghat-chakra', $input, $options);
+    }
+
+    /**
+     * Ganda Mool at Birth.
+     *
+     * Whether the birth Moon is in one of the six Ganda Mool nakshatras: its pada, distance from the sign junction, intensity, the traditional focus, Abhukta Mool timed from the Jyeshtha-Mula junction, and the dates of the Moon's first return to the star for the shanti.
+     *
+     * `POST /v1/doshas-yogas/ganda-mool-birth`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, present, nakshatra_number, nakshatra, pada.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function gandaMoolBirth(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/doshas-yogas/ganda-mool-birth', $input, $options);
+    }
+
+    /**
+     * Kalathra Dosha.
+     *
+     * Malefics afflicting the 7th house, its lord or Venus, from the Lagna and from the Moon: every rule with whether it fired and which planet caused it, the mitigations, the level and `present`. `method` states the convention, since no single classical definition exists.
+     *
+     * `POST /v1/doshas-yogas/kalathra-dosha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, present, level, present_from_moon, from_lagna, from_moon, method.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kalathraDosha(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/doshas-yogas/kalathra-dosha', $input, $options);
+    }
+
+    /**
+     * Gajakesari Yoga.
+     *
+     * Whether Gajakesari is present by the classical rule (Jupiter in a kendra from the Moon), with its strength, detail and effects, and the related variants listed separately.
+     *
+     * `POST /v1/doshas-yogas/gajakesari-yoga`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - only_present: Return only the yogas that are present. default false
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, present, rule, variants.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', only_present?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function gajakesariYoga(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/doshas-yogas/gajakesari-yoga', $input, $options);
+    }
 }

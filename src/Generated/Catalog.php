@@ -563,6 +563,22 @@ final class Catalog
         'porutham-vedha' => 'matching',
         'manglik-match' => 'matching',
         'personal-characteristics-house' => 'predictions',
+        'ghat-chakra' => 'doshas-yogas',
+        'ganda-mool-birth' => 'doshas-yogas',
+        'kalathra-dosha' => 'doshas-yogas',
+        'ishta-devata' => 'jaimini',
+        'functional-nature' => 'strengths',
+        'birth-paya' => 'vedic-charts',
+        'chandrashtama' => 'panchang',
+        'gajakesari-yoga' => 'doshas-yogas',
+        'maraka-planets' => 'reports',
+        'marriage-timing' => 'reports',
+        'career-timing' => 'reports',
+        'career-fields' => 'reports',
+        'foreign-timing' => 'reports',
+        'sarvatobhadra-chakra' => 'predictions',
+        'varshaphal-harsha-bala' => 'tajika',
+        'varshaphal-panchavargeeya-bala' => 'tajika',
     ];
 
     /** Report capabilities that can be rendered as a PDF job. */

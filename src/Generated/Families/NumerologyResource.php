@@ -10,7 +10,7 @@ use Astro96\Api\ApiResponse;
 use Astro96\Api\Client;
 
 /**
- * Numerology: Chaldean/Vedic numerology, name numbers, day numbers and biorhythms.
+ * Numerology: Chaldean or Pythagorean name numbers, Vedic date numbers and grids, day numbers and biorhythms.
  *
  * Reach it as `$client->numerology`.
  */
@@ -55,7 +55,7 @@ final class NumerologyResource
     /**
      * Numerology.
      *
-     * Radical, destiny and name numbers with their planets and favourable details, Lo Shu and Vedic grids, Kua number, personal cycles, combinations, readings and remedies.
+     * Radical, destiny and name numbers (Chaldean by default, or `system` pythagorean) with their planets and favourable details, Lo Shu and Vedic grids, Kua number, personal cycles, combinations, readings and remedies.
      *
      * `POST /v1/numerology/numerology`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -63,11 +63,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, radical_number, destiny_number, name_number, lo_shu_grid, vedic_grid, kua_number, personal_cycles, combination, readings, remedies.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -80,18 +81,19 @@ final class NumerologyResource
     /**
      * Name Numerology.
      *
-     * Chaldean letter values with the Expression, Soul Urge and Personality numbers from a name, and alternative name spellings.
+     * Letter values (Chaldean by default, or `system` pythagorean) with the Expression, Soul Urge and Personality numbers from a name, and, on the Chaldean table, alternative name spellings.
      *
      * `POST /v1/numerology/name-numerology`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth: Ranks name suggestions by friendliness to the radical number. format date
+     * - system: The letter table. Name suggestions are a Chaldean remedy, so they are empty on the Pythagorean table. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, system, letter_values, calculation, expression, soul_urge, personality, name_suggestions.
      *
-     * @param array{name: string, date_of_birth?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth?: string|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -160,11 +162,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, radical_number.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -185,11 +188,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, destiny_number.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -210,11 +214,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, name_number.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -235,11 +240,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, lo_shu_grid.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -260,11 +266,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, vedic_grid.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -285,11 +292,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, kua_number.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -310,11 +318,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, personal_cycles.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -335,11 +344,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, combination.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -360,11 +370,12 @@ final class NumerologyResource
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth (required): format date
      * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, date_of_birth, system, remedies.
      *
-     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -384,11 +395,12 @@ final class NumerologyResource
      * Input fields:
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth: Ranks name suggestions by friendliness to the radical number. format date
+     * - system: The letter table. Name suggestions are a Chaldean remedy, so they are empty on the Pythagorean table. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, system, expression.
      *
-     * @param array{name: string, date_of_birth?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth?: string|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -408,11 +420,12 @@ final class NumerologyResource
      * Input fields:
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth: Ranks name suggestions by friendliness to the radical number. format date
+     * - system: The letter table. Name suggestions are a Chaldean remedy, so they are empty on the Pythagorean table. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, system, soul_urge.
      *
-     * @param array{name: string, date_of_birth?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth?: string|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -432,11 +445,12 @@ final class NumerologyResource
      * Input fields:
      * - name (required): Full name in Latin letters. min length 1; max length 120
      * - date_of_birth: Ranks name suggestions by friendliness to the radical number. format date
+     * - system: The letter table. Name suggestions are a Chaldean remedy, so they are empty on the Pythagorean table. default "chaldean"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): name, system, personality.
      *
-     * @param array{name: string, date_of_birth?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{name: string, date_of_birth?: string|null, system?: 'chaldean'|'pythagorean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

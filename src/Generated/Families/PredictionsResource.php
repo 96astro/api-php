@@ -858,4 +858,35 @@ final class PredictionsResource
     {
         return $this->client->call('/v1/predictions/personal-characteristics-house', $input, $options);
     }
+
+    /**
+     * Sarvatobhadra Chakra.
+     *
+     * A birth's Sarvatobhadra Chakra against a transit moment: the planets by sign and by the 28 nakshatras at birth and in transit, and every vedha with its planet, kind and the cells it crosses. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     *
+     * `POST /v1/predictions/sarvatobhadra-chakra`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - birth (required)
+     * - transit (required)
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
+     * - image_style: Drawing style, with include_image (chakras and diamonds have one style). default "north"
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, birth_datetime, transit_datetime, transit_weekday, transit_tithi_group, birth, transit, vedhas.
+     *
+     * @param array{birth: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, transit: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float}, node?: 'true'|'mean', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function sarvatobhadraChakra(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/predictions/sarvatobhadra-chakra', $input, $options);
+    }
 }

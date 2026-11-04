@@ -2340,4 +2340,37 @@ final class PanchangResource
     {
         return $this->client->call('/v1/panchang/sankranti', $input, $options);
     }
+
+    /**
+     * Chandrashtama Periods.
+     *
+     * When the Moon transits the 8th sign from the natal Moon, for a date range of up to 370 days: each period's start, end and length in hours.
+     *
+     * `POST /v1/panchang/chandrashtama`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - from_date: First day (YYYY-MM-DD). Today by default. format date
+     * - to_date: Last day. 30 days after from_date by default; at most 370 days after it. format date
+     * - query_timezone: IANA zone for the dates and the answer. The birth's zone by default.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, natal_moon_sign, chandrashtama_sign, from_date, to_date, utc_offset_hours, periods.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', from_date?: string|null, to_date?: string|null, query_timezone?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function chandrashtama(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/chandrashtama', $input, $options);
+    }
 }

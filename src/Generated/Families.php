@@ -35,16 +35,16 @@ use Astro96\Api\Generated\Families\UtilitiesResource;
  */
 trait Families
 {
-    /** Vedic: 55 capabilities. */
+    /** Vedic: 56 capabilities. */
     public readonly VedicChartsResource $vedicCharts;
 
-    /** Strengths & relationships: 36 capabilities. */
+    /** Strengths & relationships: 37 capabilities. */
     public readonly StrengthsResource $strengths;
 
     /** Dasha systems: 13 capabilities. */
     public readonly DashasResource $dashas;
 
-    /** Panchang & almanac: 77 capabilities. */
+    /** Panchang & almanac: 78 capabilities. */
     public readonly PanchangResource $panchang;
 
     /** Festivals & muhurta: 7 capabilities. */
@@ -53,16 +53,16 @@ trait Families
     /** Compatibility matching: 27 capabilities. */
     public readonly MatchingResource $matching;
 
-    /** Doshas & yogas: 60 capabilities. */
+    /** Doshas & yogas: 64 capabilities. */
     public readonly DoshasYogasResource $doshasYogas;
 
-    /** Predictions & readings: 28 capabilities. */
+    /** Predictions & readings: 29 capabilities. */
     public readonly PredictionsResource $predictions;
 
     /** Krishnamurti Paddhati (KP): 10 capabilities. */
     public readonly KpResource $kp;
 
-    /** Jaimini: 14 capabilities. */
+    /** Jaimini: 15 capabilities. */
     public readonly JaiminiResource $jaimini;
 
     /** Lal Kitab: 14 capabilities. */
@@ -71,7 +71,7 @@ trait Families
     /** Bhrigu Nandi Nadi (BNN): 17 capabilities. */
     public readonly BnnResource $bnn;
 
-    /** Annual charts (Tajika): 9 capabilities. */
+    /** Annual charts (Tajika): 11 capabilities. */
     public readonly TajikaResource $tajika;
 
     /** Western astrology: 40 capabilities. */
@@ -86,7 +86,7 @@ trait Families
     /** Remedies & guidance: 6 capabilities. */
     public readonly RemediesResource $remedies;
 
-    /** Reports: 15 capabilities. */
+    /** Reports: 20 capabilities. */
     public readonly ReportsResource $reports;
 
     /** Location astrology: 15 capabilities. */
