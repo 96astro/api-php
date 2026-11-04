@@ -35,7 +35,7 @@ use Astro96\Api\Generated\Families\UtilitiesResource;
  */
 trait Families
 {
-    /** Birth charts & planets: 55 capabilities. */
+    /** Vedic: 55 capabilities. */
     public readonly VedicChartsResource $vedicCharts;
 
     /** Strengths & relationships: 36 capabilities. */

@@ -10,7 +10,7 @@ use Astro96\Api\ApiResponse;
 use Astro96\Api\Client;
 
 /**
- * Birth charts & planets: Sidereal birth charts, planet positions, divisional and special-lagna charts, rendered chart images and chart markers.
+ * Vedic: Sidereal birth charts, planet positions, divisional and special-lagna charts, rendered chart images and chart markers.
  *
  * Reach it as `$client->vedicCharts`.
  */
