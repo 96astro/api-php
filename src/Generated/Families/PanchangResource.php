@@ -44,7 +44,7 @@ final class PanchangResource
      *
      * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vara, limbs, sun_moon, calendar, inauspicious, auspicious, disha_shoola, choghadiya, hora, festivals, vasa_shoola, chandra_bala, tara_bala, sunrise_chart, doshas, special_yogas, sankalpa, sacred_tithis, time_heatmap.
      *
-     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -348,7 +348,7 @@ final class PanchangResource
      *
      * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sunrise_chart.
      *
-     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -774,6 +774,1476 @@ final class PanchangResource
     }
 
     /**
+     * Tithi.
+     *
+     * The tithi of the day with its paksha and the moment it ends.
+     *
+     * `POST /v1/panchang/panchang-tithi`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, limbs.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function panchangTithi(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/panchang-tithi', $input, $options);
+    }
+
+    /**
+     * Nakshatra of the Day.
+     *
+     * The Moon's nakshatra for the day and the moment it ends.
+     *
+     * `POST /v1/panchang/panchang-nakshatra`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, limbs.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function panchangNakshatra(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/panchang-nakshatra', $input, $options);
+    }
+
+    /**
+     * Yoga of the Day.
+     *
+     * The panchang yoga (from the Sun and Moon) of the day and the moment it ends.
+     *
+     * `POST /v1/panchang/panchang-yoga`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, limbs.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function panchangYoga(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/panchang-yoga', $input, $options);
+    }
+
+    /**
+     * Karana.
+     *
+     * The karanas of the day, each with its end time.
+     *
+     * `POST /v1/panchang/panchang-karana`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, limbs.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function panchangKarana(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/panchang-karana', $input, $options);
+    }
+
+    /**
+     * Sunrise.
+     *
+     * Sunrise at the place on the day.
+     *
+     * `POST /v1/panchang/sunrise`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sun_moon.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function sunrise(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/sunrise', $input, $options);
+    }
+
+    /**
+     * Sunset.
+     *
+     * Sunset at the place on the day.
+     *
+     * `POST /v1/panchang/sunset`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sun_moon.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function sunset(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/sunset', $input, $options);
+    }
+
+    /**
+     * Solar Noon.
+     *
+     * Local solar noon (madhyahna) at the place on the day.
+     *
+     * `POST /v1/panchang/solar-noon`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sun_moon.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function solarNoon(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/solar-noon', $input, $options);
+    }
+
+    /**
+     * Moonrise.
+     *
+     * Moonrise at the place on the day.
+     *
+     * `POST /v1/panchang/moonrise`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sun_moon.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function moonrise(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/moonrise', $input, $options);
+    }
+
+    /**
+     * Moonset.
+     *
+     * Moonset at the place on the day.
+     *
+     * `POST /v1/panchang/moonset`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sun_moon.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function moonset(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/moonset', $input, $options);
+    }
+
+    /**
+     * Moon Phase.
+     *
+     * The Moon's phase on the day (e.g. Waxing Crescent) with its illumination in percent.
+     *
+     * `POST /v1/panchang/moon-phase`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sun_moon.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function moonPhase(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/moon-phase', $input, $options);
+    }
+
+    /**
+     * Moon Sign of the Day.
+     *
+     * The Moon's sidereal sign on the day.
+     *
+     * `POST /v1/panchang/moon-sign`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sun_moon.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function moonSign(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/moon-sign', $input, $options);
+    }
+
+    /**
+     * Samvat (Year).
+     *
+     * The Shaka, Vikram and Kali samvat years of the day.
+     *
+     * `POST /v1/panchang/samvat`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, calendar.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function samvat(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/samvat', $input, $options);
+    }
+
+    /**
+     * Hindu Month.
+     *
+     * The amanta and purnimanta month of the day, and whether it is an adhik or kshaya masa.
+     *
+     * `POST /v1/panchang/hindu-month`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, calendar.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function hinduMonth(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/hindu-month', $input, $options);
+    }
+
+    /**
+     * Ritu & Ayana.
+     *
+     * The season (ritu) and the half-year (ayana: Uttarayana or Dakshinayana) of the day.
+     *
+     * `POST /v1/panchang/ritu-ayana`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, calendar.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function rituAyana(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/ritu-ayana', $input, $options);
+    }
+
+    /**
+     * Day & Night Length.
+     *
+     * The length of the day (sunrise to sunset) and of the night (sunset to next sunrise).
+     *
+     * `POST /v1/panchang/day-night-duration`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, calendar.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function dayNightDuration(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/day-night-duration', $input, $options);
+    }
+
+    /**
+     * Rahu Kaal.
+     *
+     * The Rahu Kaal window of the day at the place.
+     *
+     * `POST /v1/panchang/rahu-kaal`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, inauspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function rahuKaal(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/rahu-kaal', $input, $options);
+    }
+
+    /**
+     * Yamaganda.
+     *
+     * The Yamaganda window of the day at the place.
+     *
+     * `POST /v1/panchang/yamaganda`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, inauspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function yamaganda(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/yamaganda', $input, $options);
+    }
+
+    /**
+     * Gulika Kaal.
+     *
+     * The Gulika Kaal window of the day at the place.
+     *
+     * `POST /v1/panchang/gulika-kaal`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, inauspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function gulikaKaal(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/gulika-kaal', $input, $options);
+    }
+
+    /**
+     * Dur Muhurtam.
+     *
+     * The Dur Muhurtam windows of the day at the place.
+     *
+     * `POST /v1/panchang/dur-muhurtam`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, inauspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function durMuhurtam(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/dur-muhurtam', $input, $options);
+    }
+
+    /**
+     * Kulika.
+     *
+     * The Kulika window of the day at the place.
+     *
+     * `POST /v1/panchang/kulika`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, inauspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kulika(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/kulika', $input, $options);
+    }
+
+    /**
+     * Kantaka / Mrityu.
+     *
+     * The Kantaka (Mrityu) window of the day at the place.
+     *
+     * `POST /v1/panchang/kantaka-mrityu`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, inauspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kantakaMrityu(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/kantaka-mrityu', $input, $options);
+    }
+
+    /**
+     * Kalavela / Ardhayaam.
+     *
+     * The Kalavela (Ardhayaam) window of the day at the place.
+     *
+     * `POST /v1/panchang/kalavela`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, inauspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kalavela(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/kalavela', $input, $options);
+    }
+
+    /**
+     * Yamaghanta.
+     *
+     * The Yamaghanta window of the day at the place.
+     *
+     * `POST /v1/panchang/yamaghanta`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, inauspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function yamaghanta(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/yamaghanta', $input, $options);
+    }
+
+    /**
+     * Brahma Muhurta.
+     *
+     * The Brahma Muhurta window before sunrise.
+     *
+     * `POST /v1/panchang/brahma-muhurta`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, auspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function brahmaMuhurta(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/brahma-muhurta', $input, $options);
+    }
+
+    /**
+     * Abhijit Muhurta.
+     *
+     * The Abhijit Muhurta around local noon.
+     *
+     * `POST /v1/panchang/abhijit-muhurta`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, auspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function abhijitMuhurta(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/abhijit-muhurta', $input, $options);
+    }
+
+    /**
+     * Vijaya Muhurta.
+     *
+     * The Vijaya Muhurta of the afternoon.
+     *
+     * `POST /v1/panchang/vijaya-muhurta`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, auspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function vijayaMuhurta(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/vijaya-muhurta', $input, $options);
+    }
+
+    /**
+     * Godhuli Muhurta.
+     *
+     * The Godhuli (cow-dust) Muhurta at sunset.
+     *
+     * `POST /v1/panchang/godhuli-muhurta`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, auspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function godhuliMuhurta(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/godhuli-muhurta', $input, $options);
+    }
+
+    /**
+     * Pratah & Sayahna Sandhya.
+     *
+     * The morning (Pratah) and evening (Sayahna) Sandhya windows.
+     *
+     * `POST /v1/panchang/sandhya`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, auspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function sandhya(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/sandhya', $input, $options);
+    }
+
+    /**
+     * Nishita Muhurta.
+     *
+     * The Nishita Muhurta around local midnight.
+     *
+     * `POST /v1/panchang/nishita-muhurta`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, auspicious.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function nishitaMuhurta(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/nishita-muhurta', $input, $options);
+    }
+
+    /**
+     * Disha Shoola.
+     *
+     * The direction to avoid travelling in on the day (disha shoola).
+     *
+     * `POST /v1/panchang/disha-shoola`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vasa_shoola.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function dishaShoola(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/disha-shoola', $input, $options);
+    }
+
+    /**
+     * Chandra Vasa.
+     *
+     * The direction the Moon resides in on the day (chandra vasa).
+     *
+     * `POST /v1/panchang/chandra-vasa`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vasa_shoola.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function chandraVasa(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/chandra-vasa', $input, $options);
+    }
+
+    /**
+     * Rahu Vasa.
+     *
+     * The direction Rahu resides in on the day (rahu vasa).
+     *
+     * `POST /v1/panchang/rahu-vasa`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vasa_shoola.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function rahuVasa(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/rahu-vasa', $input, $options);
+    }
+
+    /**
+     * Shoola Vasa.
+     *
+     * The direction of the shoola vasa on the day.
+     *
+     * `POST /v1/panchang/shoola-vasa`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vasa_shoola.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function shoolaVasa(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/shoola-vasa', $input, $options);
+    }
+
+    /**
+     * Shiva Vasa.
+     *
+     * Where Shiva resides on the day (shiva vasa), its effect and whether it is auspicious, as read for rudrabhisheka.
+     *
+     * `POST /v1/panchang/shiva-vasa`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vasa_shoola.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function shivaVasa(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/shiva-vasa', $input, $options);
+    }
+
+    /**
+     * Agni Vasa & Homahuti.
+     *
+     * Where Agni resides on the day (agnivasa), for homa, and the planet receiving the homahuti.
+     *
+     * `POST /v1/panchang/agni-vasa`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vasa_shoola.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function agniVasa(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/agni-vasa', $input, $options);
+    }
+
+    /**
+     * Kumbha Chakra.
+     *
+     * The Kumbha chakra position of the day and whether it is auspicious.
+     *
+     * `POST /v1/panchang/kumbha-chakra`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vasa_shoola.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kumbhaChakra(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/kumbha-chakra', $input, $options);
+    }
+
+    /**
+     * Bhadra Vasa.
+     *
+     * Where Bhadra (Vishti karana) resides on the day: heaven, earth or the underworld (empty on a day without Bhadra).
+     *
+     * `POST /v1/panchang/bhadra-vasa`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vasa_shoola.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function bhadraVasa(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/bhadra-vasa', $input, $options);
+    }
+
+    /**
+     * Chandrabalam.
+     *
+     * The Chandra bala of each of the twelve Moon signs for the day.
+     *
+     * `POST /v1/panchang/chandrabalam`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, chandra_bala.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function chandrabalam(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/chandrabalam', $input, $options);
+    }
+
+    /**
+     * Tarabalam.
+     *
+     * The tara bala for each birth nakshatra now, and after the day's nakshatra changes.
+     *
+     * `POST /v1/panchang/tarabalam`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, tara_bala.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function tarabalam(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/tarabalam', $input, $options);
+    }
+
+    /**
+     * Panchak.
+     *
+     * Whether Panchak runs on the day, with its nakshatra, its kind and when it ends.
+     *
+     * `POST /v1/panchang/panchak`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, doshas.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function panchak(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/panchak', $input, $options);
+    }
+
+    /**
+     * Bhadra (Vishti).
+     *
+     * Whether Bhadra (Vishti karana) falls on the day, with the day's karana.
+     *
+     * `POST /v1/panchang/bhadra`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, doshas.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function bhadra(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/bhadra', $input, $options);
+    }
+
+    /**
+     * Ganda Mool.
+     *
+     * Whether a Ganda Mool nakshatra runs on the day, which one and when it ends.
+     *
+     * `POST /v1/panchang/ganda-mool`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, doshas.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function gandaMool(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/ganda-mool', $input, $options);
+    }
+
+    /**
+     * Vinchudo.
+     *
+     * Whether Vinchudo (the Moon in Scorpio) runs on the day.
+     *
+     * `POST /v1/panchang/vinchudo`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, doshas.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function vinchudo(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/vinchudo', $input, $options);
+    }
+
+    /**
+     * Kranti Samya.
+     *
+     * Whether the Sun and Moon reach equal declination (Kranti Samya) on the day, with the declination.
+     *
+     * `POST /v1/panchang/kranti-samya`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, doshas.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function krantiSamya(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/kranti-samya', $input, $options);
+    }
+
+    /**
+     * Jwalamukhi Yoga.
+     *
+     * Whether Jwalamukhi Yoga (an inauspicious tithi-nakshatra pair) falls on the day.
+     *
+     * `POST /v1/panchang/jwalamukhi-yoga`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, doshas.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function jwalamukhiYoga(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/jwalamukhi-yoga', $input, $options);
+    }
+
+    /**
+     * Sankalpa.
+     *
+     * The sankalpa text for the day and place, in transliterated Sanskrit (kalpa, manvantara, yuga, samvat, ayana, ritu, month, paksha, tithi, vara).
+     *
+     * `POST /v1/panchang/sankalpa`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sankalpa.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function sankalpa(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/sankalpa', $input, $options);
+    }
+
+    /**
+     * Manvadi Tithi.
+     *
+     * The Manvadi tithi in force (its manvantara and traditional tithi) and whether the day is one.
+     *
+     * `POST /v1/panchang/manvadi-tithi`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sacred_tithis.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function manvadiTithi(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/manvadi-tithi', $input, $options);
+    }
+
+    /**
+     * Yugadi Tithi.
+     *
+     * The Yugadi tithi in force (its yuga and traditional tithi) and whether the day is one.
+     *
+     * `POST /v1/panchang/yugadi-tithi`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sacred_tithis.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function yugadiTithi(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/yugadi-tithi', $input, $options);
+    }
+
+    /**
+     * Kalpadi Tithi.
+     *
+     * The Kalpadi tithi in force: its kalpa and traditional tithi.
+     *
+     * `POST /v1/panchang/kalpadi-tithi`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date (required): Civil date, YYYY-MM-DD. format date
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - node: default "true"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, sacred_tithis.
+     *
+     * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function kalpadiTithi(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/kalpadi-tithi', $input, $options);
+    }
+
+    /**
      * Ingresses & Stations.
      *
      * Sign and nakshatra ingresses (Sankrantis for the Sun) and retrograde/direct stations over a date range.
@@ -803,5 +2273,67 @@ final class PanchangResource
     public function planetaryEvents(array $input, array $options = []): ApiResponse
     {
         return $this->client->call('/v1/panchang/planetary-events', $input, $options);
+    }
+
+    /**
+     * Retrograde & Direct Stations.
+     *
+     * Every retrograde and direct station of the planets over a date range: the planet, when, and the sign and nakshatra it stations in.
+     *
+     * `POST /v1/panchang/retrograde-stations`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - from_date (required): format date
+     * - to_date (required): format date
+     * - planets: Bodies to follow. Default: all but the Moon, which is included only when named.
+     * - include_nakshatra_ingresses: default true
+     * - include_stations: default true
+     * - node: Lunar node for Rahu/Ketu. 'true' also reports the true node's frequent stations. default "mean"
+     * - ayanamsha: default "lahiri"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): from_date, to_date, timezone, planets, node, events.
+     *
+     * @param array{timezone?: string|null, utc_offset?: string|null, from_date: string, to_date: string, planets?: list<'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Rahu'|'Ketu'>|null, include_nakshatra_ingresses?: bool, include_stations?: bool, node?: 'true'|'mean', ayanamsha?: 'lahiri', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function retrogradeStations(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/retrograde-stations', $input, $options);
+    }
+
+    /**
+     * Sankranti (Sun's Sign Ingresses).
+     *
+     * Every Sankranti over a date range: the moment the Sun enters each sidereal sign.
+     *
+     * `POST /v1/panchang/sankranti`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - from_date (required): format date
+     * - to_date (required): format date
+     * - planets: Bodies to follow. Default: all but the Moon, which is included only when named.
+     * - include_nakshatra_ingresses: default true
+     * - include_stations: default true
+     * - node: Lunar node for Rahu/Ketu. 'true' also reports the true node's frequent stations. default "mean"
+     * - ayanamsha: default "lahiri"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): from_date, to_date, timezone, planets, node, events.
+     *
+     * @param array{timezone?: string|null, utc_offset?: string|null, from_date: string, to_date: string, planets?: list<'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Rahu'|'Ketu'>|null, include_nakshatra_ingresses?: bool, include_stations?: bool, node?: 'true'|'mean', ayanamsha?: 'lahiri', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function sankranti(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/sankranti', $input, $options);
     }
 }

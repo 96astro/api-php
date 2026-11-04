@@ -44,7 +44,7 @@ trait Families
     /** Dasha systems: 13 capabilities. */
     public readonly DashasResource $dashas;
 
-    /** Panchang & almanac: 26 capabilities. */
+    /** Panchang & almanac: 77 capabilities. */
     public readonly PanchangResource $panchang;
 
     /** Festivals & muhurta: 7 capabilities. */
