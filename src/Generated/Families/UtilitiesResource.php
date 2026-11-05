@@ -234,4 +234,29 @@ final class UtilitiesResource
     {
         return $this->client->call('/v1/utilities/resolve-instant', $input, $options);
     }
+
+    /**
+     * Ayanamsha List.
+     *
+     * Seven ayanamsha systems with their values in degrees at a moment.
+     *
+     * `POST /v1/utilities/ayanamsha-list`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone
+     * - utc_offset
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): at, ayanamshas.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function ayanamshaList(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/utilities/ayanamsha-list', $input, $options);
+    }
 }

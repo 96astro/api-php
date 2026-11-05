@@ -61,7 +61,7 @@ final class AiResource
      *
      * `data` fields in the documented example (inferred, not a contract): defect, sections, text, tier, remedies_explained, dasha_used.
      *
-     * @param array{defect: array{key?: string, title: string, severity: 'severe'|'poor'|'mixed', has_remedy?: bool|null}, remedies?: array{defect: string, severity: 'severe'|'poor'|'mixed', priority?: int|null, free?: list<array<string, mixed>>, objects?: list<array<string, mixed>>, structural?: list<array<string, mixed>>}|null, dasha?: array{mahadasha: 'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Rahu'|'Ketu', antardasha?: 'Sun'|'Moon'|'Mars'|'Mercury'|'Jupiter'|'Venus'|'Saturn'|'Rahu'|'Ketu'|null, mahadasha_end?: string|null, antardasha_end?: string|null}|null, tier?: 'fast'|'balanced'|'deep', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{defect: array{key?: string, title: string, severity: 'severe'|'poor'|'mixed', has_remedy?: bool|null}, remedies?: array{defect: string, severity: 'severe'|'poor'|'mixed', priority?: int|null, free?: list<array<string, mixed>>, objects?: list<array<string, mixed>>, structural?: list<array<string, mixed>>}|null, dasha?: array{mahadasha: 'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Rahu'|'Ketu', antardasha?: 'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Rahu'|'Ketu'|null, mahadasha_end?: string|null, antardasha_end?: string|null}|null, tier?: 'fast'|'balanced'|'deep', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -88,7 +88,7 @@ final class AiResource
      *
      * `data` fields in the documented example (inferred, not a contract): top3, summary, goal, tier, candidates, dasha_used.
      *
-     * @param array{remedies: list<array{defect: string, severity: 'severe'|'poor'|'mixed', priority?: int|null, free?: list<array<string, mixed>>, objects?: list<array<string, mixed>>, structural?: list<array<string, mixed>>}>, defects?: list<array{key?: string, title: string, severity: 'severe'|'poor'|'mixed', has_remedy?: bool|null}>, dasha?: array{mahadasha: 'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Rahu'|'Ketu', antardasha?: 'Sun'|'Moon'|'Mars'|'Mercury'|'Jupiter'|'Venus'|'Saturn'|'Rahu'|'Ketu'|null, mahadasha_end?: string|null, antardasha_end?: string|null}|null, goal?: 'career'|'marriage'|'wealth'|'spiritual'|'health'|'education'|'peace'|'children'|'property'|'romance'|'fame'|'foreign'|'travel'|'politics'|'arts'|null, tier?: 'fast'|'balanced'|'deep', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{remedies: list<array{defect: string, severity: 'severe'|'poor'|'mixed', priority?: int|null, free?: list<array<string, mixed>>, objects?: list<array<string, mixed>>, structural?: list<array<string, mixed>>}>, defects?: list<array{key?: string, title: string, severity: 'severe'|'poor'|'mixed', has_remedy?: bool|null}>, dasha?: array{mahadasha: 'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Rahu'|'Ketu', antardasha?: 'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Rahu'|'Ketu'|null, mahadasha_end?: string|null, antardasha_end?: string|null}|null, goal?: 'career'|'marriage'|'wealth'|'spiritual'|'health'|'education'|'peace'|'children'|'property'|'romance'|'fame'|'foreign'|'travel'|'politics'|'arts'|null, tier?: 'fast'|'balanced'|'deep', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -269,5 +269,70 @@ final class AiResource
     public function locationAiAnalysis(array $input, array $options = []): ApiResponse
     {
         return $this->client->call('/v1/ai/location-ai-analysis', $input, $options);
+    }
+
+    /**
+     * AI Chat for a Couple.
+     *
+     * An AI answer about two people, with earlier turns as history; grounded in their computed matching report.
+     *
+     * `POST /v1/ai/ai-match-chat`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - question (required): min length 1; max length 1000
+     * - history: Earlier turns, oldest first. max items 6
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - tier: default "balanced"
+     * - persona: default "coach"
+     * - context
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding.
+     *
+     * @param array{groom: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, bride: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, question: string, history?: list<array{role: 'user'|'assistant', content: string}>, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function aiMatchChat(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/ai/ai-match-chat', $input, $options);
+    }
+
+    /**
+     * AI Chat, Western.
+     *
+     * An AI answer about a birth chart in the tropical tradition, with earlier turns as history; grounded in the computed Western report.
+     *
+     * `POST /v1/ai/ai-western-chat`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - tier: fast (Claude Haiku), balanced (Sonnet) or deep (Opus). Sets the price range. default "balanced"
+     * - persona: Voice of the reading: coach (plain), pandit (traditional) or analyst. default "coach"
+     * - context: Ground the reading in this report's data instead of the natal chart. Only the AI reading is charged, never less than the report itself.
+     * - question (required): min length 1; max length 1000
+     * - history: Earlier turns, oldest first. max items 6
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, question: string, history?: list<array{role: 'user'|'assistant', content: string}>, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function aiWesternChat(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/ai/ai-western-chat', $input, $options);
     }
 }

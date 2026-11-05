@@ -479,4 +479,72 @@ final class LocationAstrologyResource
     {
         return $this->client->call('/v1/location-astrology/location-categories', $input, $options);
     }
+
+    /**
+     * Astrocartography Map.
+     *
+     * A world map image of the planetary lines for a birth, with filters by planet, line and life goal.
+     *
+     * `POST /v1/location-astrology/acg-map`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node for the Rahu/Ketu lines: true (osculating) or mean. default "true"
+     * - planets: Only these planets. Default all.
+     * - goal: Only the planets that signify this goal, from location-categories, such as career.
+     * - angles: Only these lines. Default all four.
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): lines, images.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri'|'krishnamurti'|'raman', language?: 'en', node?: 'true'|'mean', planets?: list<'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Uranus'|'Neptune'|'Pluto'|'Rahu'|'Ketu'>|null, goal?: string|null, angles?: list<'ASC'|'DSC'|'MC'|'IC'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function acgMap(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/location-astrology/acg-map', $input, $options);
+    }
+
+    /**
+     * Transit Astrocartography Map.
+     *
+     * A world map image of the planetary lines at any moment, with filters by planet and line.
+     *
+     * `POST /v1/location-astrology/transit-acg-map`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30
+     * - planets: Only these planets. Default all.
+     * - angles: Only these lines. Default all four.
+     * - labels
+     * - image_format
+     * - image_width
+     * - image_theme
+     * - image_delivery
+     *
+     * `data` fields in the documented example (inferred, not a contract): lines, images.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, planets?: list<'Sun'|'Moon'|'Mercury'|'Venus'|'Mars'|'Jupiter'|'Saturn'|'Uranus'|'Neptune'|'Pluto'|'Rahu'|'Ketu'>|null, angles?: list<'ASC'|'DSC'|'MC'|'IC'>|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function transitAcgMap(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/location-astrology/transit-acg-map', $input, $options);
+    }
 }

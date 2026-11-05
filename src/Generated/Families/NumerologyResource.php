@@ -553,4 +553,28 @@ final class NumerologyResource
     {
         return $this->client->call('/v1/numerology/numerology-daily', $input, $options);
     }
+
+    /**
+     * Personal Year, Month and Day Readings.
+     *
+     * A reading of each personal number for a date, from how its ruling planet meets the person's birth number.
+     *
+     * `POST /v1/numerology/numerology-personal-readings`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date_of_birth (required): format date
+     * - date: The day. Default today (UTC). format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, radical_number, personal_year, personal_month, personal_day.
+     *
+     * @param array{date_of_birth: string, date?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function numerologyPersonalReadings(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/numerology-personal-readings', $input, $options);
+    }
 }

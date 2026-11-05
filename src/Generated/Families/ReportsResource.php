@@ -656,4 +656,117 @@ final class ReportsResource
     {
         return $this->client->call('/v1/reports/foreign-timing', $input, $options);
     }
+
+    /**
+     * Numerology Report.
+     *
+     * Core numbers, challenge numbers, what the name holds and lacks, and the personal cycles, as one report.
+     *
+     * `POST /v1/reports/report-numerology`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - date_of_birth (required): format date
+     * - gender: Needed for the Kua number (null without it: the formula differs by gender).
+     * - system: The letter table for the name numbers. The numbers from the date of birth are the same in both. default "chaldean"
+     * - date: The day for the personal cycles. Default today (UTC). format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): title, core_numbers, challenge_numbers, name_analysis, personal_cycles.
+     *
+     * @param array{name: string, date_of_birth: string, gender?: 'male'|'female'|null, system?: 'chaldean'|'pythagorean', date?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function reportNumerology(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/report-numerology', $input, $options);
+    }
+
+    /**
+     * Varshaphal Report.
+     *
+     * The whole annual chart reading as one report: year chart, Muntha, Panchadhikari, Sahams, Tajika yogas, Mudda dasha.
+     *
+     * `POST /v1/reports/report-varshaphal`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - target_year (required): Calendar year of the return.
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): title, ayanamsha, target_year, return_moment, method, ascendant, planets, muntha, panchadhikari, harsha_bala, panchavargeeya_bala, sahams, maasa_charts, mudda_dasha, tajika_yogas.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', target_year: int, node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function reportVarshaphal(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/report-varshaphal', $input, $options);
+    }
+
+    /**
+     * Solar Return Report.
+     *
+     * The year's solar return as one report.
+     *
+     * `POST /v1/reports/report-solar-return`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - target_year (required): min 1800; max 2399
+     * - house_system: default "P"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): title, year, return_moment, ascendant, midheaven, theme, planets, aspects_to_natal.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', target_year: int, house_system?: 'P'|'K'|'W'|'E', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function reportSolarReturn(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/report-solar-return', $input, $options);
+    }
+
+    /**
+     * Star Sign Compatibility Report.
+     *
+     * Both personalities and every love, friendship and lasting-bond contact between two charts, as one report.
+     *
+     * `POST /v1/reports/report-star-sign-compatibility`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - person_a (required)
+     * - person_b (required)
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): title, person_a, person_b, love, friendship, lasting_bonds.
+     *
+     * @param array{person_a: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, person_b: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function reportStarSignCompatibility(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/report-star-sign-compatibility', $input, $options);
+    }
 }
