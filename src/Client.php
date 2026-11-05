@@ -325,6 +325,13 @@ class Client
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      */
+    public function createAudioJob(string $capability, array $input, array $settings = [], array $options = []): ApiResponse
+    {
+        // $settings: language, minutes, tone, voice, listener_name.
+        $body = ['capability' => $capability, 'input' => $input === [] ? new \stdClass() : $input] + $settings;
+        return $this->request('POST', '/v1/jobs/audio', $body, $options);
+    }
+
     public function createPdfJob(string $capability, array $input, ?array $branding = null, ?string $language = null, array $options = []): ApiResponse
     {
         $body = ['capability' => $capability, 'input' => $input === [] ? new \stdClass() : $input];
