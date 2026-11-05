@@ -31,9 +31,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -62,9 +62,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -93,9 +93,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -124,9 +124,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -155,9 +155,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -190,9 +190,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - labels
@@ -220,9 +220,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -251,9 +251,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -282,9 +282,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -313,9 +313,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -348,9 +348,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -381,9 +381,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -412,9 +412,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - target_year (required): Calendar year of the solar return, e.g. 2026. min 1800; max 2399
@@ -899,9 +899,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -933,9 +933,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -968,9 +968,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -1001,9 +1001,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -1035,9 +1035,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -1070,9 +1070,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - name: Name to print in readings. max length 120; default ""
      * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
@@ -1151,8 +1151,8 @@ final class WesternResource
      *
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
-     * - timezone
-     * - utc_offset
+     * - timezone: IANA time zone, e.g. Asia/Kolkata. Send this or utc_offset.
+     * - utc_offset: Fixed offset such as +05:30. Send this or timezone.
      * - birth: Adds the Moon phase the person was born under.
      * - labels
      *
@@ -1179,11 +1179,11 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
-     * - house_system: default "P"
+     * - house_system: P Placidus, K Koch, W whole sign, E equal. default "P"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): house_system, points, asteroids, asteroids_unavailable.
@@ -1209,14 +1209,14 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
-     * - start_date (required): format date
-     * - days: min 1; max 120; default 31
+     * - start_date (required): First day of the range, YYYY-MM-DD. format date
+     * - days: How many days to cover. min 1; max 120; default 31
      * - orb: Degrees either side of exact. max 5; > 0; default 1.0
-     * - house_system: default "P"
+     * - house_system: P Placidus, K Koch, W whole sign, E equal. default "P"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): from, days, orb, events, stations, moon_phases.
@@ -1234,15 +1234,15 @@ final class WesternResource
     /**
      * Sun and Rising Compatibility.
      *
-     * Compatibility from two people's Sun and rising signs together.
+     * A compatibility percentage and verdict from two people's Sun and rising signs, scoring each pairing, with a summary. It needs no birth time.
      *
      * `POST /v1/western/western-sun-rising-match`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - sun_sign_a (required)
-     * - rising_sign_a (required)
-     * - sun_sign_b (required)
-     * - rising_sign_b (required)
+     * - sun_sign_a (required): First person's Sun sign.
+     * - rising_sign_a (required): First person's rising sign.
+     * - sun_sign_b (required): Second person's Sun sign.
+     * - rising_sign_b (required): Second person's rising sign.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): compatibility_percent, verdict, pairs, summary.
@@ -1268,9 +1268,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - labels
      *
@@ -1297,9 +1297,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - labels
      *
@@ -1326,12 +1326,12 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
-     * - start_date (required): format date
-     * - days: min 1; max 370; default 180
+     * - start_date (required): First day of the range, YYYY-MM-DD. format date
+     * - days: How many days to cover. min 1; max 370; default 180
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): from, days, forecast.
@@ -1354,8 +1354,8 @@ final class WesternResource
      * `POST /v1/western/western-friendship-report`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - person_a (required)
-     * - person_b (required)
+     * - person_a (required): First person's birth details.
+     * - person_b (required): Second person's birth details.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): contacts, easy, hard, summary.
@@ -1378,8 +1378,8 @@ final class WesternResource
      * `POST /v1/western/western-karma-report`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - person_a (required)
-     * - person_b (required)
+     * - person_a (required): First person's birth details.
+     * - person_b (required): Second person's birth details.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): contacts, easy, hard, summary.
@@ -1402,8 +1402,8 @@ final class WesternResource
      * `POST /v1/western/western-love-contacts`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - person_a (required)
-     * - person_b (required)
+     * - person_a (required): First person's birth details.
+     * - person_b (required): Second person's birth details.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): contacts, easy, hard, summary.
@@ -1421,15 +1421,15 @@ final class WesternResource
     /**
      * Couple Romantic Forecast.
      *
-     * Dated love periods for two people over a date range.
+     * Dated love periods for two people over a date range, from transits to each person's chart, saying whose chart each one touches.
      *
      * `POST /v1/western/western-couple-forecast`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - person_a (required)
-     * - person_b (required)
-     * - start_date (required): format date
-     * - days: min 1; max 370; default 180
+     * - person_a (required): First person's birth details.
+     * - person_b (required): Second person's birth details.
+     * - start_date (required): First day of the range, YYYY-MM-DD. format date
+     * - days: How many days to cover. min 1; max 370; default 180
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): from, days, forecast.
@@ -1455,9 +1455,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - planet: One planet, or all ten.
      * - labels
@@ -1477,7 +1477,7 @@ final class WesternResource
     /**
      * House Cusp Readings.
      *
-     * A reading of each house from its sign and where its ruler sits.
+     * A reading of each of the twelve houses from its sign and where its ruler sits.
      *
      * `POST /v1/western/western-house-readings`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -1485,9 +1485,9 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - labels
      *
@@ -1514,12 +1514,12 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
-     * - start_date (required): format date
-     * - days: min 1; max 370; default 180
+     * - start_date (required): First day of the range, YYYY-MM-DD. format date
+     * - days: How many days to cover. min 1; max 370; default 180
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): from, days, forecast, stations.
@@ -1545,12 +1545,12 @@ final class WesternResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
-     * - target_year (required): min 1800; max 2399
-     * - house_system: default "P"
+     * - target_year (required): The year of the return. min 1800; max 2399
+     * - house_system: P Placidus, K Koch, W whole sign, E equal. default "P"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): year, return_moment, ascendant, midheaven, theme, planets, aspects_to_natal.

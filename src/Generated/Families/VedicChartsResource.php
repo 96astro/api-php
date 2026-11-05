@@ -31,9 +31,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
@@ -67,9 +67,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -97,9 +97,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -127,9 +127,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - charts: Which vargas to return, e.g. ["D9", "D10"]. All 23 when omitted.
@@ -164,9 +164,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
@@ -200,9 +200,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
@@ -236,9 +236,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing(s) as `images` (priced as a heavy calculation). default false
@@ -272,9 +272,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -306,9 +306,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -336,9 +336,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -366,9 +366,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - style: Chart drawing style. default "north"
@@ -403,9 +403,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -442,9 +442,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -481,9 +481,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -520,9 +520,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -559,9 +559,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -598,9 +598,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -637,9 +637,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -676,9 +676,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -715,9 +715,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -754,9 +754,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -793,9 +793,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -832,9 +832,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -871,9 +871,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -910,9 +910,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -949,9 +949,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -988,9 +988,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1027,9 +1027,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1066,9 +1066,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1105,9 +1105,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1144,9 +1144,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1183,9 +1183,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1222,9 +1222,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1261,9 +1261,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1300,9 +1300,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1337,9 +1337,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1374,9 +1374,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1411,9 +1411,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1448,9 +1448,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1485,9 +1485,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1522,9 +1522,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - include_image: Add the chart drawing (3 credits instead of 1). default false
@@ -1559,9 +1559,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -1593,9 +1593,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -1627,9 +1627,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -1661,9 +1661,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -1695,9 +1695,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -1725,9 +1725,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -1755,9 +1755,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -1785,9 +1785,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -1815,9 +1815,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -1845,9 +1845,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - varga: Divisional chart, "D1" to "D300". default "D1"
@@ -1876,9 +1876,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - varga: Divisional chart, "D1" to "D300". default "D1"
@@ -1909,9 +1909,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - varga: Divisional chart, "D1" to "D300". default "D1"
@@ -1942,9 +1942,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - varga: Divisional chart, "D1" to "D300". default "D1"
@@ -1974,9 +1974,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
@@ -2004,9 +2004,9 @@ final class VedicChartsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels

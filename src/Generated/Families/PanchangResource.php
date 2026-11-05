@@ -2352,9 +2352,9 @@ final class PanchangResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - from_date: First day (YYYY-MM-DD). Today by default. format date
@@ -2383,8 +2383,8 @@ final class PanchangResource
      *
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
-     * - timezone
-     * - utc_offset
+     * - timezone: IANA time zone, e.g. Asia/Kolkata. Send this or utc_offset.
+     * - utc_offset: Fixed offset such as +05:30. Send this or timezone.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): at, phase, illumination_percent, age_days, distance_km, sign_tropical, month_extremes.
@@ -2402,18 +2402,18 @@ final class PanchangResource
     /**
      * Special Yogas in a Month.
      *
-     * Every date and time window of one special yoga in a month at a place.
+     * Every date and time window of one special yoga, such as Ravi Yoga, in a month at a place.
      *
      * `POST /v1/panchang/month-yogas`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - yoga (required)
-     * - year (required): min 1000; max 2200
-     * - month (required): min 1; max 12
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - timezone
-     * - utc_offset
+     * - yoga (required): The special yoga to list.
+     * - year (required): The year. min 1000; max 2200
+     * - month (required): The month, 1 to 12. min 1; max 12
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - timezone: IANA time zone, e.g. Asia/Kolkata. Send this or utc_offset.
+     * - utc_offset: Fixed offset such as +05:30. Send this or timezone.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): yoga, year, month, count, occurrences, time_resolution_minutes.
@@ -2437,8 +2437,8 @@ final class PanchangResource
      *
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
-     * - timezone
-     * - utc_offset
+     * - timezone: IANA time zone, e.g. Asia/Kolkata. Send this or utc_offset.
+     * - utc_offset: Fixed offset such as +05:30. Send this or timezone.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): at, tithi, nakshatra, yoga, karana.

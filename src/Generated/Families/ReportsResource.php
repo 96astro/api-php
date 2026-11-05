@@ -31,9 +31,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -63,9 +63,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -97,9 +97,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -129,9 +129,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -161,9 +161,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -193,9 +193,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -225,9 +225,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -257,9 +257,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -289,9 +289,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -321,9 +321,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -353,9 +353,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -385,9 +385,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -417,9 +417,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - bundle: small: ascendant reading. medium: + gemstones, rudraksha. large: + yogas, graha phala. dasha: ascendant, dasha reading, yogas. annual: ascendant + the next 12 months from the current month. default "small"
@@ -478,9 +478,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - as_of: Date the age, running dasha and transits are judged on (YYYY-MM-DD). Defaults to today (UTC). format date
@@ -509,9 +509,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - as_of: Date the age, running dasha and transits are judged on (YYYY-MM-DD). Defaults to today (UTC). format date
@@ -540,9 +540,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -572,9 +572,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -604,9 +604,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -636,9 +636,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
@@ -695,9 +695,9 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - target_year (required): Calendar year of the return.
      * - node: Lunar node: true (osculating) or mean. default "true"
@@ -718,7 +718,7 @@ final class ReportsResource
     /**
      * Solar Return Report.
      *
-     * The year's solar return as one report.
+     * The Western solar return for a year as one report: its moment, rising sign and Midheaven, the year's theme, a reading of each planet and its aspects to the natal chart.
      *
      * `POST /v1/reports/report-solar-return`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -726,12 +726,12 @@ final class ReportsResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
-     * - target_year (required): min 1800; max 2399
-     * - house_system: default "P"
+     * - target_year (required): The year of the return. min 1800; max 2399
+     * - house_system: P Placidus, K Koch, W whole sign, E equal. default "P"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): title, year, return_moment, ascendant, midheaven, theme, planets, aspects_to_natal.
@@ -754,8 +754,8 @@ final class ReportsResource
      * `POST /v1/reports/report-star-sign-compatibility`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - person_a (required)
-     * - person_b (required)
+     * - person_a (required): First person's birth details.
+     * - person_b (required): Second person's birth details.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): title, person_a, person_b, love, friendship, lasting_bonds.

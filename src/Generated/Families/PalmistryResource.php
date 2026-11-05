@@ -23,7 +23,7 @@ final class PalmistryResource
     /**
      * Whole Palm Reading.
      *
-     * Every section of a palm reading from one photo, for the price of one call.
+     * Every section of a palm reading from one photo, for the price of one call: hand type, fingers, lines, mounts and life themes.
      *
      * `POST /v1/palmistry/palm-reading`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -50,7 +50,7 @@ final class PalmistryResource
     /**
      * Palm: Hand Type.
      *
-     * The hand's shape by the elements. Read from a photo of the palm.
+     * The hand's shape by the elements. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-hand-type`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -77,7 +77,7 @@ final class PalmistryResource
     /**
      * Palm: Fingers.
      *
-     * Each finger and the thumb. Read from a photo of the palm.
+     * Each finger and the thumb. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-fingers`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -104,7 +104,7 @@ final class PalmistryResource
     /**
      * Palm: Major Lines.
      *
-     * The life, head, heart and fate lines. Read from a photo of the palm.
+     * The life, head, heart and fate lines. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-major-lines`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -131,7 +131,7 @@ final class PalmistryResource
     /**
      * Palm: Minor Lines.
      *
-     * The Sun, health, marriage and travel lines. Read from a photo of the palm.
+     * The Sun, health, marriage and travel lines. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-minor-lines`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -158,7 +158,7 @@ final class PalmistryResource
     /**
      * Palm: Mounts.
      *
-     * Which mounts are full and which flat. Read from a photo of the palm.
+     * Which mounts are full and which flat. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-mounts`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -185,7 +185,7 @@ final class PalmistryResource
     /**
      * Palm: Special Marks.
      *
-     * Stars, crosses, islands and other marks, if visible. Read from a photo of the palm.
+     * Stars, crosses, islands and other marks, if visible. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-special-features`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -212,7 +212,7 @@ final class PalmistryResource
     /**
      * Palm: Personality.
      *
-     * Character and temperament. Read from a photo of the palm.
+     * Character and temperament. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-personality`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -239,7 +239,7 @@ final class PalmistryResource
     /**
      * Palm: Career.
      *
-     * Work and calling. Read from a photo of the palm.
+     * Work and calling. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-career`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -266,7 +266,7 @@ final class PalmistryResource
     /**
      * Palm: Money.
      *
-     * Money and how it is handled. Read from a photo of the palm.
+     * Money and how it is handled. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-money`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -293,7 +293,7 @@ final class PalmistryResource
     /**
      * Palm: Love.
      *
-     * Love and affection. Read from a photo of the palm.
+     * Love and affection. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-love`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -320,7 +320,7 @@ final class PalmistryResource
     /**
      * Palm: Marriage.
      *
-     * Marriage and long partnership. Read from a photo of the palm.
+     * Marriage and long partnership. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-marriage`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -347,7 +347,7 @@ final class PalmistryResource
     /**
      * Palm: Vitality.
      *
-     * General vitality and habits, never a diagnosis. Read from a photo of the palm.
+     * General vitality and habits, never a diagnosis. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-health`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -374,7 +374,7 @@ final class PalmistryResource
     /**
      * Palm: Challenges.
      *
-     * Difficulties to prepare for. Read from a photo of the palm.
+     * Difficulties to prepare for. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-challenges`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -401,7 +401,7 @@ final class PalmistryResource
     /**
      * Palm: Luck.
      *
-     * Fortune and timing. Read from a photo of the palm.
+     * Fortune and timing. Read from one photo of the palm by a vision model; the photo is not stored.
      *
      * `POST /v1/palmistry/palm-luck`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -428,7 +428,7 @@ final class PalmistryResource
     /**
      * Palm: Ask a Question.
      *
-     * One question answered from a photo of the palm.
+     * One question of your own, up to 300 characters, answered from a photo of the palm, with the full reading it draws on.
      *
      * `POST /v1/palmistry/palm-question`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -456,7 +456,7 @@ final class PalmistryResource
     /**
      * Palm Compatibility.
      *
-     * How two people connect and fit, from a photo of each palm.
+     * How two people connect, how their lives fit and what guidance follows, from a photo of each palm.
      *
      * `POST /v1/palmistry/palm-compatibility`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -467,7 +467,7 @@ final class PalmistryResource
      * - consent (required): Must be true: the person in the photo agreed to this reading, and is an adult or has a guardian's agreement.
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - second_image_base64 (required): The second person's palm, as image_base64. min length 1
-     * - second_mime_type
+     * - second_mime_type: The second photo's type, if it cannot be told from the data.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): sections, notice, tier, language.

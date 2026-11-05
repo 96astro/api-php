@@ -205,3 +205,17 @@ ASTRO96_LIVE_SMOKE=1 ASTRO_API_KEY=sk_test_... composer test-live   # calls the 
 To try it from another project before release, add a path repository: `"repositories": [{"type": "path", "url": "../96astro_api_website/packages/sdk-php"}]` then `composer require 96astro/api:@dev`.
 
 Publishing: see `docs/31-publishing-sdks.md` (Packagist reads a split mirror repository; tags `v<version>`).
+
+## Audio reports
+
+Any report can come back as a spoken MP3 in 26 languages, as a background job. Poll it as you would a PDF job. See [Audio reports](https://96astroapi.com/docs/audio-reports).
+
+```php
+$job = $client->createAudioJob(
+    'report-career',
+    ['datetime' => '1990-10-18T14:30:00', 'timezone' => 'Asia/Kolkata', 'latitude' => 28.6139, 'longitude' => 77.209],
+    ['language' => 'hi', 'minutes' => 5],
+);
+```
+
+Palm and face readings are ordinary calls that take a photo as base64: see [Palm and face readings](https://96astroapi.com/docs/photo-readings).

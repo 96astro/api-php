@@ -31,9 +31,9 @@ final class NumerologyResource
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
      * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
-     * - latitude (required): min -90; max 90
-     * - longitude (required): min -180; max 180
-     * - ayanamsha: default "lahiri"
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - name (required): Full name as used day to day. min length 1; max length 120
@@ -468,7 +468,7 @@ final class NumerologyResource
      * `POST /v1/numerology/challenge-numbers`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - date_of_birth (required): format date
+     * - date_of_birth (required): Date of birth, YYYY-MM-DD. format date
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): date_of_birth, challenge_numbers.
@@ -514,8 +514,8 @@ final class NumerologyResource
      * `POST /v1/numerology/numerology-match`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - date_of_birth_a (required): format date
-     * - date_of_birth_b (required): format date
+     * - date_of_birth_a (required): First person's date of birth, YYYY-MM-DD. format date
+     * - date_of_birth_b (required): Second person's date of birth, YYYY-MM-DD. format date
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): person_a, person_b, compatibility_percent, verdict, pairs, note.
@@ -538,7 +538,7 @@ final class NumerologyResource
      * `POST /v1/numerology/numerology-daily`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - date_of_birth (required): format date
+     * - date_of_birth (required): Date of birth, YYYY-MM-DD. format date
      * - date: The day. Default today (UTC). format date
      * - labels
      *
@@ -562,7 +562,7 @@ final class NumerologyResource
      * `POST /v1/numerology/numerology-personal-readings`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
-     * - date_of_birth (required): format date
+     * - date_of_birth (required): Date of birth, YYYY-MM-DD. format date
      * - date: The day. Default today (UTC). format date
      * - labels
      *

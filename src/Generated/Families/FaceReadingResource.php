@@ -50,7 +50,7 @@ final class FaceReadingResource
     /**
      * Face: Face Shape.
      *
-     * The face shape and the balance of its zones. Read from a photo of the face.
+     * The face shape and the balance of its zones. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-shape`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -77,7 +77,7 @@ final class FaceReadingResource
     /**
      * Face: Eyes.
      *
-     * Eye shape, spacing and brows. Read from a photo of the face.
+     * Eye shape, spacing and brows. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-eyes`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -104,7 +104,7 @@ final class FaceReadingResource
     /**
      * Face: Nose.
      *
-     * Bridge, tip and nostrils. Read from a photo of the face.
+     * Bridge, tip and nostrils. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-nose`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -131,7 +131,7 @@ final class FaceReadingResource
     /**
      * Face: Cheeks.
      *
-     * Cheeks and cheekbones. Read from a photo of the face.
+     * Cheeks and cheekbones. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-cheeks`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -158,7 +158,7 @@ final class FaceReadingResource
     /**
      * Face: Mouth.
      *
-     * Lips and mouth shape. Read from a photo of the face.
+     * Lips and mouth shape. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-mouth`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -185,7 +185,7 @@ final class FaceReadingResource
     /**
      * Face: Chin and Jaw.
      *
-     * Chin and jawline. Read from a photo of the face.
+     * Chin and jawline. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-chin-jaw`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -212,7 +212,7 @@ final class FaceReadingResource
     /**
      * Face: Ears.
      *
-     * Ears, if visible. Read from a photo of the face.
+     * Ears, if visible. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-ears`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -239,7 +239,7 @@ final class FaceReadingResource
     /**
      * Face: Skin Clarity.
      *
-     * Clarity and radiance, never colour. Read from a photo of the face.
+     * Clarity and radiance, never colour. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-skin`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -266,7 +266,7 @@ final class FaceReadingResource
     /**
      * Face: Symmetry.
      *
-     * How symmetrical the features are. Read from a photo of the face.
+     * How symmetrical the features are. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-symmetry`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -293,7 +293,7 @@ final class FaceReadingResource
     /**
      * Face: Proportions.
      *
-     * Forehead, nose and chin in proportion. Read from a photo of the face.
+     * Forehead, nose and chin in proportion. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-proportions`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -320,7 +320,7 @@ final class FaceReadingResource
     /**
      * Face: Facial Hair.
      *
-     * Beard or moustache, if relevant. Read from a photo of the face.
+     * Beard or moustache, if relevant. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-facial-hair`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -347,7 +347,7 @@ final class FaceReadingResource
     /**
      * Face: Outline.
      *
-     * Forehead, hairline and outline. Read from a photo of the face.
+     * Forehead, hairline and outline. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-outline`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -374,7 +374,7 @@ final class FaceReadingResource
     /**
      * Face: Personality.
      *
-     * Character and temperament. Read from a photo of the face.
+     * Character and temperament. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-personality`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -401,7 +401,7 @@ final class FaceReadingResource
     /**
      * Face: Career.
      *
-     * Work and calling. Read from a photo of the face.
+     * Work and calling. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-career`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -428,7 +428,7 @@ final class FaceReadingResource
     /**
      * Face: Wealth.
      *
-     * Money and how it is handled. Read from a photo of the face.
+     * Money and how it is handled. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-wealth`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -455,7 +455,7 @@ final class FaceReadingResource
     /**
      * Face: Love.
      *
-     * Love and affection. Read from a photo of the face.
+     * Love and affection. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-love`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -482,7 +482,7 @@ final class FaceReadingResource
     /**
      * Face: Marriage.
      *
-     * Marriage and long partnership. Read from a photo of the face.
+     * Marriage and long partnership. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-marriage`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -509,7 +509,7 @@ final class FaceReadingResource
     /**
      * Face: Family.
      *
-     * Family life. Read from a photo of the face.
+     * Family life. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-family`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -536,7 +536,7 @@ final class FaceReadingResource
     /**
      * Face: Vitality.
      *
-     * General vitality and habits, never a diagnosis. Read from a photo of the face.
+     * General vitality and habits, never a diagnosis. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-health`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -563,7 +563,7 @@ final class FaceReadingResource
     /**
      * Face: Wisdom.
      *
-     * Judgement and learning. Read from a photo of the face.
+     * Judgement and learning. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-wisdom`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -590,7 +590,7 @@ final class FaceReadingResource
     /**
      * Face: Luck.
      *
-     * Fortune and timing. Read from a photo of the face.
+     * Fortune and timing. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-luck`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -617,7 +617,7 @@ final class FaceReadingResource
     /**
      * Face: Challenges.
      *
-     * Difficulties to prepare for. Read from a photo of the face.
+     * Difficulties to prepare for. Read from one photo of the face by a vision model; the photo is not stored.
      *
      * `POST /v1/face-reading/face-challenges`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
