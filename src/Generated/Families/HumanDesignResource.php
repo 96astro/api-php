@@ -10,7 +10,7 @@ use Astro96\Api\ApiResponse;
 use Astro96\Api\Client;
 
 /**
- * Human Design: Human Design type, authority, profile, centers, channels and gates, from the birth and design moments.
+ * Human Design: Human Design type, authority, profile, centers, channels and gates, calculated from the birth and design moments, with our own descriptions. Not affiliated with or endorsed by any owner of a Human Design trademark.
  *
  * Reach it as `$client->humanDesign`.
  */
@@ -79,11 +79,11 @@ final class HumanDesignResource
     }
 
     /**
-     * Human Design Bodygraph Data.
+     * Human Design Centers and Channels.
      *
-     * Defined and open centers, channels, gates and connected groups, to draw a bodygraph.
+     * Defined and open centers, channels, gates and connected groups, to draw the chart.
      *
-     * `POST /v1/human-design/human-design-bodygraph`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     * `POST /v1/human-design/human-design-centers-channels`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
@@ -102,9 +102,9 @@ final class HumanDesignResource
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
      */
-    public function humanDesignBodygraph(array $input, array $options = []): ApiResponse
+    public function humanDesignCentersChannels(array $input, array $options = []): ApiResponse
     {
-        return $this->client->call('/v1/human-design/human-design-bodygraph', $input, $options);
+        return $this->client->call('/v1/human-design/human-design-centers-channels', $input, $options);
     }
 
     /**

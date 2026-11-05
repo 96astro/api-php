@@ -592,7 +592,7 @@ final class Catalog
         'chinese-year-forecast' => 'chinese',
         'human-design' => 'human-design',
         'human-design-activations' => 'human-design',
-        'human-design-bodygraph' => 'human-design',
+        'human-design-centers-channels' => 'human-design',
         'human-design-analysis' => 'human-design',
         'human-design-traits' => 'human-design',
         'moon-metrics' => 'panchang',
