@@ -133,7 +133,7 @@ final class UtilitiesResource
     /**
      * Place Search.
      *
-     * Searches the built-in city list by name and returns coordinates, IANA zone and the UTC offset in force on a given date/time.
+     * Searches about 780,000 places by name, in any script, and returns coordinates, IANA zone and the UTC offset in force on a given date/time. Fast enough to call as someone types.
      *
      * `POST /v1/utilities/geo-search`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -154,6 +154,32 @@ final class UtilitiesResource
     public function geoSearch(array $input, array $options = []): ApiResponse
     {
         return $this->client->call('/v1/utilities/geo-search', $input, $options);
+    }
+
+    /**
+     * Time Zone at a Point.
+     *
+     * The IANA zone at a latitude and longitude, with the offset in force at a local date and time, and whether that time was ambiguous or never happened.
+     *
+     * `POST /v1/utilities/timezone-at`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - date (required): Local date. The offset depends on it wherever summer time is kept. format date
+     * - time: Local time, HH:MM. Tells you if that clock reading happened twice or never. pattern ^\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-time
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): latitude, longitude, timezone, status, utc_offset, abbreviation, utc, candidates.
+     *
+     * @param array{latitude: int|float, longitude: int|float, date: string, time?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function timezoneAt(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/utilities/timezone-at', $input, $options);
     }
 
     /**

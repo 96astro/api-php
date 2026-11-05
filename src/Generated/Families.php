@@ -29,6 +29,8 @@ use Astro96\Api\Generated\Families\VastuResource;
 use Astro96\Api\Generated\Families\MundaneResource;
 use Astro96\Api\Generated\Families\AiResource;
 use Astro96\Api\Generated\Families\UtilitiesResource;
+use Astro96\Api\Generated\Families\ChineseResource;
+use Astro96\Api\Generated\Families\HumanDesignResource;
 
 /**
  * One property per capability family, mixed into Astro96\Api\Client.
@@ -41,22 +43,22 @@ trait Families
     /** Strengths & relationships: 37 capabilities. */
     public readonly StrengthsResource $strengths;
 
-    /** Dasha systems: 13 capabilities. */
+    /** Dasha systems: 16 capabilities. */
     public readonly DashasResource $dashas;
 
-    /** Panchang & almanac: 78 capabilities. */
+    /** Panchang & almanac: 80 capabilities. */
     public readonly PanchangResource $panchang;
 
     /** Festivals & muhurta: 7 capabilities. */
     public readonly FestivalsMuhurtaResource $festivalsMuhurta;
 
-    /** Compatibility matching: 27 capabilities. */
+    /** Compatibility matching: 28 capabilities. */
     public readonly MatchingResource $matching;
 
     /** Doshas & yogas: 64 capabilities. */
     public readonly DoshasYogasResource $doshasYogas;
 
-    /** Predictions & readings: 29 capabilities. */
+    /** Predictions & readings: 30 capabilities. */
     public readonly PredictionsResource $predictions;
 
     /** Krishnamurti Paddhati (KP): 10 capabilities. */
@@ -74,16 +76,16 @@ trait Families
     /** Annual charts (Tajika): 11 capabilities. */
     public readonly TajikaResource $tajika;
 
-    /** Western astrology: 40 capabilities. */
+    /** Western astrology: 51 capabilities. */
     public readonly WesternResource $western;
 
     /** Tarot: 15 capabilities. */
     public readonly TarotResource $tarot;
 
-    /** Numerology: 17 capabilities. */
+    /** Numerology: 21 capabilities. */
     public readonly NumerologyResource $numerology;
 
-    /** Remedies & guidance: 6 capabilities. */
+    /** Remedies & guidance: 8 capabilities. */
     public readonly RemediesResource $remedies;
 
     /** Reports: 20 capabilities. */
@@ -101,8 +103,14 @@ trait Families
     /** AI interpretation: 8 capabilities. */
     public readonly AiResource $ai;
 
-    /** Utilities: 7 capabilities. */
+    /** Utilities: 8 capabilities. */
     public readonly UtilitiesResource $utilities;
+
+    /** Chinese astrology: 2 capabilities. */
+    public readonly ChineseResource $chinese;
+
+    /** Human Design: 5 capabilities. */
+    public readonly HumanDesignResource $humanDesign;
 
     private function initFamilies(): void
     {
@@ -129,5 +137,7 @@ trait Families
         $this->mundane = new MundaneResource($this);
         $this->ai = new AiResource($this);
         $this->utilities = new UtilitiesResource($this);
+        $this->chinese = new ChineseResource($this);
+        $this->humanDesign = new HumanDesignResource($this);
     }
 }

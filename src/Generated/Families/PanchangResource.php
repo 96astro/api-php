@@ -2373,4 +2373,58 @@ final class PanchangResource
     {
         return $this->client->call('/v1/panchang/chandrashtama', $input, $options);
     }
+
+    /**
+     * Moon Metrics.
+     *
+     * Phase, illumination, age and distance of the Moon at a moment, and the month's perigee and apogee.
+     *
+     * `POST /v1/panchang/moon-metrics`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone
+     * - utc_offset
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): at, phase, illumination_percent, age_days, distance_km, sign_tropical, month_extremes.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function moonMetrics(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/moon-metrics', $input, $options);
+    }
+
+    /**
+     * Special Yogas in a Month.
+     *
+     * Every date and time window of one special yoga in a month at a place.
+     *
+     * `POST /v1/panchang/month-yogas`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - yoga (required)
+     * - year (required): min 1000; max 2200
+     * - month (required): min 1; max 12
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - timezone
+     * - utc_offset
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): yoga, year, month, count, occurrences, time_resolution_minutes.
+     *
+     * @param array{yoga: 'ravi-yoga'|'sarvartha-siddhi'|'amrit-siddhi'|'ravi-pushya'|'guru-pushya'|'dwipushkar'|'tripushkar', year: int, month: int, latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function monthYogas(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/panchang/month-yogas', $input, $options);
+    }
 }

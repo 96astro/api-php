@@ -459,4 +459,98 @@ final class NumerologyResource
     {
         return $this->client->call('/v1/numerology/personality-number', $input, $options);
     }
+
+    /**
+     * Challenge Numbers.
+     *
+     * The four Pythagorean challenge numbers from a date of birth, with the period of life each applies to.
+     *
+     * `POST /v1/numerology/challenge-numbers`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date_of_birth (required): format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date_of_birth, challenge_numbers.
+     *
+     * @param array{date_of_birth: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function challengeNumbers(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/challenge-numbers', $input, $options);
+    }
+
+    /**
+     * Subconscious Self Number.
+     *
+     * How many of the nine numbers a name holds, and the karmic lessons from the ones it lacks.
+     *
+     * `POST /v1/numerology/subconscious-self-number`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - name (required): Full name in Latin letters. min length 1; max length 120
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): name, subconscious_self_number, numbers_present, karmic_lessons, meaning.
+     *
+     * @param array{name: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function subconsciousSelfNumber(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/subconscious-self-number', $input, $options);
+    }
+
+    /**
+     * Numerology Match of Two People.
+     *
+     * Compatibility of two people from their dates of birth: radical and destiny numbers, by the friendship of their ruling planets.
+     *
+     * `POST /v1/numerology/numerology-match`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date_of_birth_a (required): format date
+     * - date_of_birth_b (required): format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): person_a, person_b, compatibility_percent, verdict, pairs, note.
+     *
+     * @param array{date_of_birth_a: string, date_of_birth_b: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function numerologyMatch(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/numerology-match', $input, $options);
+    }
+
+    /**
+     * Daily Numerology Prediction.
+     *
+     * A person's day from their personal year, month and day numbers, with lucky number and colour.
+     *
+     * `POST /v1/numerology/numerology-daily`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - date_of_birth (required): format date
+     * - date: The day. Default today (UTC). format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): date, radical_number, personal_year, personal_month, personal_day, ruling_planet, rating, prediction, lucky_number, lucky_colour.
+     *
+     * @param array{date_of_birth: string, date?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function numerologyDaily(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/numerology/numerology-daily', $input, $options);
+    }
 }

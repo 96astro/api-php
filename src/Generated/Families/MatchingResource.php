@@ -705,4 +705,29 @@ final class MatchingResource
     {
         return $this->client->call('/v1/matching/manglik-match', $input, $options);
     }
+
+    /**
+     * One Match Score.
+     *
+     * One percentage for a couple that blends Ashtakoot with the Manglik, Rajju and Vedha checks, with each part and its weight.
+     *
+     * `POST /v1/matching/match-score`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - groom (required)
+     * - bride (required)
+     * - report_type: half: the matching tables. full: also both birth charts' positions. default "half"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, ashtakoot, manglik_status, match_percent, parts, weights, verdict, note.
+     *
+     * @param array{groom: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, bride: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, report_type?: 'full'|'half', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function matchScore(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/matching/match-score', $input, $options);
+    }
 }

@@ -1141,4 +1141,306 @@ final class WesternResource
     {
         return $this->client->call('/v1/western/western-composite-chart', $input, $options);
     }
+
+    /**
+     * Moon Phase Reading.
+     *
+     * What a Moon phase in its sign is good for, and optionally the phase a person was born under.
+     *
+     * `POST /v1/western/moon-phase-reading`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone
+     * - utc_offset
+     * - birth: Adds the Moon phase the person was born under.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): phase, sign_tropical, significance, report, birth_phase, personal_note.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, birth?: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function moonPhaseReading(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/moon-phase-reading', $input, $options);
+    }
+
+    /**
+     * Lilith, Vertex, Fortune and Asteroids.
+     *
+     * Mean and true Lilith, Vertex, Part of Fortune, Ceres, Pallas, Juno and Vesta with sign and house.
+     *
+     * `POST /v1/western/western-extra-points`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - house_system: default "P"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): house_system, points, asteroids, asteroids_unavailable.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', house_system?: 'P'|'K'|'W'|'E', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernExtraPoints(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-extra-points', $input, $options);
+    }
+
+    /**
+     * Transit Calendar.
+     *
+     * Each transit to the natal chart in a date range, with start, exact and end time, transit house, stations and Moon phases.
+     *
+     * `POST /v1/western/western-transit-calendar`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - start_date (required): format date
+     * - days: min 1; max 120; default 31
+     * - orb: Degrees either side of exact. max 5; > 0; default 1.0
+     * - house_system: default "P"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): from, days, orb, events, stations, moon_phases.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', start_date: string, days?: int, orb?: int|float, house_system?: 'P'|'K'|'W'|'E', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernTransitCalendar(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-transit-calendar', $input, $options);
+    }
+
+    /**
+     * Sun and Rising Compatibility.
+     *
+     * Compatibility from two people's Sun and rising signs together.
+     *
+     * `POST /v1/western/western-sun-rising-match`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - sun_sign_a (required)
+     * - rising_sign_a (required)
+     * - sun_sign_b (required)
+     * - rising_sign_b (required)
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): compatibility_percent, verdict, pairs, summary.
+     *
+     * @param array{sun_sign_a: 'Aries'|'Taurus'|'Gemini'|'Cancer'|'Leo'|'Virgo'|'Libra'|'Scorpio'|'Sagittarius'|'Capricorn'|'Aquarius'|'Pisces', rising_sign_a: 'Aries'|'Taurus'|'Gemini'|'Cancer'|'Leo'|'Virgo'|'Libra'|'Scorpio'|'Sagittarius'|'Capricorn'|'Aquarius'|'Pisces', sun_sign_b: 'Aries'|'Taurus'|'Gemini'|'Cancer'|'Leo'|'Virgo'|'Libra'|'Scorpio'|'Sagittarius'|'Capricorn'|'Aquarius'|'Pisces', rising_sign_b: 'Aries'|'Taurus'|'Gemini'|'Cancer'|'Leo'|'Virgo'|'Libra'|'Scorpio'|'Sagittarius'|'Capricorn'|'Aquarius'|'Pisces', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernSunRisingMatch(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-sun-rising-match', $input, $options);
+    }
+
+    /**
+     * Personality Report.
+     *
+     * A personality reading built from the rising sign, Sun, Moon, Mercury, Mars, Saturn and the chart's leading element.
+     *
+     * `POST /v1/western/western-personality-report`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): key_quality, report, spiritual_lesson.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernPersonalityReport(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-personality-report', $input, $options);
+    }
+
+    /**
+     * Romantic Personality Report.
+     *
+     * How a person loves, from Venus, Mars, the Moon, the seventh house and their aspects.
+     *
+     * `POST /v1/western/western-romantic-personality`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): report, aspects.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernRomanticPersonality(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-romantic-personality', $input, $options);
+    }
+
+    /**
+     * Romantic Forecast.
+     *
+     * Dated periods for love in a date range, from transits to Venus, Mars and the Moon.
+     *
+     * `POST /v1/western/western-romantic-forecast`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - start_date (required): format date
+     * - days: min 1; max 370; default 180
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): from, days, forecast.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', start_date: string, days?: int, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernRomanticForecast(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-romantic-forecast', $input, $options);
+    }
+
+    /**
+     * Friendship Report.
+     *
+     * Contacts between two charts that bear on friendship: Sun, Moon, Mercury and Jupiter.
+     *
+     * `POST /v1/western/western-friendship-report`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - person_a (required)
+     * - person_b (required)
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): contacts, easy, hard, summary.
+     *
+     * @param array{person_a: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, person_b: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernFriendshipReport(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-friendship-report', $input, $options);
+    }
+
+    /**
+     * Karma and Destiny Report.
+     *
+     * Contacts between two charts that bear on lasting bonds: Saturn, Pluto and Neptune.
+     *
+     * `POST /v1/western/western-karma-report`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - person_a (required)
+     * - person_b (required)
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): contacts, easy, hard, summary.
+     *
+     * @param array{person_a: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, person_b: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernKarmaReport(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-karma-report', $input, $options);
+    }
+
+    /**
+     * Love Contacts.
+     *
+     * Contacts between two charts that bear on love: Venus, Mars, the Sun and the Moon.
+     *
+     * `POST /v1/western/western-love-contacts`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - person_a (required)
+     * - person_b (required)
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): contacts, easy, hard, summary.
+     *
+     * @param array{person_a: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, person_b: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernLoveContacts(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-love-contacts', $input, $options);
+    }
+
+    /**
+     * Couple Romantic Forecast.
+     *
+     * Dated love periods for two people over a date range.
+     *
+     * `POST /v1/western/western-couple-forecast`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - person_a (required)
+     * - person_b (required)
+     * - start_date (required): format date
+     * - days: min 1; max 370; default 180
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): from, days, forecast.
+     *
+     * @param array{person_a: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, person_b: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}, start_date: string, days?: int, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernCoupleForecast(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-couple-forecast', $input, $options);
+    }
 }

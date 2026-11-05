@@ -442,4 +442,90 @@ final class DashasResource
     {
         return $this->client->call('/v1/dashas/vimshottari-deep', $input, $options);
     }
+
+    /**
+     * Vimshottari at a Date, 5 Levels.
+     *
+     * The running Mahadasha, Antardasha, Pratyantardasha, Sookshma and Prana on any date, from a birth.
+     *
+     * `POST /v1/dashas/dasha-at-date`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - as_of: The date to check. Default today (UTC). format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): as_of, system, year_length_days, periods.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function dashaAtDate(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/dashas/dasha-at-date', $input, $options);
+    }
+
+    /**
+     * Yogini Dasha, 3 Levels.
+     *
+     * The running Yogini periods at three levels on a date, and the sub-periods of the third.
+     *
+     * `POST /v1/dashas/yogini-dasha-deep`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - ayanamsha: default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - as_of: The date to check. Default today (UTC). format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): as_of, system, periods, sub_periods.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function yoginiDashaDeep(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/dashas/yogini-dasha-deep', $input, $options);
+    }
+
+    /**
+     * Chara Dasha Sub-Periods.
+     *
+     * The twelve equal sub-periods of any Chara period, in the dasha's direction: the third level and below.
+     *
+     * `POST /v1/dashas/chara-sub-periods`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - sign (required): The sign of the Chara period to divide.
+     * - start (required): pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - end (required): pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - direction (required): From `chara-dasha`.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): parent, direction, sub_periods.
+     *
+     * @param array{sign: 'Aries'|'Taurus'|'Gemini'|'Cancer'|'Leo'|'Virgo'|'Libra'|'Scorpio'|'Sagittarius'|'Capricorn'|'Aquarius'|'Pisces', start: string, end: string, direction: 'direct'|'reverse', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function charaSubPeriods(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/dashas/chara-sub-periods', $input, $options);
+    }
 }

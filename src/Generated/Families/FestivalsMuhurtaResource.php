@@ -94,7 +94,7 @@ final class FestivalsMuhurtaResource
      *
      * `data` fields in the documented example (inferred, not a contract): purpose, rules, start_date, days, location, suitable_days, rejected_days.
      *
-     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, purpose?: 'bhoomi-pujan'|'business'|'engagement'|'gold-purchase'|'griha-pravesh'|'property'|'general'|'travel'|'vehicle'|'vivah', start_date: string, days?: int, ayanamsha?: 'lahiri', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', format?: 'json'|'ics'} $input
+     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, purpose?: 'bhoomi-pujan'|'business'|'engagement'|'gold-purchase'|'griha-pravesh'|'property'|'general'|'travel'|'vehicle'|'vivah'|'namkaran'|'annaprashan'|'mundan'|'upanayana'|'vidyarambh'|'job-joining'|'agreement-signing'|'account-opening'|'loan-take'|'loan-give', start_date: string, days?: int, ayanamsha?: 'lahiri', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', format?: 'json'|'ics'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -117,7 +117,7 @@ final class FestivalsMuhurtaResource
      *
      * `data` fields in the documented example (inferred, not a contract): purposes.
      *
-     * @param array{purpose?: 'bhoomi-pujan'|'business'|'engagement'|'gold-purchase'|'griha-pravesh'|'property'|'general'|'travel'|'vehicle'|'vivah'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{purpose?: 'bhoomi-pujan'|'business'|'engagement'|'gold-purchase'|'griha-pravesh'|'property'|'general'|'travel'|'vehicle'|'vivah'|'namkaran'|'annaprashan'|'mundan'|'upanayana'|'vidyarambh'|'job-joining'|'agreement-signing'|'account-opening'|'loan-take'|'loan-give'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
