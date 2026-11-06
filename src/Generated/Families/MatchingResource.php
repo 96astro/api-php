@@ -64,7 +64,7 @@ final class MatchingResource
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): system, total, maximum, percentage, verdict, exact, groom, bride, kootas, doshas.
+     * `data` fields in the documented example (inferred, not a contract): system, total, maximum, minimum_recommended, percentage, verdict, exact, groom, bride, kootas, doshas.
      *
      * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -89,7 +89,7 @@ final class MatchingResource
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): system, total, maximum, percentage, verdict, exact, groom, bride, kootas, doshas.
+     * `data` fields in the documented example (inferred, not a contract): system, total, maximum, minimum_recommended, percentage, verdict, exact, groom, bride, kootas, doshas.
      *
      * @param array{groom: array{nakshatra: string, pada?: int|null}, bride: array{nakshatra: string, pada?: int|null}, language?: 'en', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options

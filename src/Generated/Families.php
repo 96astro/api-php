@@ -90,7 +90,7 @@ trait Families
     /** Remedies & guidance: 9 capabilities. */
     public readonly RemediesResource $remedies;
 
-    /** Reports: 24 capabilities. */
+    /** Reports: 25 capabilities. */
     public readonly ReportsResource $reports;
 
     /** Location astrology: 17 capabilities. */
@@ -111,7 +111,7 @@ trait Families
     /** Chinese astrology: 2 capabilities. */
     public readonly ChineseResource $chinese;
 
-    /** Human Design: 5 capabilities. */
+    /** Human Design: 6 capabilities. */
     public readonly HumanDesignResource $humanDesign;
 
     /** Palm reading: 18 capabilities. */
