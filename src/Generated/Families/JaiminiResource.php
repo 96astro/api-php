@@ -355,7 +355,7 @@ final class JaiminiResource
     /**
      * Yogi & Avayogi.
      *
-     * The Yogi and Avayogi of the chart.
+     * The planets ruling the Yogi and Avayogi points of a birth chart, worked out from the Sun and Moon.
      *
      * `POST /v1/jaimini/jaimini-yogi-avayogi`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -415,7 +415,7 @@ final class JaiminiResource
     /**
      * Dagdha Rashis.
      *
-     * The dagdha (burnt) rashis of the chart.
+     * The dagdha (burnt) rashis of a birth chart, from the tithi at birth. The list is empty on Purnima and Amavasya.
      *
      * `POST /v1/jaimini/jaimini-dagdha-rashis`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -445,7 +445,7 @@ final class JaiminiResource
     /**
      * 64th Navamsha.
      *
-     * The 64th navamsha of the chart.
+     * The sign of the 64th navamsha of a birth chart, counted from the Moon and from the Ascendant.
      *
      * `POST /v1/jaimini/jaimini-64th-navamsha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *

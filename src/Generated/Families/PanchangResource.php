@@ -900,7 +900,7 @@ final class PanchangResource
     /**
      * Sunrise.
      *
-     * Sunrise at the place on the day.
+     * The time the Sun rises on a given date at a latitude and longitude, in local time.
      *
      * `POST /v1/panchang/sunrise`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -930,7 +930,7 @@ final class PanchangResource
     /**
      * Sunset.
      *
-     * Sunset at the place on the day.
+     * The time the Sun sets on a given date at a latitude and longitude, in local time.
      *
      * `POST /v1/panchang/sunset`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -990,7 +990,7 @@ final class PanchangResource
     /**
      * Moonrise.
      *
-     * Moonrise at the place on the day.
+     * The time the Moon rises on a given date at a latitude and longitude, in local time.
      *
      * `POST /v1/panchang/moonrise`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -1020,7 +1020,7 @@ final class PanchangResource
     /**
      * Moonset.
      *
-     * Moonset at the place on the day.
+     * The time the Moon sets on a given date at a latitude and longitude, in local time.
      *
      * `POST /v1/panchang/moonset`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -1080,7 +1080,7 @@ final class PanchangResource
     /**
      * Moon Sign of the Day.
      *
-     * The Moon's sidereal sign on the day.
+     * The sidereal sign the Moon is in on a given date at a place, by the ayanamsha you choose.
      *
      * `POST /v1/panchang/moon-sign`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -1500,7 +1500,7 @@ final class PanchangResource
     /**
      * Abhijit Muhurta.
      *
-     * The Abhijit Muhurta around local noon.
+     * The start and end of Abhijit Muhurta, the auspicious period around local noon, for a date and place.
      *
      * `POST /v1/panchang/abhijit-muhurta`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -1530,7 +1530,7 @@ final class PanchangResource
     /**
      * Vijaya Muhurta.
      *
-     * The Vijaya Muhurta of the afternoon.
+     * The start and end of Vijaya Muhurta, an auspicious period of the afternoon, for a date and place.
      *
      * `POST /v1/panchang/vijaya-muhurta`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
