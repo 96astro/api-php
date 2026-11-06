@@ -21,6 +21,33 @@ final class PalmistryResource
     }
 
     /**
+     * Palm: Lines Traced.
+     *
+     * The life, head, heart and fate lines traced on a photo of the palm, with confidence for each, and an SVG overlay to lay over your copy. The photo is not stored or sent back.
+     *
+     * `POST /v1/palmistry/palm-lines-image`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - image_base64 (required): The floor-plan image file, base64-encoded (a `data:image/...;base64,` prefix is accepted). PNG, JPEG or WebP; at most 3.75 MiB decoded and 8000 px a side. min length 1; max length 5400000
+     * - mime_type: The image's type. Required unless image_base64 is a data: URI; must match the file.
+     * - tier: fast (Claude Haiku) or balanced (Sonnet). Sets the price range. default "fast"
+     * - consent (required): Must be true: the person in the photo agreed to this reading, and is an adult or has a guardian's agreement.
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): lines, overlay_svg, coordinate_space, notice, tier.
+     *
+     * @param array{image_base64: string, mime_type?: 'image/png'|'image/jpeg'|'image/webp'|null, tier?: 'fast'|'balanced', consent: true, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function palmLinesImage(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/palmistry/palm-lines-image', $input, $options);
+    }
+
+    /**
      * Whole Palm Reading.
      *
      * Every section of a palm reading from one photo, for the price of one call: hand type, fingers, lines, mounts and life themes.
@@ -470,7 +497,7 @@ final class PalmistryResource
      * - second_mime_type: The second photo's type, if it cannot be told from the data.
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): sections, notice, tier, language.
+     * `data` fields in the documented example (inferred, not a contract): sections, notice, tier, language, compatibility.
      *
      * @param array{image_base64: string, mime_type?: 'image/png'|'image/jpeg'|'image/webp'|null, tier?: 'fast'|'balanced', consent: true, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', second_image_base64: string, second_mime_type?: 'image/png'|'image/jpeg'|'image/webp'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options

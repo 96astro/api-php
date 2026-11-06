@@ -332,6 +332,20 @@ class Client
         return $this->request('POST', '/v1/jobs/audio', $body, $options);
     }
 
+    /** Queue a PDF of a palm or face reading you already have. No photo is sent, and it costs only the PDF. */
+    public function createReadingPdfJob(string $capability, array $reading, ?array $branding = null, ?string $language = null): ApiResponse
+    {
+        $body = ['capability' => $capability, 'input' => new \stdClass(), 'reading' => $reading];
+        if ($branding !== null) {
+            $body['branding'] = $branding;
+        }
+        if ($language !== null) {
+            $body['language'] = $language;
+        }
+
+        return $this->request('POST', '/v1/jobs/pdf', $body);
+    }
+
     public function createPdfJob(string $capability, array $input, ?array $branding = null, ?string $language = null, array $options = []): ApiResponse
     {
         $body = ['capability' => $capability, 'input' => $input === [] ? new \stdClass() : $input];

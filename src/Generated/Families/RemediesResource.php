@@ -170,6 +170,36 @@ final class RemediesResource
     }
 
     /**
+     * Panch Pakshi Birth Bird.
+     *
+     * The person's birth bird from the Moon's nakshatra and fortnight, with its friends and enemies, the weekdays it rules and the weekdays it dies, and the bird of their name.
+     *
+     * `POST /v1/remedies/panch-pakshi-birth`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - name: The person's name in Latin letters. Adds the bird of its first vowel. max length 120; default ""
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): moon_longitude, nakshatra_number, paksha, paksha_label, birth_bird, friends, neutral, enemies, ruling_days, dying_days, name_bird, name_vowel, method.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', name?: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function panchPakshiBirth(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/remedies/panch-pakshi-birth', $input, $options);
+    }
+
+    /**
      * Sade Sati Remedies.
      *
      * Remedies for Saturn's transit over the Moon, in order of priority, from the phase on a date and Saturn's strength at birth.

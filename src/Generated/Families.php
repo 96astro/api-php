@@ -87,7 +87,7 @@ trait Families
     /** Numerology: 22 capabilities. */
     public readonly NumerologyResource $numerology;
 
-    /** Remedies & guidance: 8 capabilities. */
+    /** Remedies & guidance: 9 capabilities. */
     public readonly RemediesResource $remedies;
 
     /** Reports: 24 capabilities. */
@@ -96,7 +96,7 @@ trait Families
     /** Location astrology: 17 capabilities. */
     public readonly LocationAstrologyResource $locationAstrology;
 
-    /** Vastu: 10 capabilities. */
+    /** Vastu: 12 capabilities. */
     public readonly VastuResource $vastu;
 
     /** Mundane astrology: 19 capabilities. */
@@ -114,10 +114,10 @@ trait Families
     /** Human Design: 5 capabilities. */
     public readonly HumanDesignResource $humanDesign;
 
-    /** Palm reading: 17 capabilities. */
+    /** Palm reading: 18 capabilities. */
     public readonly PalmistryResource $palmistry;
 
-    /** Face reading: 23 capabilities. */
+    /** Face reading: 24 capabilities. */
     public readonly FaceReadingResource $faceReading;
 
     private function initFamilies(): void

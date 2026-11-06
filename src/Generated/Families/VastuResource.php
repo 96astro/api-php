@@ -285,4 +285,53 @@ final class VastuResource
     {
         return $this->client->call('/v1/vastu/vastu-reference', $input, $options);
     }
+
+    /**
+     * Vastu Entrance Pada.
+     *
+     * The pada of a door among the 32 on the boundary, from its wall and position or its bearing: the deity, whether it is traditionally favoured, and what it is linked with. Lists all 32.
+     *
+     * `POST /v1/vastu/vastu-entrance-pada`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - side: The wall the door is on. Send it with position_percent, or send bearing_degrees.
+     * - position_percent: Where along that wall, going clockwise round the plot: north wall from its west end, east wall from its north end, south wall from its east end, west wall from its south end. min 0; max 100
+     * - bearing_degrees: The door's bearing from the centre of the plot, clockwise from north. min 0; < 360
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): padas, favourable_codes, method, entrance.
+     *
+     * @param array{side?: 'N'|'E'|'S'|'W'|null, position_percent?: int|float|null, bearing_degrees?: int|float|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function vastuEntrancePada(array $input = [], array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vastu/vastu-entrance-pada', $input, $options);
+    }
+
+    /**
+     * Vastu 81-Pada Grid.
+     *
+     * The 9 by 9 Paramasayika grid of 45 deities, to draw the mandala, and the pada under any point on a plan.
+     *
+     * `POST /v1/vastu/vastu-pada-grid`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - x_percent: A point on the plan, from the west edge. Send it with y_percent to get its pada. min 0; max 100
+     * - y_percent: A point on the plan, from the north edge. min 0; max 100
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): size, cells, deity_count, deities, method, at_point.
+     *
+     * @param array{x_percent?: int|float|null, y_percent?: int|float|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function vastuPadaGrid(array $input = [], array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vastu/vastu-pada-grid', $input, $options);
+    }
 }
