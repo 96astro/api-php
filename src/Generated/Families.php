@@ -96,7 +96,7 @@ trait Families
     /** Location astrology: 17 capabilities. */
     public readonly LocationAstrologyResource $locationAstrology;
 
-    /** Vastu: 12 capabilities. */
+    /** Vastu: 13 capabilities. */
     public readonly VastuResource $vastu;
 
     /** Mundane astrology: 19 capabilities. */

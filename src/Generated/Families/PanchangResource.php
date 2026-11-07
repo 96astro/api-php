@@ -44,7 +44,7 @@ final class PanchangResource
      * - image_theme
      * - image_delivery
      *
-     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vara, limbs, sun_moon, calendar, inauspicious, auspicious, disha_shoola, choghadiya, hora, festivals, vasa_shoola, chandra_bala, tara_bala, sunrise_chart, doshas, special_yogas, sankalpa, sacred_tithis, time_heatmap.
+     * `data` fields in the documented example (inferred, not a contract): date, location, ayanamsha, vara, limbs, sun_moon, calendar, inauspicious, auspicious.
      *
      * @param array{date: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: 'lahiri', node?: 'true'|'mean', language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', include_image?: bool, image_style?: 'north'|'south'|'east'|'western', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', image_format?: 'svg'|'svg_base64'|'png', image_width?: int, image_theme?: 'light'|'dark'|'print', image_delivery?: 'inline'|'url'|'both'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options

@@ -589,6 +589,7 @@ final class Catalog
         'numerology-match' => 'numerology',
         'numerology-daily' => 'numerology',
         'vastu-entrance-pada' => 'vastu',
+        'vastu-room-placement' => 'vastu',
         'vastu-pada-grid' => 'vastu',
         'report-complete-kundli' => 'reports',
         'panch-pakshi-birth' => 'remedies',

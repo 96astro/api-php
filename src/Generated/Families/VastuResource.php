@@ -315,6 +315,31 @@ final class VastuResource
     }
 
     /**
+     * Vastu Room Placement Reading.
+     *
+     * A written reading for one room in one of the 16 zones, the centre or a boundary pada: its grade, why (the zone's deity and element, the room's element and weight), the traditional effect, better zones, and remedies with what to do, why it helps and the effort. With no zone, the room in every zone.
+     *
+     * `POST /v1/vastu/vastu-room-placement`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - room_type (required): The room or structure.
+     * - zone: One of the 16 zones, or Center. Leave out zone and pada to get the room in every zone.
+     * - pada: Or a boundary pada, N1 to W8: the reading is for the zone its middle falls in. pattern ^[NESW][1-8]$
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): reading, method.
+     *
+     * @param array{room_type: 'kitchen'|'master_bedroom'|'children_bedroom'|'guest_bedroom'|'pooja'|'toilet'|'bathroom'|'study'|'living_room'|'dining'|'store_room'|'stairs'|'main_entrance'|'water_tank_underground'|'water_tank_overhead'|'swimming_pool'|'septic_tank'|'borewell'|'garage', zone?: 'N'|'NNE'|'NE'|'ENE'|'E'|'ESE'|'SE'|'SSE'|'S'|'SSW'|'SW'|'WSW'|'W'|'WNW'|'NW'|'NNW'|'Center'|null, pada?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function vastuRoomPlacement(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/vastu/vastu-room-placement', $input, $options);
+    }
+
+    /**
      * Vastu 81-Pada Grid.
      *
      * The 9 by 9 Paramasayika grid of 45 deities, to draw the mandala, and the pada under any point on a plan.
