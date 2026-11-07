@@ -37,7 +37,7 @@ echo $res->data['ascendant']['sign'], ' ', $res->creditsUsed(), ' ', $res->rateL
 
 `POST /v1/{family}/{capability}` is `$client->family->capability()` in camelCase (`/v1/panchang/daily-panchang` is `$astro->panchang->dailyPanchang([...])`). Any path also works through `$astro->call('/v1/panchang/daily-panchang', $input)`.
 
-Each call returns an `ApiResponse` with `data`, `meta`, `status`, `requestId`, `rateLimit`, `replayed`, `idempotencyKey` and `headers`. Response `data` is a plain array; the field list in each method's docblock is inferred from the documented example response, not a contract.
+Each call returns an `ApiResponse` with `data`, `meta`, `status`, `requestId`, `rateLimit`, `replayed`, `idempotencyKey` and `headers`. Response `data` is a plain array; the field list in each method's docblock comes from the endpoint's published schema: a hand-written contract, a schema measured from several real answers, or (for a few) the one example.
 
 ### Errors
 
