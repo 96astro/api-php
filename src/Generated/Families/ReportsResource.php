@@ -675,7 +675,7 @@ final class ReportsResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): title, birth_details, planets, planet_states, strengths, house_strengths, ashtakavarga, vimshottari_dasha, yogini_dasha, manglik, kaal_sarp, pitra_dosha, sade_sati, raj_yogas, wealth_yogas, mahapurusha_yogas, moon_yogas, sun_yogas, nature, appearance.
+     * `data` fields in the documented example (inferred, not a contract): title, birth_details, planets, planet_states, strengths, house_strengths, ashtakavarga, vimshottari_dasha, yogini_dasha, manglik, kaal_sarp, pitra_dosha, sade_sati, raj_yogas, wealth_yogas, mahapurusha_yogas, moon_yogas, sun_yogas, nature, appearance, nakshatra, houses, planets_in_houses, dasha_reading, lucky_things, gemstones, life_report, rudraksha.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options

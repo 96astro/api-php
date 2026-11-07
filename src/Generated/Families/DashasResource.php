@@ -431,7 +431,7 @@ final class DashasResource
      * - as_of: Local date and time, at the birth's UTC offset, for `current` (and the antardasha subdivided to prana). A date alone means 00:00. Now when omitted. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, depth, note, moon, balance_at_birth, current, mahadashas.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, depth, note, moon, balance_at_birth, current, mahadashas, prana_antardasha.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', depth?: 'sukshma'|'prana', as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
