@@ -30,7 +30,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -59,7 +59,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -88,7 +88,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -117,7 +117,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -146,7 +146,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -175,7 +175,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -204,7 +204,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -239,7 +239,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -274,7 +274,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -303,7 +303,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -332,7 +332,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -361,7 +361,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -390,7 +390,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -419,7 +419,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -448,7 +448,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -477,7 +477,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -506,7 +506,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -535,7 +535,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"
@@ -564,7 +564,7 @@ final class MundaneResource
      * Input fields:
      * - datetime (required): Local date and time of the moment, ISO 8601 without offset. pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30
+     * - utc_offset: Fixed offset such as +05:30 pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - ayanamsha: default "lahiri"

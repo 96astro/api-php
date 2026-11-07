@@ -174,7 +174,7 @@ final class VastuResource
      * - start_date (required): format date
      * - end_date (required): format date
      * - timezone: IANA time zone of the place, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - deity: Deity of the remedy; favours that deity's weekday.
@@ -297,11 +297,14 @@ final class VastuResource
      * - side: The wall the door is on. Send it with position_percent, or send bearing_degrees.
      * - position_percent: Where along that wall, going clockwise round the plot: north wall from its west end, east wall from its north end, south wall from its east end, west wall from its south end. min 0; max 100
      * - bearing_degrees: The door's bearing from the centre of the plot, clockwise from north. min 0; < 360
+     * - bearing_method: How a bearing becomes a pada. equal_angle: 32 equal sectors of 11.25 degrees from the north-west (the compass method). plot_boundary: the bearing is traced to the plot's wall and the wall is divided into eight equal lengths, so the same door gives the same pada as side with position_percent. The two agree only at each wall's middle and corners; method_id in the answer says which was used. default "equal_angle"
+     * - plot_width: With plot_boundary: the plot's east-west side, any unit. Square when left out. > 0
+     * - plot_depth: With plot_boundary: the plot's north-south side, same unit as plot_width. > 0
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): padas, favourable_codes, method, entrance.
+     * `data` fields in the documented example (inferred, not a contract): padas, favourable_codes, method_id, method, entrance.
      *
-     * @param array{side?: 'N'|'E'|'S'|'W'|null, position_percent?: int|float|null, bearing_degrees?: int|float|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{side?: 'N'|'E'|'S'|'W'|null, position_percent?: int|float|null, bearing_degrees?: int|float|null, bearing_method?: 'equal_angle'|'plot_boundary', plot_width?: int|float|null, plot_depth?: int|float|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

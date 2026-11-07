@@ -30,7 +30,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -62,7 +62,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -96,7 +96,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -128,7 +128,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -160,7 +160,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -192,7 +192,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -224,7 +224,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -256,7 +256,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -288,7 +288,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -320,7 +320,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -352,7 +352,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -384,7 +384,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -416,7 +416,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -477,7 +477,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -508,7 +508,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -539,7 +539,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -571,7 +571,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -603,7 +603,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -635,7 +635,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -667,7 +667,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -724,7 +724,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
@@ -755,7 +755,7 @@ final class ReportsResource
      * Input fields:
      * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
      * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"

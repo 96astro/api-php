@@ -29,7 +29,7 @@ final class FestivalsMuhurtaResource
      *
      * Input fields:
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - year (required): Calendar year, 1900-2200.
@@ -82,7 +82,7 @@ final class FestivalsMuhurtaResource
      *
      * Input fields:
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - purpose: The undertaking; see muhurta-purposes. default "general"
@@ -136,7 +136,7 @@ final class FestivalsMuhurtaResource
      *
      * Input fields:
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - latitude (required): min -90; max 90
      * - longitude (required): min -180; max 180
      * - death_date (required): Civil date of the death; its tithi is read at that day's sunrise. format date
@@ -166,7 +166,7 @@ final class FestivalsMuhurtaResource
      *
      * Input fields:
      * - timezone: IANA time zone, e.g. Asia/Kolkata
-     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
      * - birth_date (required): format date
      * - count: Which full moon after the birth. min 1; max 2000; default 1000
      * - labels
