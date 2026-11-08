@@ -90,7 +90,7 @@ trait Families
     /** Remedies & guidance: 9 capabilities. */
     public readonly RemediesResource $remedies;
 
-    /** Reports: 25 capabilities. */
+    /** Reports: 27 capabilities. */
     public readonly ReportsResource $reports;
 
     /** Location astrology: 17 capabilities. */

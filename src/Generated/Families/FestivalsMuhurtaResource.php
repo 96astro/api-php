@@ -64,12 +64,13 @@ final class FestivalsMuhurtaResource
      * - longitude (required): min -180; max 180
      * - year (required): Calendar year, 1900-2200.
      * - search: Only festivals whose name contains this, e.g. diwali or ekadashi. max length 60
+     * - upcoming: The next 12 months from today instead of the calendar year `year` ("when is Diwali?" asked in November means next year's). default false
      * - ayanamsha: default "lahiri"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): year, latitude, longitude, timezone, search, count, days, convention.
      *
-     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, year: int, search?: string|null, ayanamsha?: 'lahiri', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, year: int, search?: string|null, upcoming?: bool, ayanamsha?: 'lahiri', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -93,11 +94,13 @@ final class FestivalsMuhurtaResource
      * - longitude (required): min -180; max 180
      * - year (required): Calendar year, 1900-2200.
      * - tradition: Whose observances to list. default "hindu-solar"
+     * - search: Only observances whose name contains this text ("eid", "easter", "gurpurab"). max length 60
+     * - upcoming: The next 12 months from today instead of the calendar year `year` ("when is Diwali?" asked in November means next year's). default false
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): year, tradition, latitude, longitude, timezone, convention, count, days.
+     * `data` fields in the documented example (inferred, not a contract): year, tradition, latitude, longitude, timezone, convention, search, count, days.
      *
-     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, year: int, tradition?: 'hindu-solar'|'christian'|'orthodox'|'islamic'|'sikh'|'jain'|'buddhist', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, year: int, tradition?: 'hindu-solar'|'christian'|'orthodox'|'islamic'|'sikh'|'jain'|'buddhist', search?: string|null, upcoming?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

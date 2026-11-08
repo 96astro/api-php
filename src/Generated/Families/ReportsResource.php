@@ -658,6 +658,70 @@ final class ReportsResource
     }
 
     /**
+     * Children Timing.
+     *
+     * When the chart indicates children: dated windows with ages, the running dasha lords, score, strength and theme, and whether delay is indicated and why.
+     *
+     * `POST /v1/reports/children-timing`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
+     * - birth_time_accuracy: How exact the birth time is: exact (from a record), rounded (5-15 min, the default), approx (hour), unknown. Lowers confidence and drops the finest divisional charts below exact.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): topic, ascendant, ruleset, disclaimer, timing, delay.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', gender?: 'male'|'female'|null, birth_time_accuracy?: 'exact'|'rounded'|'approx'|'unknown'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function childrenTiming(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/children-timing', $input, $options);
+    }
+
+    /**
+     * Property Purchase Timing.
+     *
+     * When the chart indicates buying a home or land: dated windows with ages, the running dasha lords, score, strength, the opportunity and caution of each, and the combined property-and-relocation timing.
+     *
+     * `POST /v1/reports/property-timing`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - gender: Optional. Weights the spouse significator (Venus or Jupiter); the report's language stays neutral.
+     * - birth_time_accuracy: How exact the birth time is: exact (from a record), rounded (5-15 min, the default), approx (hour), unknown. Lowers confidence and drops the finest divisional charts below exact.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): topic, ascendant, ruleset, disclaimer, timing, combined_timing.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', gender?: 'male'|'female'|null, birth_time_accuracy?: 'exact'|'rounded'|'approx'|'unknown'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function propertyTiming(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/reports/property-timing', $input, $options);
+    }
+
+    /**
      * Complete Kundli Report.
      *
      * Every part of a chart in one report: birth details, planets, strengths, dashas, doshas, yogas, predictions, gemstones and rudraksha. As a PDF it prints six divisional charts.

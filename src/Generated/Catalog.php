@@ -589,6 +589,8 @@ final class Catalog
         'career-timing' => 'reports',
         'career-fields' => 'reports',
         'foreign-timing' => 'reports',
+        'children-timing' => 'reports',
+        'property-timing' => 'reports',
         'sarvatobhadra-chakra' => 'predictions',
         'varshaphal-harsha-bala' => 'tajika',
         'varshaphal-panchavargeeya-bala' => 'tajika',
