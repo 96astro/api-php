@@ -119,6 +119,38 @@ final class DashasResource
     }
 
     /**
+     * Narayana Dasha (Jaimini).
+     *
+     * Jaimini Narayana dasha (P.V.R. Narasimha Rao / Jagannatha Hora): seeded from the stronger of the Lagna and the 7th, ordered by the seed's nature, two cycles totalling 144 years, with twelve antardashas from the sign of the dasha lord, the current period, and which strength rule chose the seed.
+     *
+     * `POST /v1/dashas/narayana-dasha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - node: Lunar node: true (osculating) or mean. default "true"
+     * - depth: Levels of the period tree to return. default "antardasha"
+     * - as_of: Date for `current` (YYYY-MM-DD). Today in UTC when omitted. format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): system, ayanamsha, method, seed, direction, order, current, mahadashas.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', depth?: 'mahadasha'|'antardasha', as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function narayanaDasha(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/dashas/narayana-dasha', $input, $options);
+    }
+
+    /**
      * Niryana Shoola Dasha.
      *
      * Niryana Shoola dasha by sign with years, dates and antardashas, the current period, and the method used (four methods available, with the recommended one named).
@@ -302,7 +334,7 @@ final class DashasResource
      *
      * `data` fields in the documented example (inferred, not a contract): system, ayanamsha, current.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', system?: 'vimshottari'|'yogini'|'chara'|'niryana-shoola'|'thrikona'|'ashtottari'|'sthira', method?: string|null, as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', system?: 'vimshottari'|'yogini'|'chara'|'niryana-shoola'|'narayana'|'thrikona'|'ashtottari'|'sthira', method?: string|null, as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -338,7 +370,7 @@ final class DashasResource
      *
      * `data` fields in the documented example (inferred, not a contract): system, ayanamsha, from, to, level, periods.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', system?: 'vimshottari'|'yogini'|'chara'|'niryana-shoola'|'thrikona'|'ashtottari'|'sthira', method?: string|null, as_of?: string|null, from: string, to: string, level?: 'mahadasha'|'antardasha', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', system?: 'vimshottari'|'yogini'|'chara'|'niryana-shoola'|'narayana'|'thrikona'|'ashtottari'|'sthira', method?: string|null, as_of?: string|null, from: string, to: string, level?: 'mahadasha'|'antardasha', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

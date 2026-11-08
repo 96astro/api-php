@@ -140,6 +140,7 @@ final class Catalog
         'vimshottari-dasha' => 'dashas',
         'yogini-dasha' => 'dashas',
         'chara-dasha' => 'dashas',
+        'narayana-dasha' => 'dashas',
         'niryana-shoola-dasha' => 'dashas',
         'thrikona-dasha' => 'dashas',
         'ashtottari-dasha' => 'dashas',

@@ -45,7 +45,7 @@ trait Families
     /** Strengths & relationships: 37 capabilities. */
     public readonly StrengthsResource $strengths;
 
-    /** Dasha systems: 16 capabilities. */
+    /** Dasha systems: 17 capabilities. */
     public readonly DashasResource $dashas;
 
     /** Panchang & almanac: 81 capabilities. */
