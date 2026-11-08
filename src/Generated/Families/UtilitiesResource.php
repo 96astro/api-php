@@ -236,6 +236,32 @@ final class UtilitiesResource
     }
 
     /**
+     * Compare Methods.
+     *
+     * Runs one capability under two to seven values of one of its option fields (a method, an ayanamsha, a school) and returns every result side by side with the top-level fields that differ, e.g. Chara dasha by the standard rule and by K.N. Rao's.
+     *
+     * `POST /v1/utilities/compare-methods`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - capability (required): The capability id to run, e.g. chara-dasha.
+     * - field (required): The option field to vary, e.g. method or ayanamsha. Listed in the capability's request schema.
+     * - values (required): Two to seven values of that field. min items 2; max items 7
+     * - input (required): The rest of the capability's request (the birth, other options), once.
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): capability, field, values, differing_fields, same_fields, runs.
+     *
+     * @param array{capability: string, field: string, values: list<mixed>, input: array<string, mixed>, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function compareMethods(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/utilities/compare-methods', $input, $options);
+    }
+
+    /**
      * Ayanamsha List.
      *
      * Seven ayanamsha systems with their values in degrees at a moment, to compare them or choose one.

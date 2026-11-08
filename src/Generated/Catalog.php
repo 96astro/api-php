@@ -671,6 +671,7 @@ final class Catalog
         'sign-daily-areas' => 'predictions',
         'nakshatra-daily-areas' => 'predictions',
         'panchang-limb-details' => 'panchang',
+        'compare-methods' => 'utilities',
         'ayanamsha-list' => 'utilities',
         'numerology-personal-readings' => 'numerology',
         'western-planet-readings' => 'western',

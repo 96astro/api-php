@@ -38,7 +38,7 @@ final class DoshasYogasResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, manglik, count, percentage, dignity, from.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, manglik, count, percentage, dignity, from, explanation.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -68,7 +68,7 @@ final class DoshasYogasResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, kaal_sarp, pitra.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, kaal_sarp, pitra, explanation.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -100,7 +100,7 @@ final class DoshasYogasResource
      * - labels
      * - format
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, scan, as_of, current, next_sade_sati, periods.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, scan, as_of, current, next_sade_sati, periods, explanation.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', format?: 'json'|'ics'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -131,7 +131,7 @@ final class DoshasYogasResource
      * - as_of: Date for `current` and `next` (YYYY-MM-DD). Today in UTC when omitted. format date
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, as_of, present, doshas.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, as_of, present, doshas, explanation.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -162,7 +162,7 @@ final class DoshasYogasResource
      * - as_of: Date for `current` and `next` (YYYY-MM-DD). Today in UTC when omitted. format date
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, as_of, sade_sati_running, current, next_sade_sati.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, as_of, sade_sati_running, current, next_sade_sati, explanation.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -193,7 +193,7 @@ final class DoshasYogasResource
      * - as_of: Date for `current` and `next` (YYYY-MM-DD). Today in UTC when omitted. format date
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, as_of, running, periods.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, as_of, running, periods, explanation.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', as_of?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -223,7 +223,7 @@ final class DoshasYogasResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, present, partial, type, rahu_house, planets_outside_axis, description, remedies.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, present, partial, type, rahu_house, planets_outside_axis, description, remedies, explanation.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -253,7 +253,7 @@ final class DoshasYogasResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, present, strength, types, not_assessed, summary, remedies.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, present, strength, types, not_assessed, summary, remedies, explanation.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'hi'|'mr'|'bn'|'gu'|'ta'|'te'|'ml'|'kn'|'pa'|'ur'|'ne'|'or'|'as'|'si'|'fr'|'es'|'pt'|'de'|'it'|'nl'|'pl'|'tr'|'ru'|'ko'|'ja', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -1896,7 +1896,7 @@ final class DoshasYogasResource
      * - gender: Selects `applicable_ghat_moon_sign`: the Ghat Chandra differs for men and women.
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, ghat_month, ghat_tithi_group, ghat_tithis, ghat_weekday, ghat_nakshatra, ghat_yoga, ghat_karana, ghat_prahar, ghat_moon_sign, applicable_ghat_moon_sign, source_differences.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, moon_sign, ghat_month, ghat_tithi_group, ghat_tithis, ghat_weekday, ghat_nakshatra, ghat_yoga, ghat_karana, ghat_prahar, ghat_moon_sign, applicable_ghat_moon_sign, source_differences, explanation.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', gender?: 'male'|'female'|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -1926,7 +1926,7 @@ final class DoshasYogasResource
      * - node: Lunar node: true (osculating) or mean. default "true"
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): ayanamsha, present, nakshatra_number, nakshatra, pada, junction, degrees_from_junction, intensity, traditional_focus, abhukta_mool, minutes_from_junction, shanti_window, nakshatra_lord, traditional_worship.
+     * `data` fields in the documented example (inferred, not a contract): ayanamsha, present, nakshatra_number, nakshatra, pada, explanation, junction, degrees_from_junction, intensity, traditional_focus, abhukta_mool, minutes_from_junction, shanti_window, nakshatra_lord, traditional_worship.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', node?: 'true'|'mean', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options

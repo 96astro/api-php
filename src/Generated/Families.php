@@ -105,7 +105,7 @@ trait Families
     /** AI interpretation: 10 capabilities. */
     public readonly AiResource $ai;
 
-    /** Utilities: 9 capabilities. */
+    /** Utilities: 10 capabilities. */
     public readonly UtilitiesResource $utilities;
 
     /** Chinese astrology: 2 capabilities. */
