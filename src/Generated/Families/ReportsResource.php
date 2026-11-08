@@ -422,7 +422,7 @@ final class ReportsResource
      * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
      * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
      * - node: Lunar node: true (osculating) or mean. default "true"
-     * - bundle: small: ascendant reading. medium: + gemstones, rudraksha. large: + yogas, graha phala. dasha: ascendant, dasha reading, yogas. annual: ascendant + the next 12 months from the current month. default "small"
+     * - bundle: small: birth details, planets, friendship, Vimshottari and the ascendant reading. medium: + Bhav Chalit, KP planets and cusps, Manglik, Kaal Sarp, Sade Sati, gemstones and rudraksha. large: + Ashtakavarga, Yogini and Chara dasha, planetary dispositions, favourable points, yogas and graha phala. dasha: the core sections + dasha predictions, the dasha reading and yogas. annual: the core sections + the next 12 months. A package is returned whole or not at all (never charged when it fails). default "small"
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): bundle, nature, ascendant_reading, gemstones, rudraksha, yogas, graha_phala.
