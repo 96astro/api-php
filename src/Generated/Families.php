@@ -51,7 +51,7 @@ trait Families
     /** Panchang & almanac: 81 capabilities. */
     public readonly PanchangResource $panchang;
 
-    /** Festivals & muhurta: 7 capabilities. */
+    /** Festivals & muhurta: 9 capabilities. */
     public readonly FestivalsMuhurtaResource $festivalsMuhurta;
 
     /** Compatibility matching: 28 capabilities. */
@@ -78,7 +78,7 @@ trait Families
     /** Annual charts (Tajika): 11 capabilities. */
     public readonly TajikaResource $tajika;
 
-    /** Western astrology: 55 capabilities. */
+    /** Western astrology: 57 capabilities. */
     public readonly WesternResource $western;
 
     /** Tarot: 15 capabilities. */

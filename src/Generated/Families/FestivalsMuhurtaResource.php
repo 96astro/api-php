@@ -51,6 +51,34 @@ final class FestivalsMuhurtaResource
     }
 
     /**
+     * Ekadashi Calendar.
+     *
+     * Every Ekadashi of a year at a place, by name (Kamada, Nirjala, Devshayani and the rest; Padmini and Parama in an adhika month), with the Smarta and Vaishnava fasting days and why they differ, the Ekadashi start and end, and the parana window (inside Dwadashi, after Hari Vasara, in pratahkal) for each.
+     *
+     * `POST /v1/festivals-muhurta/ekadashi-calendar`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - year (required): Calendar year, 1900-2200.
+     * - ayanamsha: default "lahiri"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): year, latitude, longitude, timezone, count, ekadashis.
+     *
+     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, year: int, ayanamsha?: 'lahiri', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function ekadashiCalendar(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/festivals-muhurta/ekadashi-calendar', $input, $options);
+    }
+
+    /**
      * Vrat Observance Catalogue.
      *
      * Lists the observances the vrat calendar supports with cadence and the moment each is judged at.
@@ -181,6 +209,33 @@ final class FestivalsMuhurtaResource
     public function sahasraChandrodaya(array $input, array $options = []): ApiResponse
     {
         return $this->client->call('/v1/festivals-muhurta/sahasra-chandrodaya', $input, $options);
+    }
+
+    /**
+     * Baby Name Check.
+     *
+     * Ranks the family's candidate names by the child's Moon nakshatra pada: the naming syllable each name opens with (the pada's own, another pada's of the same nakshatra, or only the same consonant), its Chaldean name number, and whether that number is favourable and friendly with the birth number. The score is given in named parts.
+     *
+     * `POST /v1/festivals-muhurta/baby-names`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - names (required): The candidate names, romanised (Latin letters). min items 1; max items 50
+     * - birth: The child's birth: the Moon's nakshatra pada is computed from it.
+     * - nakshatra: Instead of a birth: the Moon's nakshatra.
+     * - pada: With `nakshatra`: the pada (1-4). min 1; max 4
+     * - birth_date: With `nakshatra`: the birth date, for the birth number. format date
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): nakshatra, nakshatra_number, pada, syllable, syllables_by_pada, birth_number, points, names.
+     *
+     * @param array{names: list<string>, birth?: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string}|null, nakshatra?: 'Ashwini'|'Bharani'|'Krittika'|'Rohini'|'Mrigashira'|'Ardra'|'Punarvasu'|'Pushya'|'Ashlesha'|'Magha'|'Purva Phalguni'|'Uttara Phalguni'|'Hasta'|'Chitra'|'Swati'|'Vishakha'|'Anuradha'|'Jyeshtha'|'Mula'|'Purva Ashadha'|'Uttara Ashadha'|'Shravana'|'Dhanishta'|'Shatabhisha'|'Purva Bhadrapada'|'Uttara Bhadrapada'|'Revati'|null, pada?: int|null, birth_date?: string|null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function babyNames(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/festivals-muhurta/baby-names', $input, $options);
     }
 
     /**

@@ -1093,6 +1093,68 @@ final class WesternResource
     }
 
     /**
+     * Harmonic Chart.
+     *
+     * A harmonic chart (John Addey): every planet and angle at its longitude times the harmonic number, modulo 360, with its sign and degree, and the conjunctions that form in the harmonic chart (8 degree orb) with their natal angle.
+     *
+     * `POST /v1/western/western-harmonic-chart`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - datetime (required): Local date and time, ISO 8601 without offset, e.g. 1990-10-18T14:30:00 pattern ^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?$; format local-date-time
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
+     * - latitude (required): Latitude in decimal degrees, north positive, e.g. 28.6139. min -90; max 90
+     * - longitude (required): Longitude in decimal degrees, east positive, e.g. 77.209. min -180; max 180
+     * - ayanamsha: Sidereal system for Vedic positions. Default lahiri. `ayanamsha-list` compares seven of them. default "lahiri"
+     * - language: Output language (ISO 639-1). The values listed are the ones this capability supports; any other is refused with 422 unsupported_language. Identifiers, enum values and numbers never change with language. default "en"
+     * - name: Name to print in readings. max length 120; default ""
+     * - house_system: P Placidus, K Koch, W Whole sign, E Equal. default "P"
+     * - harmonic: Harmonic number: each longitude times this, modulo 360. min 1; max 180; default 5
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): harmonic, julian_day, points, conjunctions, orb.
+     *
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en', name?: string, house_system?: 'P'|'K'|'W'|'E', harmonic?: int, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernHarmonicChart(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-harmonic-chart', $input, $options);
+    }
+
+    /**
+     * Electional Search.
+     *
+     * Scores a date range at a place by traditional electional rules (void-of-course Moon, waxing Moon, Mercury, Venus and Mars retrograde, Venus and Jupiter or Mars and Saturn on an angle, the Moon's dignity and its applying aspects) and returns the best windows, each with its score in named parts and the reasons, plus the Moon's void-of-course periods.
+     *
+     * `POST /v1/western/western-electional`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - start_date (required): First local date of the search. format date
+     * - days: Days to search (1-31). min 1; max 31; default 7
+     * - step_minutes: How finely the range is scored. default 60
+     * - top: Windows to return, best first. min 1; max 50; default 10
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): start_date, days, latitude, longitude, timezone, step_minutes, points, moments_scored, moon_void_of_course, windows.
+     *
+     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, start_date: string, days?: int, step_minutes?: 15|30|60|120, top?: int, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function westernElectional(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/western/western-electional', $input, $options);
+    }
+
+    /**
      * Davison Relationship Chart.
      *
      * A relationship chart cast for the midpoint in time and place between two births, with planets, houses and aspects.
