@@ -51,6 +51,35 @@ final class FestivalsMuhurtaResource
     }
 
     /**
+     * Festival Calendar.
+     *
+     * Every festival and vrat of a year at a place by date (Diwali, Holi, Janmashtami, Navratri, Ganesh Chaturthi, Ekadashi, Pradosha, Purnima, Amavasya and the rest), each judged in its own window by the daily panchang's rules; `search` narrows it to one festival.
+     *
+     * `POST /v1/festivals-muhurta/festival-calendar`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - year (required): Calendar year, 1900-2200.
+     * - search: Only festivals whose name contains this, e.g. diwali or ekadashi. max length 60
+     * - ayanamsha: default "lahiri"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): year, latitude, longitude, timezone, search, count, days, convention.
+     *
+     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, year: int, search?: string|null, ayanamsha?: 'lahiri', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function festivalCalendar(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/festivals-muhurta/festival-calendar', $input, $options);
+    }
+
+    /**
      * Ekadashi Calendar.
      *
      * Every Ekadashi of a year at a place, by name (Kamada, Nirjala, Devshayani and the rest; Padmini and Parama in an adhika month), with the Smarta and Vaishnava fasting days and why they differ, the Ekadashi start and end, and the parana window (inside Dwadashi, after Hari Vasara, in pratahkal) for each.
@@ -76,6 +105,38 @@ final class FestivalsMuhurtaResource
     public function ekadashiCalendar(array $input, array $options = []): ApiResponse
     {
         return $this->client->call('/v1/festivals-muhurta/ekadashi-calendar', $input, $options);
+    }
+
+    /**
+     * Wedding Plan.
+     *
+     * A dated wedding itinerary for a tradition (North Indian, Punjabi, Sikh, Gujarati, Marathi, Rajasthani, Bengali, Assamese, Odia, Tamil, Telugu, Kannada or Malayali): the Vivah muhurta day and window, the engagement and griha pravesh muhurtas, and every ceremony (haldi, mehendi, sangeet, gaye holud, nalangu...) on its customary day in a good choghadiya of its customary part of the day, each with its basis.
+     *
+     * `POST /v1/festivals-muhurta/wedding-plan`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - tradition: Whose ceremonies to plan. default "north-indian"
+     * - start_date: First day to search for the wedding muhurta. Today when omitted. format date
+     * - days: Days to search for the wedding muhurta. min 7; max 400; default 365
+     * - wedding_date: A date the family has already chosen; its windows are worked out. format date
+     * - include_engagement: Also find an engagement muhurta before the wedding. default true
+     * - include_griha_pravesh: Also find a griha pravesh muhurta after the wedding. default true
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): tradition, location, wedding, itinerary, vivah_rules, note, rules.
+     *
+     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, tradition?: 'north-indian'|'punjabi'|'gujarati'|'marathi'|'rajasthani'|'bengali'|'tamil'|'telugu'|'kannada'|'malayali'|'odia'|'assamese'|'sikh', start_date?: string|null, days?: int, wedding_date?: string|null, include_engagement?: bool, include_griha_pravesh?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function weddingPlan(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/festivals-muhurta/wedding-plan', $input, $options);
     }
 
     /**

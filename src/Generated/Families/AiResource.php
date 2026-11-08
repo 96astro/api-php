@@ -117,12 +117,13 @@ final class AiResource
      * - tier: fast (Claude Haiku), balanced (Sonnet) or deep (Opus). Sets the price range. default "balanced"
      * - persona: Voice of the reading: coach (plain), pandit (traditional) or analyst. default "coach"
      * - context: Ground the reading in this report's data instead of the natal chart. Only the AI reading is charged, never less than the report itself.
+     * - place: Where the person is now, for festival, vrat, moonrise, panchang, muhurta and wedding-plan questions. The birth place is used when omitted.
      * - json_mode: Return the reading as a JSON object (data.reading) as well as text. default false
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): mode, text, tier, persona, as_of, grounding.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, json_mode?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, json_mode?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -151,13 +152,14 @@ final class AiResource
      * - tier: fast (Claude Haiku), balanced (Sonnet) or deep (Opus). Sets the price range. default "balanced"
      * - persona: Voice of the reading: coach (plain), pandit (traditional) or analyst. default "coach"
      * - context: Ground the reading in this report's data instead of the natal chart. Only the AI reading is charged, never less than the report itself.
+     * - place: Where the person is now, for festival, vrat, moonrise, panchang, muhurta and wedding-plan questions. The birth place is used when omitted.
      * - question (required): min length 1; max length 1000
      * - history: Earlier turns, oldest first. max items 6
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, question: string, history?: list<array{role: 'user'|'assistant', content: string}>, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, question: string, history?: list<array{role: 'user'|'assistant', content: string}>, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -186,12 +188,13 @@ final class AiResource
      * - tier: fast (Claude Haiku), balanced (Sonnet) or deep (Opus). Sets the price range. default "balanced"
      * - persona: Voice of the reading: coach (plain), pandit (traditional) or analyst. default "coach"
      * - context: Ground the reading in this report's data instead of the natal chart. Only the AI reading is charged, never less than the report itself.
+     * - place: Where the person is now, for festival, vrat, moonrise, panchang, muhurta and wedding-plan questions. The birth place is used when omitted.
      * - lens (required): The focus of the reading.
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): mode, lens, text, tier, persona, as_of, grounding.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, lens: 'career'|'marriage'|'wealth'|'health'|'spiritual'|'year_ahead', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, lens: 'career'|'marriage'|'wealth'|'health'|'spiritual'|'year_ahead', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -220,12 +223,13 @@ final class AiResource
      * - tier: fast (Claude Haiku), balanced (Sonnet) or deep (Opus). Sets the price range. default "balanced"
      * - persona: Voice of the reading: coach (plain), pandit (traditional) or analyst. default "coach"
      * - context: Ground the reading in this report's data instead of the natal chart. Only the AI reading is charged, never less than the report itself.
+     * - place: Where the person is now, for festival, vrat, moonrise, panchang, muhurta and wedding-plan questions. The birth place is used when omitted.
      * - question (required): min length 1; max length 1000
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, question: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, question: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
@@ -320,13 +324,14 @@ final class AiResource
      * - tier: fast (Claude Haiku), balanced (Sonnet) or deep (Opus). Sets the price range. default "balanced"
      * - persona: Voice of the reading: coach (plain), pandit (traditional) or analyst. default "coach"
      * - context: Ground the reading in this report's data instead of the natal chart. Only the AI reading is charged, never less than the report itself.
+     * - place: Where the person is now, for festival, vrat, moonrise, panchang, muhurta and wedding-plan questions. The birth place is used when omitted.
      * - question (required): min length 1; max length 1000
      * - history: Earlier turns, oldest first. max items 6
      * - labels
      *
      * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding.
      *
-     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, question: string, history?: list<array{role: 'user'|'assistant', content: string}>, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, question: string, history?: list<array{role: 'user'|'assistant', content: string}>, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception
