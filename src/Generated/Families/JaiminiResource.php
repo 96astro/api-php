@@ -119,7 +119,7 @@ final class JaiminiResource
     /**
      * Atmakaraka.
      *
-     * The Atmakaraka (the planet with the highest degree in its sign) with its degree and longitude, and the Karakamsha (its navamsa sign).
+     * The Atmakaraka (the planet with the highest degree in its sign) with its degree and longitude, and the Karakamsha (its navamsha sign).
      *
      * `POST /v1/jaimini/jaimini-atmakaraka`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -149,7 +149,7 @@ final class JaiminiResource
     /**
      * Karakamsha Chart.
      *
-     * The Karakamsha: the Atmakaraka's navamsa sign, with the rasi placements counted from it, as twelve houses with their signs and planets. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     * The Karakamsha: the Atmakaraka's navamsha sign, with the rasi placements counted from it, as twelve houses with their signs and planets. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/jaimini/jaimini-karakamsha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -185,7 +185,7 @@ final class JaiminiResource
     /**
      * Swamsha Chart.
      *
-     * The Swamsha: the Atmakaraka's navamsa sign, with the navamsa placements counted from it, as twelve houses with their signs and planets. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     * The Swamsha: the Atmakaraka's navamsha sign, with the navamsha placements counted from it, as twelve houses with their signs and planets. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/jaimini/jaimini-swamsha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -443,7 +443,7 @@ final class JaiminiResource
     }
 
     /**
-     * 64th Navamsa.
+     * 64th Navamsha.
      *
      * The sign of the 64th navamsha of a birth chart, counted from the Moon and from the Ascendant.
      *

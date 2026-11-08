@@ -666,9 +666,9 @@ final class VedicChartsResource
     }
 
     /**
-     * Navamsa (D9).
+     * Navamsha (D9).
      *
-     * The Navamsa (D9) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     * The Navamsha (D9) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/vedic-charts/divisional-chart-d9`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -1095,9 +1095,9 @@ final class VedicChartsResource
     }
 
     /**
-     * Nava-Navamsa (D81).
+     * Nava-Navamsha (D81).
      *
-     * The Nava-Navamsa (D81) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     * The Nava-Navamsha (D81) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/vedic-charts/divisional-chart-d81`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -1966,7 +1966,7 @@ final class VedicChartsResource
     /**
      * D1 Markers (Vargottama, Pushkara).
      *
-     * Vargottama, Pushkara Navamsa and Pushkara Bhaga flags for the Ascendant and each planet, with its navamsa sign and the Pushkara Bhaga degree of its sign.
+     * Vargottama, Pushkara Navamsha and Pushkara Bhaga flags for the Ascendant and each planet, with its navamsha sign and the Pushkara Bhaga degree of its sign.
      *
      * `POST /v1/vedic-charts/d1-markers`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *

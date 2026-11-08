@@ -344,7 +344,7 @@ final class TajikaResource
     /**
      * Varshaphal Panchavargeeya Bala.
      *
-     * Panchavargeeya Bala of the seven planets in the annual chart: Kshetra, Uchcha, Hadda, Drekkana and Navamsa with each division's lord and relation, the total out of 80, the Vishwa Bala and its grade. Pick one with `planet` (or all).
+     * Panchavargeeya Bala of the seven planets in the annual chart: Kshetra, Uchcha, Hadda, Drekkana and Navamsha with each division's lord and relation, the total out of 80, the Vishwa Bala and its grade. Pick one with `planet` (or all).
      *
      * `POST /v1/tajika/varshaphal-panchavargeeya-bala`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *

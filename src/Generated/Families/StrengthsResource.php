@@ -119,7 +119,7 @@ final class StrengthsResource
     /**
      * Saptbal Strength Table.
      *
-     * A seven-component strength score per planet with workings, normalised score, category and rank, given separately from the Lagna (Bhava Chalit) frame and from the Moon frame.
+     * A seven-component strength score per planet with workings, normalised score, category and rank, given separately from the Lagna (Bhav Chalit) frame and from the Moon frame.
      *
      * `POST /v1/strengths/saptbal`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -540,7 +540,7 @@ final class StrengthsResource
     /**
      * Saptbal from the Lagna.
      *
-     * The seven-component Saptbal score per planet with workings, normalised score, category and rank, measured from the Lagna (Bhava Chalit) frame.
+     * The seven-component Saptbal score per planet with workings, normalised score, category and rank, measured from the Lagna (Bhav Chalit) frame.
      *
      * `POST /v1/strengths/saptbal-lagna`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -1021,7 +1021,7 @@ final class StrengthsResource
     /**
      * Varga Deities.
      *
-     * The deity ruling each planet's portion in the divisional charts that name one (Hora, Drekkana, Saptamsa and the others).
+     * The deity ruling each planet's portion in the divisional charts that name one (Hora, Drekkana, Saptamsha and the others).
      *
      * `POST /v1/strengths/varga-deities`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *

@@ -468,7 +468,7 @@ final class PalmistryResource
      * - question (required): One question to answer from the palm. min length 3; max length 300
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): sections, question, answer, notice, tier, language.
+     * `data` fields in the documented example (inferred, not a contract): sections, notice, tier, language, question, answer.
      *
      * @param array{image_base64: string, mime_type?: 'image/png'|'image/jpeg'|'image/webp'|null, tier?: 'fast'|'balanced', consent: true, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', question: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options

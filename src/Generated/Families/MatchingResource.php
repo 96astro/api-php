@@ -559,7 +559,7 @@ final class MatchingResource
     /**
      * Marriage Sustainability.
      *
-     * The single-chart marriage layers (7th house, Navamsa, Upapada, darakaraka) for both partners, a joint verdict, shared timing windows, and which layers could not be measured.
+     * The single-chart marriage layers (7th house, Navamsha, Upapada, darakaraka) for both partners, a joint verdict, shared timing windows, and which layers could not be measured.
      *
      * `POST /v1/matching/marriage-sustainability`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *

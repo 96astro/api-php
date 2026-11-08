@@ -123,7 +123,7 @@ final class AiResource
      * - json_mode: Return the reading as a JSON object (data.reading) as well as text. default false
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): mode, text, tier, persona, as_of, grounding.
+     * `data` fields in the documented example (inferred, not a contract): mode, text, tier, persona, as_of, grounding, citations, reading.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner?: array{datetime: string, latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner_role?: 'bride'|'groom', json_mode?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -161,7 +161,7 @@ final class AiResource
      * - history: Earlier turns, oldest first. max items 6
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding.
+     * `data` fields in the documented example (inferred, not a contract): mode, question, routing, text, tier, persona, as_of, grounding, citations.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner?: array{datetime: string, latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner_role?: 'bride'|'groom', question: string, history?: list<array{role: 'user'|'assistant', content: string}>, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -198,7 +198,7 @@ final class AiResource
      * - lens (required): The focus of the reading.
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): mode, lens, text, tier, persona, as_of, grounding.
+     * `data` fields in the documented example (inferred, not a contract): mode, lens, text, tier, persona, as_of, grounding, citations.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner?: array{datetime: string, latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner_role?: 'bride'|'groom', lens: 'career'|'marriage'|'wealth'|'health'|'spiritual'|'year_ahead', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -235,7 +235,7 @@ final class AiResource
      * - question (required): min length 1; max length 1000
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding.
+     * `data` fields in the documented example (inferred, not a contract): mode, question, routing, text, tier, persona, as_of, grounding, citations.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner?: array{datetime: string, latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner_role?: 'bride'|'groom', question: string, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -301,7 +301,7 @@ final class AiResource
      * - context
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding.
+     * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding, citations.
      *
      * @param array{groom: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, bride: array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: string, node?: 'true'|'mean'}, question: string, history?: list<array{role: 'user'|'assistant', content: string}>, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: null, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
@@ -339,7 +339,7 @@ final class AiResource
      * - history: Earlier turns, oldest first. max items 6
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding.
+     * `data` fields in the documented example (inferred, not a contract): mode, question, text, tier, persona, as_of, grounding, citations.
      *
      * @param array{datetime: string, timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, ayanamsha?: string, language?: 'en'|'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'ja'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur', node?: 'true'|'mean', tier?: 'fast'|'balanced'|'deep', persona?: 'coach'|'pandit'|'analyst', context?: 'report-career'|'report-children'|'report-education'|'report-foreign-travel'|'report-health'|'report-marriage'|'report-politics'|'report-property'|'report-relocation'|'report-romance'|'report-spiritual'|'report-wealth'|'detailed-life'|null, place?: array{latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner?: array{datetime: string, latitude: int|float, longitude: int|float, timezone?: string|null, utc_offset?: string|null}|null, partner_role?: 'bride'|'groom', question: string, history?: list<array{role: 'user'|'assistant', content: string}>, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
