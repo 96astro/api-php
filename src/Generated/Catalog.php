@@ -271,6 +271,7 @@ final class Catalog
         'sankranti' => 'panchang',
         'vrat-calendar' => 'festivals-muhurta',
         'festival-calendar' => 'festivals-muhurta',
+        'religious-calendar' => 'festivals-muhurta',
         'ekadashi-calendar' => 'festivals-muhurta',
         'wedding-plan' => 'festivals-muhurta',
         'vrat-observances' => 'festivals-muhurta',

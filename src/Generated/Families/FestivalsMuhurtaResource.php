@@ -80,6 +80,34 @@ final class FestivalsMuhurtaResource
     }
 
     /**
+     * Religious Calendars.
+     *
+     * A year of observances for one tradition: hindu-solar (Makar Sankranti, Lohri, Pongal, Vaisakhi, Vishu, Pohela Boishakh, Onam), christian and orthodox (Easter by each computus, and the feasts from it), islamic (Hijri dates of Ramadan, the Eids, Muharram, Mawlid and more), sikh, jain or buddhist, each with its basis and convention.
+     *
+     * `POST /v1/festivals-muhurta/religious-calendar`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
+     *
+     * Input fields:
+     * - timezone: IANA time zone, e.g. Asia/Kolkata
+     * - utc_offset: Fixed offset such as +05:30, if no IANA zone is known pattern ^[+-]?\d{1,2}(:[0-5]\d)?$
+     * - latitude (required): min -90; max 90
+     * - longitude (required): min -180; max 180
+     * - year (required): Calendar year, 1900-2200.
+     * - tradition: Whose observances to list. default "hindu-solar"
+     * - labels
+     *
+     * `data` fields in the documented example (inferred, not a contract): year, tradition, latitude, longitude, timezone, convention, count, days.
+     *
+     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, year: int, tradition?: 'hindu-solar'|'christian'|'orthodox'|'islamic'|'sikh'|'jain'|'buddhist', labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
+     * @return ApiResponse<array<string, mixed>>
+     * @throws \Astro96\Api\Exception\Astro96Exception
+     */
+    public function religiousCalendar(array $input, array $options = []): ApiResponse
+    {
+        return $this->client->call('/v1/festivals-muhurta/religious-calendar', $input, $options);
+    }
+
+    /**
      * Ekadashi Calendar.
      *
      * Every Ekadashi of a year at a place, by name (Kamada, Nirjala, Devshayani and the rest; Padmini and Parama in an adhika month), with the Smarta and Vaishnava fasting days and why they differ, the Ekadashi start and end, and the parana window (inside Dwadashi, after Hari Vasara, in pratahkal) for each.
@@ -127,9 +155,9 @@ final class FestivalsMuhurtaResource
      * - include_griha_pravesh: Also find a griha pravesh muhurta after the wedding. default true
      * - labels
      *
-     * `data` fields in the documented example (inferred, not a contract): tradition, location, wedding, itinerary, vivah_rules, note, rules.
+     * `data` fields in the documented example (inferred, not a contract): tradition, location, wedding, itinerary, vivah_rules, note.
      *
-     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, tradition?: 'north-indian'|'punjabi'|'gujarati'|'marathi'|'rajasthani'|'bengali'|'tamil'|'telugu'|'kannada'|'malayali'|'odia'|'assamese'|'sikh', start_date?: string|null, days?: int, wedding_date?: string|null, include_engagement?: bool, include_griha_pravesh?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
+     * @param array{timezone?: string|null, utc_offset?: string|null, latitude: int|float, longitude: int|float, tradition?: 'north-indian'|'punjabi'|'gujarati'|'marathi'|'rajasthani'|'bengali'|'tamil'|'telugu'|'kannada'|'malayali'|'odia'|'assamese'|'nair'|'iyengar'|'kashmiri-pandit'|'sindhi'|'konkani'|'bihari'|'pahadi'|'kodava'|'nepali'|'jain'|'sikh'|'muslim'|'christian'|'parsi'|'buddhist', start_date?: string|null, days?: int, wedding_date?: string|null, include_engagement?: bool, include_griha_pravesh?: bool, labels?: 'as'|'bn'|'de'|'es'|'fr'|'gu'|'hi'|'it'|'kn'|'ko'|'ml'|'mr'|'ne'|'nl'|'or'|'pa'|'pl'|'pt'|'ru'|'si'|'ta'|'te'|'tr'|'ur'} $input
      * @param array{idempotency_key?: string, timeout?: int|float, max_retries?: int, headers?: array<string, string>} $options
      * @return ApiResponse<array<string, mixed>>
      * @throws \Astro96\Api\Exception\Astro96Exception

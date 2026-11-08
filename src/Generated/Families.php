@@ -51,7 +51,7 @@ trait Families
     /** Panchang & almanac: 81 capabilities. */
     public readonly PanchangResource $panchang;
 
-    /** Festivals & muhurta: 11 capabilities. */
+    /** Festivals & muhurta: 12 capabilities. */
     public readonly FestivalsMuhurtaResource $festivalsMuhurta;
 
     /** Compatibility matching: 28 capabilities. */

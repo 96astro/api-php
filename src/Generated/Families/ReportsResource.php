@@ -409,7 +409,7 @@ final class ReportsResource
     /**
      * Classical Kundli Report Bundles.
      *
-     * The extra chapters of a classical Kundli bundle: ascendant reading, gemstones, rudraksha, yogas, graha phala, dasha reading or a month-by-month annual reading, by bundle.
+     * The extra chapters of a classical Kundli bundle: ascendant reading, gemstones, rudraksha, yogas, graha phala, dasha reading or a month-by-month annual reading, by bundle. Credits depend on the request: bundle small: 10 credits; bundle medium: 20 credits; bundle large: 30 credits; bundle dasha: 20 credits; bundle annual: 20 credits.
      *
      * `POST /v1/reports/classical-kundli-report`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
