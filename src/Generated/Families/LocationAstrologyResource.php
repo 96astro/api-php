@@ -247,9 +247,9 @@ final class LocationAstrologyResource
     }
 
     /**
-     * Char Dasha Schedule (Phaladeepika).
+     * Chara Dasha Schedule (Phaladeepika).
      *
-     * Twelve-row Char dasha schedule with each sign's lord, years and dates, and the period running on a date.
+     * Twelve-row Chara dasha schedule with each sign's lord, years and dates, and the period running on a date.
      *
      * `POST /v1/location-astrology/location-char-dasha`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *

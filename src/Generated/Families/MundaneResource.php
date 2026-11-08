@@ -21,9 +21,9 @@ final class MundaneResource
     }
 
     /**
-     * Mundane: Panchanga snapshot.
+     * Mundane: Panchang snapshot.
      *
-     * The panchanga snapshot section of the world-level mundane dashboard for a moment and place.
+     * The panchang snapshot section of the world-level mundane dashboard for a moment and place.
      *
      * `POST /v1/mundane/mundane-panchanga`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *

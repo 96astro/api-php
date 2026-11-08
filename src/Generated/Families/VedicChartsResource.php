@@ -226,7 +226,7 @@ final class VedicChartsResource
     }
 
     /**
-     * Chandra Kundali (Moon Chart).
+     * Chandra Kundli (Moon Chart).
      *
      * The chart re-read with the Moon's sign as the first house: the Ascendant's and each planet's house from the Moon, and the twelve houses with their occupants. Credits depend on the request: data only: 3 credits.
      *
@@ -1095,9 +1095,9 @@ final class VedicChartsResource
     }
 
     /**
-     * Nava-Navamsha (D81).
+     * Nava-Navamsa (D81).
      *
-     * The Nava-Navamsha (D81) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
+     * The Nava-Navamsa (D81) chart alone: its ascendant, every planet's sign, degree, house, retrograde and combust flags, and the twelve houses with sign and occupants. Credits depend on the request: data only: 1 credit; include_image true: 3 credits.
      *
      * `POST /v1/vedic-charts/divisional-chart-d81`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *

@@ -21,7 +21,7 @@ final class NumerologyResource
     }
 
     /**
-     * Numerology (in bundle).
+     * Numerology (Kundli bundle).
      *
      * Radical, destiny and name numbers, Lo Shu and Vedic grids, Kua number, personal cycles and remedies, from the name and birth date.
      *

@@ -51,7 +51,7 @@ final class StrengthsResource
     }
 
     /**
-     * Ashtakavarga (in bundle).
+     * Ashtakavarga (Kundli bundle).
      *
      * Bhinnashtakavarga per planet with contributors, Sarvashtakavarga by sign, trikona and ekadhipatya reductions with pindas, and Ayus figures for the birth chart.
      *

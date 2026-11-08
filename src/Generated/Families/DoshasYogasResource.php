@@ -21,7 +21,7 @@ final class DoshasYogasResource
     }
 
     /**
-     * Manglik Dosha (in bundle).
+     * Manglik Dosha (Kundli bundle).
      *
      * Mars dosha checked from the Lagna, Moon and Venus, each with Mars's house and the dosha houses, plus an overall Manglik flag and count.
      *
@@ -51,7 +51,7 @@ final class DoshasYogasResource
     }
 
     /**
-     * Kaal Sarp & Pitra Dosha (in bundle).
+     * Kaal Sarp & Pitra Dosha (Kundli bundle).
      *
      * Kaal Sarp presence, type and partial flag, and Pitra dosha types, strength and remedies, for the birth chart.
      *
@@ -1537,7 +1537,7 @@ final class DoshasYogasResource
     }
 
     /**
-     * Mangal Dosha.
+     * Manglik Dosha (yoga rule).
      *
      * Mars in the 1st, 2nd, 4th, 7th, 8th or 12th house (the yoga rule; the full Lagna/Moon/Venus audit is manglik-dosha). Returns `present`, and each rule with its group, detail, effects and strength.
      *
@@ -1568,7 +1568,7 @@ final class DoshasYogasResource
     }
 
     /**
-     * Kala Sarpa Dosha.
+     * Kaal Sarp Dosha (yoga rule).
      *
      * All seven planets hemmed between Rahu and Ketu, with the Rahu-Ketu houses. Returns `present`, and each rule with its group, detail, effects and strength.
      *

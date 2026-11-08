@@ -443,7 +443,7 @@ final class JaiminiResource
     }
 
     /**
-     * 64th Navamsha.
+     * 64th Navamsa.
      *
      * The sign of the 64th navamsha of a birth chart, counted from the Moon and from the Ascendant.
      *

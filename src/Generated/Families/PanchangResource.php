@@ -543,7 +543,7 @@ final class PanchangResource
     }
 
     /**
-     * Panchanga Sequence & Udaya Lagna.
+     * Panchang Sequence & Udaya Lagna.
      *
      * Every tithi, karana, nakshatra and pada, yoga, Moon sign and Udaya Lagna that runs from sunrise to the next sunrise, with start and end times.
      *

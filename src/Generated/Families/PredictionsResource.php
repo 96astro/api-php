@@ -82,7 +82,7 @@ final class PredictionsResource
     }
 
     /**
-     * Personal Characteristics (in bundle).
+     * Personal Characteristics (Kundli bundle).
      *
      * Twelve rows, one per house: the sign, its lord, where the lord sits, its dignity, strength, retrograde and combust flags, and a reading derived from that placement.
      *

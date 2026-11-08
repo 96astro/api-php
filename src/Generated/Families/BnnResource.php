@@ -21,7 +21,7 @@ final class BnnResource
     }
 
     /**
-     * BNN Charts (in bundle).
+     * BNN Charts (Kundli bundle).
      *
      * The nine-graha D1 and Bhav Chalit house lists used for BNN reading: each house's sign and planets. Credits depend on the request: data only: 3 credits.
      *
