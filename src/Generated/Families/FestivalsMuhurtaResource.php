@@ -53,7 +53,7 @@ final class FestivalsMuhurtaResource
     /**
      * Festival Calendar.
      *
-     * Every festival and vrat of a year at a place by date (Diwali, Holi, Janmashtami, Navratri, Ganesh Chaturthi, Ekadashi, Pradosha, Purnima, Amavasya and the rest), each judged in its own window by the daily panchang's rules; `search` narrows it to one festival.
+     * Every festival and vrat of a year at a place by date (Diwali, Holi, Janmashtami, Navratri, Ganesh Chaturthi, Ekadashi, Pradosha, Purnima, Amavasya and the rest), each judged in its own window by the daily panchang's rules; `search` narrows it to one festival and `upcoming` gives the next 12 months from today.
      *
      * `POST /v1/festivals-muhurta/festival-calendar`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
@@ -83,7 +83,7 @@ final class FestivalsMuhurtaResource
     /**
      * Religious Calendars.
      *
-     * A year of observances for one tradition: hindu-solar (Makar Sankranti, Lohri, Pongal, Vaisakhi, Vishu, Pohela Boishakh, Onam), christian and orthodox (Easter by each computus, and the feasts from it), islamic (Hijri dates of Ramadan, the Eids, Muharram, Mawlid and more), sikh, jain or buddhist, each with its basis and convention.
+     * A year of observances for one tradition: hindu-solar (Makar Sankranti, Lohri, Pongal, Vaisakhi, Vishu, Pohela Boishakh, Onam), christian and orthodox (Easter by each computus, and the feasts from it), islamic (Hijri dates of Ramadan, the Eids, Muharram, Mawlid and more), sikh, jain or buddhist, each with its basis and convention; `search` narrows it to one observance and `upcoming` gives the next 12 months from today.
      *
      * `POST /v1/festivals-muhurta/religious-calendar`. Credits: see https://96astroapi.com/docs/reference (sandbox keys are not charged).
      *
